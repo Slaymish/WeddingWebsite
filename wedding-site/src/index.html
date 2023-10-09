@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Color Pallete</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+    <div class="container mx-auto p-4">
+        <div class="flex flex-wrap -m-4">
+            <div class="w-full lg:w-2/3 p-4">
+                <h1 class="text-3xl mb-4">Planets</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="planet-list">
+                    {{ range .Planets }}
+                        <div class="p-4 rounded-lg bg-gray-700 transform transition-transform duration-200 hover:scale-105 shadow-lg hover:shadow-xl">
+                            <h2 class="text-xl font-bold">{{ .Name }}</h2>
+                            <p class="text-gray-400">{{ .Color }}</p>
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/3 p-4">
+                <h1 class="text-3xl mb-4">Add Planet</h1>
+                <form hx-post="/add-planet" hx-target="#planet-list">
+                    <div class="mb-2">
+                        <label for="name" class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="color" class="block text-sm font-bold mb-2">Color</label>
+                        <input type="color" class="w-full p-2 border border-gray-300 rounded-lg" id="color">
+                    </div>
+
+                    <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-lg font-bold">Submit</button>
+                </form>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>
