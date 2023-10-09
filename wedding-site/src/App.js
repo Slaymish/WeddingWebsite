@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import StorySection from './components/StorySection';
-import RSVP from './components/RSVP';
-import Gallery from './components/Gallery';
 import Footer from './components/Footer';
+import Gallery from './components/Gallery';
+import HeroSection from './components/HeroSection';
+import Navbar from './components/Navbar';
+import RSVP from './components/RSVP';
+import StorySection from './components/StorySection';
+import logo from './logo.svg';
 
 function App() {
   return (
