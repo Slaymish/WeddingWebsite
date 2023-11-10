@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import CookieShop from '@/components/CookieShop.vue'
 </script>
 
 <template>
   <main>
-    <h1>Upgrade Shop</h1>
-    <CookieShop />
+    <h1>Details to come</h1>
   </main>
 </template>
 
@@ -21,6 +19,12 @@ h1 {
   font-size: 4rem;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 0;
+}
+
+form {
+  background-color: rgb(154, 154, 154);
+  padding: 40px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1024px) {

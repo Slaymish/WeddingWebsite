@@ -1,12 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ResetButton from '@/components/ResetButton.vue'
 
 export default defineComponent({
   name: 'FooterComponent',
-  components: {
-    ResetButton
-  },
   setup() {
     return {}
   }
@@ -16,7 +12,6 @@ export default defineComponent({
 <template>
   <footer>
     <p>Created by <a href="https://hamishburke.dev" target="_blank">Hamish Burke</a></p>
-    <ResetButton />
   </footer>
 </template>
 

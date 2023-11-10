@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import CookieCount from './components/CookieCount.vue'
 import FooterComponent from './components/FooterComponent.vue'
 </script>
 
@@ -8,10 +7,10 @@ import FooterComponent from './components/FooterComponent.vue'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Cookie</RouterLink>
-        <RouterLink to="/shop">Shop</RouterLink>
+        <RouterLink to="/">Wedding</RouterLink>
+        <RouterLink to="/when-and-where">When & Where</RouterLink>
+        <RouterLink :class="{ active: $route.name == 'HomeView' }" to="/rsvp">RSVP</RouterLink>
       </nav>
-      <CookieCount />
     </div>
   </header>
 
@@ -28,11 +27,11 @@ header {
 
 nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
+  right: 0;
 }
 
 nav a {
@@ -46,7 +45,7 @@ nav a {
   padding: 1rem;
 }
 
-nav a:first-child {
+.router-link-active {
   border-bottom: 1px solid var(--color-text);
   border-right: none;
 }
@@ -55,8 +54,8 @@ nav a:first-child {
   nav {
     flex-direction: row;
     position: relative;
-    bottom: auto;
     top: auto;
+    bottom: auto;
     left: auto;
     right: auto;
     z-index: 1;
