@@ -1,50 +1,30 @@
 import { defineStore } from 'pinia'
 
-type UpgradeTypes =
-  | 'Cursor'
-  | 'Grandma'
-  | 'Farm'
-  | 'Factory'
-  | 'Mine'
-  | 'Shipment'
-  | 'Alchemy Lab'
-  | 'Portal'
-  | 'Time Machine'
-  | 'Antimatter Condenser'
-  | 'Prism'
-  | 'Chancemaker'
-  | 'Fractal Engine'
-  | 'Javascript Console'
+type UpgradeTypes = 'Cursor' | 'Grandma' | 'Farm' | 'Factory' | 'Mine' | 'Shipment' | 'Alchemy Lab' | 'Portal' | 'Time Machine' | 'Antimatter Condenser' | 'Prism' | 'Chancemaker' | 'Fractal Engine' | 'Javascript Console'
 
 export const useUpgradeStore = defineStore({
   id: 'upgradeStore',
   state: () => ({
-    upgrades: {
-      Cursor: 0,
-      Grandma: 0,
-      Farm: 0,
-      Factory: 0,
-      Mine: 0,
-      Shipment: 0,
-      'Alchemy Lab': 0,
-      Portal: 0,
-      'Time Machine': 0,
-      'Antimatter Condenser': 0,
-      Prism: 0,
-      Chancemaker: 0,
-      'Fractal Engine': 0,
-      'Javascript Console': 0
-      // Add more upgrades here...
-    } as Record<UpgradeTypes, number>
+    upgrades: JSON.parse(localStorage.getItem('upgrades') || '{}') as Record<UpgradeTypes, number>,
   }),
   actions: {
     incrementUpgrade(upgradeName: UpgradeTypes) {
-      this.upgrades[upgradeName]++
+      this.$state.upgrades[upgradeName]++
+      this.persist()
     },
     resetUpgrades() {
-      for (const upgrade in this.upgrades) {
-        this.upgrades[upgrade as UpgradeTypes] = 0
+      for (const upgrade in this.$state.upgrades) {
+        this.$state.upgrades[upgrade as UpgradeTypes] = 0
       }
+      this.persist()
+    },
+    persist() {
+      localStorage.setItem('upgrades', JSON.stringify(this.$state.upgrades))
+    }
+  },
+  getters: {
+    getUpgrade(upgradeName: UpgradeTypes) {
+      return this.$state.upgrades[upgradeName]
     }
   }
 })

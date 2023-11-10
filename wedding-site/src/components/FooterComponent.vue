@@ -27,14 +27,15 @@ footer {
   width: 100%;
   left: 0;
   height: 2.5rem;
-  background-color: #363636;
+  background-color: var(--color-background);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 footer p {
-  color: #fff;
+  color: var(--color-text);
   font-size: 1rem;
   margin-right: 1rem;
 }

@@ -4,6 +4,6 @@ import CookieButton from '@/components/CookieButton.vue'
 
 <template>
   <main>
-    <CookieButton msg="Cookie" />
+    <CookieButton />
   </main>
 </template>

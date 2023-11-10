@@ -30,7 +30,6 @@ h1 {
 
   main {
     padding: 1rem;
-    
   }
 }
 </style>

@@ -36,7 +36,7 @@ export default defineComponent({
         counter.decrement(props.upgradeCost)
         counter.incrementMultiplier(props.multiplier)
         counter.incrementAutoClicker(props.automatedCookies)
-        upgrades.incrementUpgrade(props.upgradeName)
+        upgrades.incrementUpgrade(props.upgradeName, props.upgradeCost)
       } else {
         alert("You don't have enough cookies!")
       }

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { useCounterStore } from '@/stores/counter'
 import CookieUpgrade from '@/components/CookieUpgrade.vue'
 import { useUpgradeStore } from '@/stores/upgrades'
@@ -100,7 +100,17 @@ export default defineComponent({
       }
     ]
 
-    return { counter, upgrades, upgradeStore }
+    const computedUpgrades = computed(() => {
+      return upgrades.map(upgrade => {
+        const upgradeCount = upgradeStore.upgrades[upgrade.name] || 0
+        return {
+          ...upgrade,
+          cost: upgrade.cost * ((upgradeCount * 0.2)+ 1) 
+        }
+      })
+    })
+
+    return { counter, upgrades, upgradeStore, computedUpgrades }
   }
 })
 </script>
@@ -108,7 +118,7 @@ export default defineComponent({
 <template>
   <div class="upgrades">
     <CookieUpgrade
-      v-for="(upgrade, index) in upgrades"
+      v-for="(upgrade, index) in computedUpgrades"
       :key="index"
       :upgradeName="upgrade.name"
       :upgradeCost="upgrade.cost"

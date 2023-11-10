@@ -42,12 +42,12 @@ nav a {
   flex: 1;
   font-size: 2rem;
   text-decoration: none;
-  color: #fff;
+  color: var(--color-text);
   padding: 1rem;
 }
 
 nav a:first-child {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--color-text);
   border-right: none;
 }
 
@@ -67,7 +67,7 @@ nav a:first-child {
   }
 
   nav a:first-child {
-    border-right: 1px solid #fff;
+    border-right: 1px solid var(--color-text);
     border-bottom: none;
   }
 }

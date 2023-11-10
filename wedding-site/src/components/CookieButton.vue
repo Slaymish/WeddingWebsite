@@ -1,16 +1,9 @@
 <script lang="ts">
 import { useCounterStore } from '@/stores/counter'
-import { defineComponent } from 'vue'
+import { defineComponent, type Ref } from 'vue'
 import { ref } from 'vue'
 
 export default defineComponent({
-  name: 'CookieButton',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
   setup() {
     const counter = useCounterStore()
     const flash = ref(false)
@@ -31,7 +24,9 @@ export default defineComponent({
 <template>
   <div class="cookiewrap">
     <a @click="increment(1)" class="clickableItem">
-      <img v-if="flash" width="170" height="170" />
+      <div v-if="flash" class="particle">
+        <img width="160" height="160" />
+      </div>
       <img v-else width="150" height="150" />
     </a>
   </div>
@@ -45,6 +40,7 @@ export default defineComponent({
   position: relative;
   top: 0;
   transition: top 0.2s ease-in-out;
+  z-index: 2;
 }
 
 .clickableItem:hover {
@@ -63,5 +59,15 @@ export default defineComponent({
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
 }
 </style>
