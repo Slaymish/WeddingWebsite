@@ -27,25 +27,47 @@ export default defineComponent({
 
 <style scoped>
 .hero-section {
-  width: 100%;
-  height: 90vh;
-  align-items: center;
-  margin: 0 auto;
-  text-align: center;
-  background-color: rgb(2, 39, 39);
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 0 15px;
+    background-color: #0a2742;
+    color: #ffffff;
 }
 
 .text-box {
-  background-color: rgb(1, 80, 80);
-  position: relative;
-  margin: 0;
-  left: 30svw;
-  right: 25%;
-  top: 50%;
-  bottom: 50%;
-  width: 50rem;
-  border: 1cap solid black;
-  place-items: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
+
+h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #D4aF37;
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-box {
+        padding: 0;
+    }
+    
+}
+
+
 </style>
