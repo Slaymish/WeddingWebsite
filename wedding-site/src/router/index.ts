@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/when-and-where',
       name: 'when-and-where',
       component: () => import('../views/WhenAndWhereView.vue')
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: () => import('../views/DetailsView.vue')
     }
   ]
 })

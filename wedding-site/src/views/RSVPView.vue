@@ -1,19 +1,18 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main>
     <h1>RSVP</h1>
     <form>
       <label for="name">First Name</label>
-      <input type="text" name="" id="">
+      <input type="text" name="" id="" />
       <label for="email">Email</label>
-      <input type="email" name="email" id="">
+      <input type="email" name="email" id="" />
       <label for="yes">Going?</label>
-      <input type="checkbox" name="yes" id="">
-      <input type="submit" value="">
+      <input type="checkbox" name="yes" id="" />
+      <input type="submit" value="" />
 
-      <input type="hidden" name="time">
+      <input type="hidden" name="time" />
     </form>
   </main>
 </template>
@@ -21,7 +20,7 @@
 <style scoped>
 main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -36,6 +35,10 @@ form {
   background-color: rgb(154, 154, 154);
   padding: 40px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1024px) {

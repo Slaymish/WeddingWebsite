@@ -17,7 +17,7 @@ export default defineComponent({
 
 <style scoped>
 footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   left: 0;
@@ -26,7 +26,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 footer p {
