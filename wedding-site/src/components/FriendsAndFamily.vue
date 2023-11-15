@@ -9,23 +9,25 @@ export default defineComponent({
 
 <template>
   <div class="friends-family">
+    <h2 class="section-title">Honored Guests</h2>
       <div class="honored-guests">
-        <PersonCard
-            class="honored"
-          :name="'Hamish'"
-          :title="'Best Man / Brother'"
-          :blurb="'Hi i\'m hamish'"
-          :pictureURL="'Poop.webp'"
-        />
         <PersonCard
         class="honored"
           :name="'Jamie'"
           :title="'Maid of Honor'"
-          :blurb="'Hi i\'m JAmie'"
+          :blurb="'Their love is immaculate. WOWZAsWOWZAsWOWZAsWOWZAs'"
+          :pictureURL="'Poop.webp'"
+        />
+        <PersonCard
+            class="honored"
+          :name="'Hamish'"
+          :title="'Best Man / Brother'"
+          :blurb="'I would cry if i was ever in love like thatthatthatthat. WOWZAs'"
           :pictureURL="'Poop.webp'"
         />
       </div>
-      <div class="parents">
+      <h2 class="section-title">Family</h2>
+      <div class="family">
         <PersonCard
           class="parent"
             :name="'Sarah'"
@@ -37,6 +39,27 @@ export default defineComponent({
           class="parent"
             :name="'Steve'"
             :title="'Brides Father'"
+            :blurb="'Hi i\'m Bryon'"
+            :pictureURL="'Poop.webp'"
+          />
+          <PersonCard
+          class="parent"
+            :name="'Dave'"
+            :title="'Brides Father'"
+            :blurb="'Hi i\'m Bryon'"
+            :pictureURL="'Poop.webp'"
+          />
+          <PersonCard
+          class="parent"
+            :name="'Kath'"
+            :title="'Brides Father'"
+            :blurb="'Hi i\'m Bryon'"
+            :pictureURL="'Poop.webp'"
+          />
+          <PersonCard
+          class="parent"
+            :name="'Case'"
+            :title="'Brides Brother'"
             :blurb="'Hi i\'m Bryon'"
             :pictureURL="'Poop.webp'"
           />
@@ -60,29 +83,37 @@ export default defineComponent({
 
 <style scoped>
 .friends-family {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
     padding: 20px;
-    background-color: #f9f9f9;
 }
 
-.honored-guests {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #d6d6d6;
 }
 
-.parents {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+.honored-guests, .family {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 @media (max-width: 768px) {
-    .friends-family, .honored-guests, .parents {
+    .friends-family {
         grid-template-columns: 1fr;
     }
+
+    .honored-guests, .family {
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+
     
 }
 </style>

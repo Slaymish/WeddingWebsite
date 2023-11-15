@@ -9,45 +9,52 @@ export default defineComponent({
 
 <template>
   <div class="couple-details">
-    <div class="profile-section left">
+    <div class="couple-title">Lani & Finlay</div>
+    <p class="couple-blurb">
+        Join us for a celebration of love, friendship, laughter, and family as we come together to unite in marriage.
+    </p>
+    <div class="profile-section">
         <div class="profile-picture">
             <img src="@/assets/images/Poop.webp" alt="groom" />
+            <h2>Finlay</h2>
         </div>
-        <h2>Finlay</h2>
-        <p class="details">
-            Finlays bio goes here..
-        </p>
-    </div>
-    <div class="center-piece">
-        <p class="welcome-message">Together is a beautiful place to be.</p>
-    </div>
-    <div class="profile-section right">
         <div class="profile-picture">
             <img src="@/assets/images/Poop.webp" alt="bride" />
+            <h2>Lani</h2>
         </div>
-        <h2>Lani</h2>
-        <p class="details">
-            Lanis bio goes here..
-        </p>
     </div>
   </div>
 </template>
 
 <style scoped>
 .couple-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 0;
-    background-color: #f0f0f0f0;
-    color: black;
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.couple-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.couple-blurb {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #555;
 }
 
 .profile-section {
-    flex-basis: 30%;
-    margin: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-picture img {
@@ -55,48 +62,26 @@ export default defineComponent({
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #fff;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-}
-
-.center-piece {
-    flex-basis: 100%;
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.welcome-message{
-    font-style: italic;
-    font-size: 1.5rem;
-    color: #555;
-}
-
-.center-piece h1 {
-    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
-.center-piece p {
-    font-size: 1.25rem;
+.profile-picture h2 {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #555;
 }
 
 @media (max-width: 768px) {
-    .profile-section{
-        flex-basis: 100%;
+    .profile-section {
+        flex-direction: column;
     }
 
-    .profile-picture img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .center-piece h1 {
-        font-size: 1.75rem;
-    }
-
-    .center-piece p {
-        font-size: 1rem;
+    .profile-picture {
+        margin-bottom: 1rem;
     }
     
 }
+
+
+
 </style>

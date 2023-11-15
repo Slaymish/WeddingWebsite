@@ -17,7 +17,7 @@ import { RouterLink } from 'vue-router'
       </div>
       <div class="right-section">
         <div class="map-container">
-          <img src="../assets/logo.svg" alt="map" />
+          <iframe src="https://snazzymaps.com/embed/545474" width="100%" height="100%" style="border:none;"></iframe>
         </div>
       </div>
     </div>
@@ -33,6 +33,7 @@ import { RouterLink } from 'vue-router'
   display: flex;
   height: 100vh;
   justify-content: space-between;
+  flex-direction: row;
 }
 
 .left-section,
@@ -52,18 +53,29 @@ import { RouterLink } from 'vue-router'
   width: 100%;
   max-width: 90%;
   aspect-ratio: 16 / 9;
-  padding: 20px;
+  padding: 10px;
   margin: auto;
   box-sizing: border-box;
-  border-radius: 15px;
-  background-color: whitesmoke;
+  border-radius: 20px;
+  background-color: aliceblue;
   overflow: hidden;
 }
 
-.map-container img {
+.map-container iframe {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  border-radius: 15px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .map-container {
+    aspect-ratio: 1/1;
+  }
+  
 }
 </style>

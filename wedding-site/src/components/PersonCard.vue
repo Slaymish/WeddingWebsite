@@ -45,7 +45,7 @@ export default defineComponent({
   transition: transform 0.3s ease,
   box-shadow 0.3s ease;
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
 }
 
 .profile-picture img {
@@ -83,8 +83,16 @@ export default defineComponent({
 
 @media (max-width: 768px) {
   .person-card {
-    margin: 0.5rem;
-    max-width: none;
+    margin: 0rem;
+    max-width: 150px;
+  }
+
+  .person-card h2 {
+    font-size: 0.85rem;
+  }
+
+  .person-card h1 {
+    font-size: 1rem;
   }
   
 }

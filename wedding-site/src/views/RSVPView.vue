@@ -8,10 +8,9 @@
       <input type="text" name="" id="" />
       <label for="email">Email</label>
       <input type="email" name="email" id="" />
-      <label for="yes">Going?</label>
-      <input type="checkbox" name="yes" id="" />
-      <input type="submit" value="" />
-
+      <label for="going">Going?</label>
+      <input type="checkbox" name="going" id="" />
+      <button type="submit" value="">Submit</button>
       <input type="hidden" name="time" />
     </form>
   </main>
@@ -20,9 +19,10 @@
 <style scoped>
 main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
 h1 {
@@ -32,13 +32,17 @@ h1 {
 }
 
 form {
-  background-color: rgb(154, 154, 154);
+  background-color: rgb(66, 66, 66);
   padding: 40px;
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+form input {
+  width:;
 }
 
 @media screen and (max-width: 1024px) {

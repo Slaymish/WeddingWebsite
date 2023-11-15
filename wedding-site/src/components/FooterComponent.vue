@@ -18,11 +18,8 @@ export default defineComponent({
 <style scoped>
 footer {
   position: relative;
-  bottom: 0;
   width: 100%;
-  left: 0;
-  height: 2.5rem;
-  background-color: var(--color-background);
+  height: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,13 +27,18 @@ footer {
 
 footer p {
   color: var(--color-text);
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin-right: 1rem;
+}
+
+footer a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 300px) {
   footer p {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
   }
 }
 </style>
