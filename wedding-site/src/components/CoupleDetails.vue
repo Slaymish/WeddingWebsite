@@ -1,87 +1,59 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import CoupleImages from './CoupleImages.vue'
 
 export default defineComponent({
   name: 'CoupleDetails',
+  components: {
+    CoupleImages
+  },
   setup() {}
 })
 </script>
 
 <template>
   <div class="couple-details">
-    <div class="couple-title">Lani & Finlay</div>
+    <div class="couple-title">Together in harmony</div>
     <p class="couple-blurb">
-        Join us for a celebration of love, friendship, laughter, and family as we come together to unite in marriage.
+      Join us for a celebration of love, friendship, laughter, and family as we come together to
+      unite in marriage.
     </p>
-    <div class="profile-section">
-        <div class="profile-picture">
-            <img src="@/assets/images/Poop.webp" alt="groom" />
-            <h2>Finlay</h2>
-        </div>
-        <div class="profile-picture">
-            <img src="@/assets/images/Poop.webp" alt="bride" />
-            <h2>Lani</h2>
-        </div>
+    <div class="images">
+      <CoupleImages />
     </div>
   </div>
 </template>
 
 <style scoped>
 .couple-details {
-    text-align: center;
-    padding: 2rem;
-    background-color: #f9f9f9;
+  font-family: var(--font-text);
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--color-background);
 }
 
 .couple-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #555;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
 }
 
 .couple-blurb {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    color: #555;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: var(--color-text);
 }
 
 .profile-section {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.profile-picture {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-picture img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 0.5rem;
-}
-
-.profile-picture h2 {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-    color: #555;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 @media (max-width: 768px) {
-    .profile-section {
-        flex-direction: column;
-    }
-
-    .profile-picture {
-        margin-bottom: 1rem;
-    }
-    
+  .profile-section {
+    flex-direction: column;
+  }
 }
-
-
-
 </style>

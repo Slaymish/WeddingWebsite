@@ -22,12 +22,11 @@ export default defineComponent({
     blurb: String,
     pictureURL: String
   },
-  setup(props){
+  setup(props) {
     const imageSrc = computed(() => {
-      return new URL(`../assets/images/${props.pictureURL}`,
-      import.meta.url).href;
-    });
-    return { imageSrc };
+      return new URL(`../assets/images/${props.pictureURL}`, import.meta.url).href
+    })
+    return { imageSrc }
   }
 })
 </script>
@@ -39,13 +38,16 @@ export default defineComponent({
   align-items: center;
   text-align: center;
   background-color: #ffffff;
-  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease,
-  box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   width: 100%;
   max-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: var(--font-text);
 }
 
 .profile-picture img {
@@ -63,10 +65,11 @@ export default defineComponent({
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
   color: #555;
+  font-family: var(--font-title);
 }
 
 .person-card h2 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 0.25rem;
   color: #555;
 }
@@ -94,6 +97,5 @@ export default defineComponent({
   .person-card h1 {
     font-size: 1rem;
   }
-  
 }
 </style>

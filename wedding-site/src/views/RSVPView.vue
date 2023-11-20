@@ -1,18 +1,29 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+import RSVPForm from '@/components/RSVPForm.vue'
+import { RouterLink } from 'vue-router'
+
+export default {
+  components: {
+    RSVPForm,
+    RouterLink
+  }
+}
+</script>
 
 <template>
   <main>
-    <h1>RSVP</h1>
-    <form>
-      <label for="name">First Name</label>
-      <input type="text" name="" id="" />
-      <label for="email">Email</label>
-      <input type="email" name="email" id="" />
-      <label for="going">Going?</label>
-      <input type="checkbox" name="going" id="" />
-      <button type="submit" value="">Submit</button>
-      <input type="hidden" name="time" />
-    </form>
+    <div class="info">
+      <h1>Can you come? Let us know!</h1>
+      <p>
+        For numbers and to ensure we have addequite seating, please fill out the form below if you
+        can make it! Please fill in the form <em>once per invite</em>
+      </p>
+    </div>
+
+    <div>
+      <RSVPForm />
+      <p><RouterLink to="/">Go back</RouterLink></p>
+    </div>
   </main>
 </template>
 
@@ -23,33 +34,38 @@ main {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: 'Playfair Display', serif;
+  background-color: #fae5d3; /* Light peach background */
+  color: #daa49a; /* Salmon text color */
 }
 
-h1 {
+.info {
+  text-align: center;
+  max-width: 500px;
+}
+
+.info h1 {
   font-size: 4rem;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 0;
+  font-family: 'Elegant Script', serif; /* Replace with your script font */
+  margin-bottom: 0.5rem;
 }
 
-form {
-  background-color: rgb(66, 66, 66);
-  padding: 40px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.info p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
-form input {
-  width:;
+.info em {
+  font-style: italic;
 }
 
 @media screen and (max-width: 1024px) {
-  h1 {
+  .info h1 {
     font-size: 2rem;
   }
+}
 
+@media screen and (max-width: 768px) {
   main {
     padding: 1rem;
   }

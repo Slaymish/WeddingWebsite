@@ -57,21 +57,36 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: auto;
+  }
+}
+
 .details-dropdown {
   width: 100%;
   max-width: 600px;
   margin: auto;
-  border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
 }
 
 .faq-item {
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-border);
   cursor: pointer;
-  background-color: #f9f9f9;
-  color: black;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-enter-active,
+.faq-leave-active {
+  animation: slideDown 0.3s ease;
 }
 
 .faq-item:last-child {

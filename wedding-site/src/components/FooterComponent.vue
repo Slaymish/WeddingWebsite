@@ -21,8 +21,11 @@ footer {
   width: 100%;
   height: 1.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-text);
 }
 
 footer p {
