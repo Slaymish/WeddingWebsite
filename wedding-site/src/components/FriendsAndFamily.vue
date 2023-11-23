@@ -37,20 +37,20 @@ export default defineComponent({
         />
         <PersonCard
           class="parent"
-          :name="'Steve'"
-          :title="'Brides Step-dad'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="parent"
           :name="'Dave'"
           :title="'Brides dad'"
           :pictureURL="'reference/flowers.jpg'"
         />
         <PersonCard
           class="parent"
+          :name="'Steve'"
+          :title="'Brides Step-dad'"
+          :pictureURL="'reference/flowers.jpg'"
+        />
+        <PersonCard
+          class="parent"
           :name="'Kath'"
-          :title="'Brides Father'"
+          :title="'Brides Step-mum'"
           :pictureURL="'reference/flowers.jpg'"
         />
         <PersonCard
@@ -79,6 +79,7 @@ export default defineComponent({
 <style scoped>
 .friends-family {
   margin: 0 auto;
+  margin-top: 3rem;
   max-width: 1200px;
   padding: 20px;
   display: flex;
@@ -86,10 +87,10 @@ export default defineComponent({
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: var(--color-text);
   font-family: var(--font-title);
 }
@@ -105,6 +106,7 @@ export default defineComponent({
 @media (max-width: 768px) {
   .friends-family {
     grid-template-columns: 1fr;
+    margin-bottom: 3rem;
   }
 
   .honored-guests,

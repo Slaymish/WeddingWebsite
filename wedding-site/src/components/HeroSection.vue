@@ -43,9 +43,11 @@ export default defineComponent({
 <template>
   <div class="hero-section" @scroll="handleScroll">
     <div class="text-box" :style="{ '--base-font-size': baseFontSize }">
+      <p class="hero-subtitle">Together with their families</p>
       <h1>{{ mainTitle }}</h1>
-      <h2>{{ date }}</h2>
 
+      <p class="hero-subtitle">Invite you to join them</p>
+      <h2>{{ date }}</h2>
       <div class="rsvp-button">
         <RouterLink :to="'/rsvp'">RSVP</RouterLink>
       </div>
@@ -57,42 +59,44 @@ export default defineComponent({
 .hero-section {
   height: 100vh;
   max-width: 100%;
-  background-color: #fae5d3; /* Light peach background */
+  background-color: var(--color-background);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .text-box {
-  text-align: center;
+  text-align: left;
   transition: font-size 0.3s;
+  color: var(--color-text);
+  font-family: var(--font-title);
+  margin-left: 10%;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
 }
 
 h1 {
-  font-family: 'Elegant Script', serif; /* Replace with the actual script font used in the image */
-  font-size: calc(var(--base-font-size) * 1);
-  font-weight: normal; /* Assuming the reference image uses a normal font weight */
-  color: #daa49a; /* Salmon color for the text */
-  line-height: 1; /* Adjust line-height to control the spacing between lines */
-  margin-bottom: 1rem;
+  font-size: calc(var(--base-font-size) * 2);
+  font-family: var(--font-title);
 }
 
 h2 {
-  font-family: 'Simple Display', sans-serif; /* Replace with the actual display font used in the image */
-  font-size: calc(
-    var(--base-font-size) * 0.25
-  ); /* Adjust the ratio according to the reference image */
-  font-weight: normal; /* Adjust the font weight if necessary */
-  color: #daa49a; /* Maintaining the color consistency with h1 */
-  margin-bottom: 2rem;
+  font-size: calc(var(--base-font-size) * 0.5);
 }
 
 .rsvp-button {
-  font-family: 'Simple Display', sans-serif; /* Consistent with h2 */
+  font-family: var(--font-text);
   font-size: 1rem; /* This will be responsive to the base font size */
-  background-color: transparent;
-  border: 2px solid #daa49a; /* Salmon color border */
-  color: #daa49a; /* Salmon color text */
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
   padding: 0.5rem 2rem; /* Adjust padding to match the reference image */
   border-radius: 0; /* Assuming a square button as per the image */
   cursor: pointer;
@@ -102,12 +106,15 @@ h2 {
   padding: 0; /* Remove padding from the button */
   display: block; /* Make the div a block to fill the parent .text-box */
   text-align: center; /* Center the text inside the div */
+  max-width: 200px;
+  margin-top: 3rem;
 }
 
 .rsvp-button:hover {
-  background-color: #daa49a; /* Salmon color for the hover state */
-  color: #fae5d3; /* Light peach color for the text on hover */
+  background-color: var(--color-primary);
+  color: var(--color-accent);
   transform: translateY(-0.1rem) scale(1.05); /* Slight scale for interaction */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .rsvp-button a {
   display: block; /* Make the link a block to fill the .rsvp-button */
@@ -126,14 +133,25 @@ h2 {
 
   .text-box {
     padding: 50px 20px; /* Adjust padding for mobile */
+    margin-left: 5%; /* Adjust margin for mobile */
   }
 
   h1 {
-    font-size: 4rem; /* Smaller font size for h1 on mobile */
+    font-size: 6rem; /* Smaller font size for h1 on mobile */
   }
 
   h2 {
     font-size: 2rem; /* Smaller font size for h2 on mobile */
+  }
+
+  .rsvp-button a {
+    padding: 0.5rem 2rem; /* Apply padding to the link for spacing */
+  }
+
+  .rsvp-button {
+    font-size: 1rem; /* This will be responsive to the base font size */
+    padding: 0.5rem 2rem; /* Adjust padding to match the reference image */
+    width: 50%; /* Adjust width to match the reference image */
   }
 }
 </style>

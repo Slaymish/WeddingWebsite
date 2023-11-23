@@ -7,9 +7,11 @@
       <option>Yes</option>
       <option>No</option>
     </select>
-    <input v-model="rsvp.guests" type="text" placeholder="Number of Guests" pattern="\d*" />
-    <textarea v-model="rsvp.specialRequests" placeholder="Special Requests"></textarea>
-    <button type="submit">Submit</button>
+    <textarea
+      v-model="rsvp.specialRequests"
+      placeholder="Special Requests / Dietary Requirements"
+    ></textarea>
+    <button type="submit">Submit wip</button>
   </form>
 </template>
 
@@ -51,11 +53,11 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff; /* White background for the form */
+  background-color: var(--white-mute);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   margin: auto;
-  border: 2px solid #daa49a; /* Salmon border color */
+  border: 2px solid var(--color-border);
 }
 
 form input,
@@ -63,35 +65,55 @@ form select,
 form textarea,
 form button {
   width: 100%;
-  border: 2px solid #daa49a; /* Salmon border color */
+  border: 1px solid var(--color-border);
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
   font-size: 16px;
-  color: #daa49a; /* Salmon text color */
+  color: var(--color-text);
   background-color: transparent; /* Transparent background */
 }
 
+form textarea {
+  height: 150px;
+  font-size: smaller;
+}
+
 form button {
-  background-color: #daa49a; /* Salmon background for button */
-  color: #fae5d3; /* Light peach text color */
+  background-color: var(--color-primary);
+  color: var(--white-mute);
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 form button:hover {
-  background-color: #eab7a0; /* Slightly lighter salmon for hover effect */
-  color: #ffffff; /* White text color on hover */
+  background-color: var(--color-primary-dark);
 }
 
 form textarea {
   resize: vertical;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   form {
-    padding: 30px;
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+
+  form input,
+  form select,
+  form textarea,
+  form button {
+    font-size: 14px;
+  }
+
+  form textarea {
+    height: 100px;
+  }
+
+  form button {
+    padding: 10px;
   }
 }
 </style>

@@ -18,7 +18,10 @@
     "swiper": "^11.0.4",
     "tsparticles": "^1.28.0",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-cute-timeline": "^1.2.10",
+    "vue-router": "^4.2.5",
+    "vue-timeline": "^0.1.0",
+    "vue3-timeline": "^1.2.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",

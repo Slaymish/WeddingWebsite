@@ -37,24 +37,31 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #ffffff;
+  background-color: var(--color-accent);
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
   width: 100%;
+  height: 100%;
   max-width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  margin: 1rem;
   font-family: var(--font-text);
 }
 
 .profile-picture img {
   width: 100%;
+  border-radius: 50%;
   height: auto;
   aspect-ratio: 1/1;
   object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+}
+
+.profile-picture img:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .text-content {
@@ -64,24 +71,20 @@ export default defineComponent({
 .person-card h1 {
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
-  color: #555;
+  color: var(--color-text);
   font-family: var(--font-title);
+  font-weight: 580;
 }
 
 .person-card h2 {
   font-size: 0.8rem;
   margin-bottom: 0.25rem;
-  color: #555;
+  color: var(--color-text);
 }
 
 .person-card p {
   font-size: 0.9rem;
-  color: #666;
-}
-
-.person-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {

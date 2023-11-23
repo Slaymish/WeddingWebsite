@@ -67,21 +67,20 @@ export default defineComponent({
 }
 
 .details-dropdown {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
+  height: 300px;
   border-radius: 5px;
   overflow: hidden;
+  width: 700px;
+  max-width: 100%;
 }
 
 .faq-item {
-  padding: 10px;
   border-bottom: 1px solid var(--color-border);
+  padding: 10px;
   cursor: pointer;
-  background-color: var(--color-background);
+  font-family: var(--font-text);
+  font-size: 1rem;
   color: var(--color-text);
-  display: flex;
-  flex-direction: column;
 }
 
 .faq-enter-active,
@@ -102,5 +101,30 @@ export default defineComponent({
 
 .toggle-icon {
   float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .faq-item {
+    font-size: 0.9rem;
+  }
+
+  .toggle-icon {
+    font-size: 1.25rem;
+  }
+
+  .faq-answer {
+    padding: 0 10px;
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .details-dropdown {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>
