@@ -1,10 +1,11 @@
 <script lang="ts">
 import RSVPForm from '@/components/RSVPForm.vue'
+import MultiStepRSVPForm from '@/components/MultiStepRSVPForm.vue'
 import { RouterLink } from 'vue-router'
 
 export default {
   components: {
-    RSVPForm,
+    MultiStepRSVPForm,
     RouterLink
   }
 }
@@ -22,7 +23,7 @@ export default {
     </div>
 
     <div class="form">
-      <RSVPForm />
+      <MultiStepRSVPForm />
     </div>
   </main>
 </template>
@@ -82,7 +83,6 @@ main {
   font-family: var(--font-title);
   margin-bottom: 0.5rem;
 }
-
 
 .info p {
   font-size: 1rem;

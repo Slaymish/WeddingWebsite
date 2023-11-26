@@ -2,6 +2,10 @@
 import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
+const inititalFontSize = 8
+const minFontSize = 5
+const shrinkSpeed = 300
+
 export default defineComponent({
   name: 'HeroSection',
   components: {
@@ -18,11 +22,11 @@ export default defineComponent({
     }
   },
   setup() {
-    const baseFontSize = ref('8rem')
+    const baseFontSize = ref(`${inititalFontSize}rem`)
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY
-      const newFontSize = Math.max(8 - scrollPosition / 100, 7)
+      const newFontSize = Math.max(inititalFontSize - scrollPosition / shrinkSpeed, minFontSize)
 
       baseFontSize.value = `${newFontSize}rem`
     }
@@ -84,12 +88,16 @@ export default defineComponent({
 }
 
 h1 {
-  font-size: calc(var(--base-font-size) * 2);
+  font-size: calc(var(--base-font-size));
   font-family: var(--font-title);
 }
 
 h2 {
   font-size: calc(var(--base-font-size) * 0.5);
+}
+
+.hero-subtitle {
+  font-size: calc(var(--base-font-size) * 0.15);
 }
 
 .rsvp-button {
