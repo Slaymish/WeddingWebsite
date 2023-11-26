@@ -13,6 +13,7 @@
         allowfullscreen="false"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
+        title="Google Maps of the Black Walnut Venue"
       >
       </iframe>
     </section>

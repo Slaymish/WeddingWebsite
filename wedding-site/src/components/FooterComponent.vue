@@ -1,17 +1,20 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'FooterComponent',
   setup() {
-    return {}
+    return {
+      $route: useRoute()
+    }
   }
 })
 </script>
 
 <template>
   <footer>
-    <div class="to-top">
+    <div v-if="$route.path == '/'" class="to-top">
       <a href="#top">Back to top</a>
     </div>
     <p>Created by <a href="https://hamishburke.dev" target="_blank">Hamish Burke</a></p>
@@ -26,9 +29,6 @@ export default defineComponent({
   font-size: 1rem;
 }
 
-.to-top a:hover {
-  text-decoration: underline;
-}
 
 footer {
   display: flex;
