@@ -1,15 +1,29 @@
-<script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
-import { RouterLink } from 'vue-router'
+<template>
+  <v-container fluid class="hero-section">
+    <v-row class="fill-height" align="center" justify="start">
+      <v-col cols="12" sm="10" md="8" lg="6" class="text-box" :style="textStyle">
+        <div class="hero-subtitle">Together with their families</div>
+        <h1 class="display-1">{{ mainTitle }}</h1>
+        <div class="hero-subtitle">Invite you to join them</div>
+        <div class="display-2">{{ date }}</div>
+        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large>RSVP</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
 
-const inititalFontSize = 8
-const minFontSize = 5
-const shrinkSpeed = 300
+<script lang="ts">
+import { defineComponent, onMounted, onUnmounted, ref, computed } from 'vue';
+import { RouterLink } from 'vue-router';
+
+const initialFontSize = 5;
+const minFontSize = 4;
+const shrinkSpeed = 300;
 
 export default defineComponent({
   name: 'HeroSection',
   components: {
-    RouterLink
+    RouterLink,
   },
   props: {
     mainTitle: {
@@ -22,144 +36,66 @@ export default defineComponent({
     }
   },
   setup() {
-    const baseFontSize = ref(`${inititalFontSize}rem`)
+    const baseFontSize = ref(initialFontSize);
+
+    const textStyle = computed(() => ({
+      fontSize: `${baseFontSize.value}rem`
+    }));
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const newFontSize = Math.max(inititalFontSize - scrollPosition / shrinkSpeed, minFontSize)
-
-      baseFontSize.value = `${newFontSize}rem`
-    }
+      const scrollPosition = window.scrollY;
+      const newFontSize = Math.max(initialFontSize - scrollPosition / shrinkSpeed, minFontSize);
+      baseFontSize.value = newFontSize;
+    };
 
     onMounted(() => {
-      window.addEventListener('scroll', handleScroll)
-    })
+      window.addEventListener('scroll', handleScroll);
+    });
 
     onUnmounted(() => {
-      window.removeEventListener('scroll', handleScroll)
-    })
+      window.removeEventListener('scroll', handleScroll);
+    });
 
-    return { baseFontSize, handleScroll }
+    return { baseFontSize, textStyle, handleScroll };
   }
-})
+});
 </script>
-
-<template>
-  <div class="hero-section" @scroll="handleScroll">
-    <div class="text-box" :style="{ '--base-font-size': baseFontSize }">
-      <p class="hero-subtitle">Together with their families</p>
-      <h1>{{ mainTitle }}</h1>
-
-      <p class="hero-subtitle">Invite you to join them</p>
-      <h2>{{ date }}</h2>
-      <div class="rsvp-button">
-        <RouterLink :to="'/rsvp'">RSVP</RouterLink>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .hero-section {
-  height: 100vh;
-  max-width: 100%;
   background-color: var(--color-background);
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-
-.text-box {
-  text-align: left;
-  transition: font-size 0.3s;
-  color: var(--color-text);
-  font-family: var(--font-title);
-  margin-left: 10%;
-}
-
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  margin: 0 auto;
-}
-
-h1 {
-  font-size: calc(var(--base-font-size));
-  font-family: var(--font-title);
-}
-
-h2 {
-  font-size: calc(var(--base-font-size) * 0.5);
+  padding-left: 10%; /* Or any other percentage or fixed padding you prefer */
+  height: 100vh;
+  min-height: 600px;
+  margin-bottom: 5rem;
 }
 
 .hero-subtitle {
-  font-size: calc(var(--base-font-size) * 0.15);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.display-1 {
+  margin-bottom: 0.5rem;
+}
+
+.display-2 {
+  margin-top: 0.5rem;
+}
+
+.text-box {
+  margin-top: 10%;
+  transition: font-size 0.2s;
+  color: var(--color-text);
+  font-family: var(--font-title);
+  text-align: left; /* Ensure text within the text box is left-aligned */
 }
 
 .rsvp-button {
-  font-family: var(--font-text);
-  font-size: 1rem; /* This will be responsive to the base font size */
-  border: 2px solid var(--color-border);
-  color: var(--color-text);
-  padding: 0.5rem 2rem; /* Adjust padding to match the reference image */
-  border-radius: 0; /* Assuming a square button as per the image */
-  cursor: pointer;
-  text-transform: uppercase; /* If the button text is in uppercase */
+  margin-top: 2rem;
+  text-transform: uppercase;
   transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  padding: 0; /* Remove padding from the button */
-  display: block; /* Make the div a block to fill the parent .text-box */
-  text-align: center; /* Center the text inside the div */
-  max-width: 200px;
-  margin-top: 3rem;
 }
 
-.rsvp-button:hover {
-  background-color: var(--color-primary);
-  color: var(--color-accent);
-  transform: translateY(-0.1rem) scale(1.05); /* Slight scale for interaction */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-.rsvp-button a {
-  display: block; /* Make the link a block to fill the .rsvp-button */
-  padding: 0.5rem 2rem; /* Apply padding to the link for spacing */
-  text-decoration: none;
-  color: inherit; /* Inherit text color from parent */
-  height: 100%; /* Set height to fill the container */
-  width: 100%; /* Set width to fill the container */
-  line-height: normal; /* Adjust line height to center the text vertically */
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    margin: 0; /* Remove margins for mobile view */
-  }
-
-  .text-box {
-    padding: 50px 20px; /* Adjust padding for mobile */
-    margin-left: 5%; /* Adjust margin for mobile */
-  }
-
-  h1 {
-    font-size: 6rem; /* Smaller font size for h1 on mobile */
-  }
-
-  h2 {
-    font-size: 2rem; /* Smaller font size for h2 on mobile */
-  }
-
-  .rsvp-button a {
-    padding: 0.5rem 2rem; /* Apply padding to the link for spacing */
-  }
-
-  .rsvp-button {
-    font-size: 1rem; /* This will be responsive to the base font size */
-    padding: 0.5rem 2rem; /* Adjust padding to match the reference image */
-    width: 50%; /* Adjust width to match the reference image */
-  }
-}
+/* Add other styles here */
 </style>

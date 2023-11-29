@@ -34,19 +34,31 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.images {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: aqua;
+}
+
 .profile-section p {
   font-family: var(--font-title);
   font-size: 1rem;
   color: var(--color-text);
   max-width: 600px;
+}
+
+.profile-section {
   margin-top: 2rem;
 }
 
 .couple-details {
   font-family: var(--font-text);
   text-align: center;
-  padding: 2rem;
   height: 100vh;
+  width: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

@@ -1,17 +1,20 @@
 <template>
   <form @submit.prevent="submitRSVP">
-    <input v-model="rsvp.name" type="text" placeholder="Name" required />
-    <input v-model="rsvp.email" type="email" placeholder="Email" required />
-    <select v-model="rsvp.attendance" required>
-      <option value="" disabled>Will you attend?</option>
-      <option>Yes</option>
-      <option>No</option>
-    </select>
-    <textarea
-      v-model="rsvp.specialRequests"
-      placeholder="Special Requests / Dietary Requirements"
-    ></textarea>
-    <button type="submit">Submit wip</button>
+    <v-text-field v-model="name" :rules="nameRules" label="Name"></v-text-field>
+
+    <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
+
+    <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
+
+    <v-textarea v-model="message" label="Message"></v-textarea>
+
+    <v-checkbox
+      v-model="attending"
+      label="I will be attending"
+      style="margin-top: 1rem"
+    ></v-checkbox>
+    <v-btn class="me-4" type="submit">Submit</v-btn>
+    <v-btn @click="resetForm">Clear</v-btn>
   </form>
 </template>
 
@@ -22,24 +25,33 @@ export default defineComponent({
   name: 'RSVPForm',
   data() {
     return {
-      rsvp: {
-        name: '',
-        email: '',
-        attendance: '',
-        guests: '',
-        specialRequests: ''
-      }
+      name: '',
+      email: '',
+      message: '',
+      attending: false,
+      dietaryRestrictions: '',
+      nameRules: [
+        (v) => (v && v.length >= 2) || 'Name must be at least 2 characters',
+        (v) => (v && v.length >= 2) || 'Name must be at least 2 characters'
+        // ... other name rules ...
+      ],
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ]
     }
   },
   methods: {
-    async submitRSVP() {
-      try {
-        console.log('RSVP saved successfully')
-        // TODO: Handle post-submission logic (e.g., show a thank you message)
-      } catch (error) {
-        console.error('Error saving RSVP:', error)
-        // TODO: Handle errors (e.g., show an error message)
-      }
+    submitRSVP() {
+      alert('RSVP submitted')
+      this.resetForm()
+    },
+    resetForm() {
+      this.name = ''
+      this.email = ''
+      this.message = ''
+      this.attending = false
+      this.dietaryRestrictions = ''
     }
   }
 })
@@ -47,73 +59,72 @@ export default defineComponent({
 
 <style scoped>
 form {
-  padding: 50px;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: var(--white-mute);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: auto;
-  border: 2px solid var(--color-border);
-}
-
-form input,
-form select,
-form textarea,
-form button {
+  padding: 1rem;
+  border-radius: 0.5rem;
   width: 100%;
-  border: 1px solid var(--color-border);
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  color: var(--color-text);
-  background-color: transparent; /* Transparent background */
+  min-width: 300px;
 }
 
-form textarea {
-  height: 150px;
-  font-size: smaller;
+.v-text-field {
+  width: 100%;
 }
 
-form button {
-  background-color: var(--color-primary);
-  color: var(--white-mute);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.v-textarea {
+  width: 100%;
 }
 
-form button:hover {
-  background-color: var(--color-primary-dark);
+.v-checkbox {
+  width: 100%;
 }
 
-form textarea {
-  resize: vertical;
+.v-btn {
+  margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
+.v-btn:first-child {
+  margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
   form {
-    padding: 20px;
-    margin-bottom: 50px;
+    width: 50%;
   }
+}
 
-  form input,
-  form select,
-  form textarea,
-  form button {
-    font-size: 14px;
+@media (min-width: 1024px) {
+  form {
+    width: 40%;
   }
+}
 
-  form textarea {
-    height: 100px;
+@media (min-width: 1440px) {
+  form {
+    width: 30%;
   }
+}
 
-  form button {
-    padding: 10px;
+@media (min-width: 1920px) {
+  form {
+    width: 25%;
+  }
+}
+
+@media (min-width: 2560px) {
+  form {
+    width: 20%;
+  }
+}
+
+@media (min-width: 3840px) {
+  form {
+    width: 15%;
+  }
+}
+
+@media (min-width: 5120px) {
+  form {
+    width: 10%;
   }
 }
 </style>

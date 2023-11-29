@@ -1,14 +1,20 @@
 <template>
-  <div class="person-card">
-    <div class="profile-picture">
-      <img :src="imageSrc" :alt="name" />
-    </div>
-    <div class="text-content">
-      <h2>{{ title }}</h2>
-      <h1>{{ name }}</h1>
-      <p>{{ blurb }}</p>
-    </div>
-  </div>
+  <v-card class="person-card" flat>
+    <v-row>
+      <v-col class="d-flex justify-center">
+        <v-avatar size="128" color="transparent">
+          <v-img :src="imageSrc" class="elevation-6" />
+        </v-avatar>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="text-center">
+        <div class="text-h5">{{ name }}</div>
+        <div class="subtitle-1">{{ title }}</div>
+        <div class="body-1">{{ blurb }}</div>
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -33,72 +39,33 @@ export default defineComponent({
 
 <style scoped>
 .person-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: var(--color-accent);
-  overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  width: 100%;
-  height: 100%;
-  max-width: 200px;
-  margin: 1rem;
-  font-family: var(--font-text);
+  max-width: 350px;
+  margin: auto;
+  background-color: transparent;
+  color: #444;
+  overflow: visible;
 }
 
-.profile-picture img {
-  width: 100%;
+.v-avatar {
+  margin-top: -64px; /* Make avatar slightly overlap the card */
+}
+
+.v-img {
   border-radius: 50%;
-  height: auto;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  border: 1px solid var(--color-border);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 6px 6px rgba(0, 0, 0, 0.15);
 }
 
-.profile-picture img:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.subtitle-1 {
+  color: #888;
+  font-size: 0.875rem; /* smaller subtitle */
+  margin-top: -4px; /* reduce space between name and title */
 }
 
-.text-content {
-  padding: 1rem;
-}
-
-.person-card h1 {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-  color: var(--color-text);
-  font-family: var(--font-title);
-  font-weight: 580;
-}
-
-.person-card h2 {
-  font-size: 0.8rem;
-  margin-bottom: 0.25rem;
-  color: var(--color-text);
-}
-
-.person-card p {
-  font-size: 0.9rem;
-  color: var(--color-text);
-}
-
-@media (max-width: 768px) {
-  .person-card {
-    margin: 0rem;
-    max-width: 150px;
-  }
-
-  .person-card h2 {
-    font-size: 0.85rem;
-  }
-
-  .person-card h1 {
-    font-size: 1rem;
-  }
+.body-1 {
+  color: #666;
+  font-size: 0.875rem; /* smaller body text */
+  margin-top: 4px; /* more space between title and blurb */
 }
 </style>

@@ -234,17 +234,28 @@ export default defineComponent({
 
 .form-container input,
 .form-container select,
-.form-container textarea,
-.form-container button {
+.form-container textarea {
   /* Styling for input fields */
   width: 100%;
-  border: 1px solid var(--color-border);
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 20px;
-  border-radius: 8px;
+  border-radius: 7px;
   font-size: 16px;
   color: var(--color-text);
+  border: 1px solid rgb(210, 210, 210);
   background-color: transparent; /* Transparent background */
+}
+
+.form-container button {
+  /* Styling for buttons */
+  padding: 10px 20px; /* Adds padding for better touch area */
+  background-color: var(--color-accent); /* Adjust this variable as needed */
+  color: var(--color-text); /* Ensure contrast for readability */
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px; /* Space between buttons and the text */
+  cursor: pointer; /* Indicates an actionable button */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
 .rsvp-confirmation {
@@ -278,19 +289,10 @@ export default defineComponent({
   cursor: pointer; /* Indicates an actionable button */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
-
-.form-container button:hover {
-  background-color: var(--button-hover-color); /* Slightly lighter or darker on hover */
-  transition: all 0.3s ease;
-}
-
 .form-container button:hover {
   /* Styling for button hover state */
   background-color: var(--color-primary);
   color: var(--white-mute);
-  font-weight: bold;
-  transform: translateY(-0.1rem) scale(1.05); /* Slight scale for interaction */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .form-container textarea {

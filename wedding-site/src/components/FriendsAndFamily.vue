@@ -1,96 +1,90 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import PersonCard from './PersonCard.vue'
+
 export default defineComponent({
   name: 'FriendsAndFamily',
-  components: { PersonCard }
+  components: { PersonCard },
+  data() {
+    return {
+      honoredGuests: [
+        { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'reference/flowers.jpg' },
+        { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'reference/flowers.jpg' }
+        // ... add more guests as needed
+      ],
+      familyMembers: [
+        { name: 'Sarah', title: "Bride's Mother", pictureURL: 'reference/flowers.jpg' },
+        { name: 'Dave', title: "Bride's dad", pictureURL: 'reference/flowers.jpg' },
+        { name: 'Steve', title: "Bride's Step-dad", pictureURL: 'reference/flowers.jpg' },
+        { name: 'Kath', title: "Bride's Step-mum", pictureURL: 'reference/flowers.jpg' },
+        { name: 'Case', title: "Bride's Brother", pictureURL: 'reference/flowers.jpg' },
+        { name: 'Wendy', title: "Groom's Mother", pictureURL: 'people/wendy.JPG' },
+        { name: 'Bryon', title: "Groom's Father", pictureURL: 'people/bryon.JPG' }
+      ]
+    }
+  }
 })
 </script>
 
 <template>
-  <div class="friends-family">
-    <div class="left">
-      <h2 class="section-title">Wedding Party</h2>
-      <div class="honored-guests">
-        <PersonCard
-          class="honored"
-          :name="'Jamie'"
-          :title="'Maid of Honor'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="honored"
-          :name="'Hamish'"
-          :title="'Best Man / Brother'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-      </div>
-    </div>
-    <div class="right">
-      <h2 class="section-title">Family</h2>
-      <div class="family">
-        <PersonCard
-          class="parent"
-          :name="'Sarah'"
-          :title="'Brides Mother'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="parent"
-          :name="'Dave'"
-          :title="'Brides dad'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="parent"
-          :name="'Steve'"
-          :title="'Brides Step-dad'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="parent"
-          :name="'Kath'"
-          :title="'Brides Step-mum'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="parent"
-          :name="'Case'"
-          :title="'Brides Brother'"
-          :pictureURL="'reference/flowers.jpg'"
-        />
-        <PersonCard
-          class="parent"
-          :name="'Wendy'"
-          :title="'Grooms Mother'"
-          :pictureURL="'people/wendy.JPG'"
-        />
-        <PersonCard
-          class="parent"
-          :name="'Bryon'"
-          :title="'Grooms Father'"
-          :pictureURL="'people/bryon.JPG'"
-        />
-      </div>
-    </div>
-  </div>
+  <v-container class="friends-family">
+    <v-row justify="center">
+      <v-col cols="12">
+        <h2 class="section-title">Wedding Party</h2>
+        <v-row justify="center">
+          <v-col
+            cols="12"
+            md="6"
+            lg="4"
+            v-for="honoredGuest in honoredGuests"
+            :key="honoredGuest.name"
+          >
+            <PersonCard
+              class="honored"
+              :name="honoredGuest.name"
+              :title="honoredGuest.title"
+              :pictureURL="honoredGuest.pictureURL"
+            />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+
+    <v-row justify="center">
+      <v-col cols="12">
+        <h2 class="section-title">Family</h2>
+        <v-row justify="center">
+          <v-col
+            cols="12"
+            sm="6"
+            md="4"
+            lg="3"
+            v-for="familyMember in familyMembers"
+            :key="familyMember.name"
+          >
+            <PersonCard
+              class="parent"
+              :name="familyMember.name"
+              :title="familyMember.title"
+              :pictureURL="familyMember.pictureURL"
+            />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style scoped>
 .friends-family {
-  margin: 0 auto;
   margin-top: 3rem;
-  max-width: 1200px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 .section-title {
   font-size: 2.5rem;
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   color: var(--color-text);
   font-family: var(--font-title);
 }

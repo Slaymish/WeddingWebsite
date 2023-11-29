@@ -29,7 +29,6 @@ export default defineComponent({
   font-size: 1rem;
 }
 
-
 footer {
   display: flex;
   flex-direction: row;

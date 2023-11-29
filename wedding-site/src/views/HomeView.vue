@@ -18,7 +18,7 @@ export default {
 
 <template>
   <main>
-    <HeroSection :mainTitle="'Lani & Finlay'" :date="'24 of May, 2024'" />
+    <HeroSection :mainTitle="'Lani & Finlay'" :date="'25th of May, 2024'" />
     <CoupleDetails />
     <WeddingSchedule />
     <FriendsAndFamily />
