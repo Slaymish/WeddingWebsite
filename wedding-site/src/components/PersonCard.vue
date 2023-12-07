@@ -3,13 +3,13 @@
     <v-row>
       <v-col class="d-flex justify-center">
         <v-avatar size="128" color="transparent">
-          <v-img :src="imageSrc" class="elevation-6" />
+          <v-img :src="imageSrc" :alt="name" :title="name" class="elevation-12"></v-img>
         </v-avatar>
       </v-col>
     </v-row>
     <v-row>
       <v-col class="text-center">
-        <div class="text-h5">{{ name }}</div>
+        <div class="name">{{ name }}</div>
         <div class="subtitle-1">{{ title }}</div>
         <div class="body-1">{{ blurb }}</div>
       </v-col>
@@ -46,15 +46,29 @@ export default defineComponent({
   overflow: visible;
 }
 
-.v-avatar {
-  margin-top: -64px; /* Make avatar slightly overlap the card */
+.person-card .v-avatar {
+  margin: auto;
+  border: 4px solid #fff;
+}
+
+.name {
+  font-size: 2rem; /* larger name */
+  margin-top: 8px; /* reduce space between name and title */
+  font-family: var(--font-title);
 }
 
 .v-img {
-  border-radius: 50%;
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.1),
     0 6px 6px rgba(0, 0, 0, 0.15);
+
+  border-radius: 50%;
+  border: 4px solid #fff;
+
+  /* Make the image fill its container */
+  min-width: 180px;
+  min-height: 180px;
+  width: 100%;
 }
 
 .subtitle-1 {

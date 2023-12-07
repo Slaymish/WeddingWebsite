@@ -5,12 +5,9 @@
 </template>
 
 <script lang="ts">
-
 export default {
-  components: {
-  }
+  components: {}
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

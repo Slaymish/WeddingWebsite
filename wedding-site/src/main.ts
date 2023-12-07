@@ -10,7 +10,6 @@ import '@/assets/main.css'
 // Import Vuetify
 import { createVuetify } from 'vuetify'
 
-
 // Vuetify styles
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.min.css'

@@ -10,7 +10,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 // import required modules
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 
 export default defineComponent({
   name: 'CoupleImages',
@@ -23,42 +23,42 @@ export default defineComponent({
       images: [
         {
           id: 1,
-          imagesrc: 'src/assets/images/coupleslider/car.webp',
-          caption: 'Our First Date'
+          imagesrc: 'coupleslider/car.webp',
+          caption: 'Caption 1'
         },
         {
           id: 2,
-          imagesrc: 'src/assets/images/coupleslider/ballons.webp',
+          imagesrc: 'coupleslider/ballons.webp',
           caption: 'Caption 2'
         },
         {
           id: 3,
-          imagesrc: 'src/assets/images/coupleslider/city.webp',
+          imagesrc: 'coupleslider/city.webp',
           caption: 'Caption 3'
         },
         {
           id: 4,
-          imagesrc: 'src/assets/images/coupleslider/door.webp',
+          imagesrc: 'coupleslider/door.webp',
           caption: 'Caption 4'
         },
         {
           id: 5,
-          imagesrc: 'src/assets/images/coupleslider/dressup.webp',
+          imagesrc: 'coupleslider/dressup.webp',
           caption: 'Caption 5'
         },
         {
           id: 6,
-          imagesrc: 'src/assets/images/coupleslider/graduation.webp',
+          imagesrc: 'coupleslider/graduation.webp',
           caption: 'Caption 6'
         },
         {
           id: 7,
-          imagesrc: 'src/assets/images/coupleslider/hiking.webp',
+          imagesrc: 'coupleslider/hiking.webp',
           caption: 'Caption 7'
         },
         {
           id: 8,
-          imagesrc: 'src/assets/images/coupleslider/wings.webp',
+          imagesrc: 'coupleslider/wings.webp',
           caption: 'Caption 8'
         }
       ]
@@ -66,7 +66,12 @@ export default defineComponent({
   },
   setup() {
     return {
-      modules: [Autoplay, Pagination]
+      modules: [Autoplay]
+    }
+  },
+  methods: {
+    computeSrc(src: string) {
+      return new URL(`../assets/images/${src}`, import.meta.url).href
     }
   }
 })
@@ -74,24 +79,26 @@ export default defineComponent({
 
 <template>
   <swiper
-    :spaceBetween="2"
-    :slidesPerView="3"
+    :spaceBetween="0"
+    :slidesPerView="2"
     :centeredSlides="false"
     :autoplay="{
       delay: 2000,
       disableOnInteraction: false
     }"
-    :pagination="{ clickable: true, dynamicBullets: true, dynamicMainBullets: 2 }"
+    :navigation="true"
     :loop="true"
-    :speed="500"
+    :speed="1000"
     :modules="modules"
     class="mySwiper"
   >
     <SwiperSlide v-for="image in images" :key="image.id" class="image-item">
-      <img :src="image.imagesrc" alt="couple picture" class="image" />
+      <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="image" />
+      <!--
       <div class="caption">
         <p>{{ image.caption }}</p>
       </div>
+      -->
     </SwiperSlide>
   </swiper>
 </template>
@@ -101,22 +108,23 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  min-height: 600px;
-  background-color: var(--white-mute);
 }
 
 .image-item {
   text-align: center;
   font-size: 18px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .image {
-  max-height: 500px;
-  max-width: 100%;
-  margin: 0 auto;
+  width: auto;
+  height: 550px;
+  object-fit: cover;
+  border-radius: 2px;
+  overflow: hidden;
 }
 
 .caption {

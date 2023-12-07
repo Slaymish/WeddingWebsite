@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap');
 
 :root {
-
   --white: #fff;
 
   --white-soft: #f8f8f8;
@@ -12,7 +11,7 @@
   --black: #181818;
 
   --black-soft: #222;
-  
+
   --black-mute: #282828;
 
   --light-pink: rgb(240, 208, 209);
@@ -21,7 +20,7 @@
 
   --dark-red: rgb(117, 22, 36);
 
-  --dark-blue: rgb(31, 44, 68);
+  --dark-blue: rgb(30, 49, 88);
 
   --color-background: var(--light-pink);
   --color-background-soft: var(--white-soft);

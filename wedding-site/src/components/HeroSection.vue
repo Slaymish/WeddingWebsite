@@ -13,12 +13,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'HeroSection',
-  components: {
-  },
+  components: {},
   props: {
     mainTitle: {
       type: String,
@@ -29,17 +28,17 @@ export default defineComponent({
       required: true
     }
   }
-});
+})
 </script>
 
 <style scoped>
 .hero-section {
   background-color: var(--color-background);
-  padding-left: 10%; /* Or any other percentage or fixed padding you prefer */
   height: 100vh;
   min-height: 600px;
   display: flex;
   align-items: center;
+  max-width: 900px;
 }
 
 .text-box {
@@ -49,8 +48,10 @@ export default defineComponent({
 }
 
 .display-1 {
-  font-size: 7rem;
-  margin-bottom: 0.5rem;
+  font-size: 8.5rem;
+  margin-bottom: 5.5rem;
+  margin-top: 5rem;
+  line-height: 1;
 }
 
 .display-2 {
@@ -60,7 +61,7 @@ export default defineComponent({
 
 .hero-subtitle {
   font-size: 1.5rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .rsvp-button {

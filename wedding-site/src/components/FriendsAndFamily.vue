@@ -1,23 +1,24 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import PersonCard from './PersonCard.vue'
+import DividerComponent from './DividerComponent.vue'
 
 export default defineComponent({
   name: 'FriendsAndFamily',
-  components: { PersonCard },
+  components: { PersonCard, DividerComponent },
   data() {
     return {
       honoredGuests: [
-        { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'reference/flowers.jpg' },
-        { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'reference/flowers.jpg' }
+        { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/bryon.JPG' },
+        { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/bryon.JPG' }
         // ... add more guests as needed
       ],
       familyMembers: [
-        { name: 'Sarah', title: "Bride's Mother", pictureURL: 'reference/flowers.jpg' },
-        { name: 'Dave', title: "Bride's dad", pictureURL: 'reference/flowers.jpg' },
-        { name: 'Steve', title: "Bride's Step-dad", pictureURL: 'reference/flowers.jpg' },
-        { name: 'Kath', title: "Bride's Step-mum", pictureURL: 'reference/flowers.jpg' },
-        { name: 'Case', title: "Bride's Brother", pictureURL: 'reference/flowers.jpg' },
+        { name: 'Sarah', title: "Bride's Mother", pictureURL: 'people/bryon.JPG' },
+        { name: 'Dave', title: "Bride's dad", pictureURL: 'people/bryon.JPG' },
+        { name: 'Steve', title: "Bride's Step-dad", pictureURL: 'people/bryon.JPG' },
+        { name: 'Kath', title: "Bride's Step-mum", pictureURL: 'people/bryon.JPG' },
+        { name: 'Case', title: "Bride's Brother", pictureURL: 'people/bryon.JPG' },
         { name: 'Wendy', title: "Groom's Mother", pictureURL: 'people/wendy.JPG' },
         { name: 'Bryon', title: "Groom's Father", pictureURL: 'people/bryon.JPG' }
       ]
@@ -73,11 +74,13 @@ export default defineComponent({
       </v-col>
     </v-row>
   </v-container>
+  <DividerComponent />
 </template>
 
 <style scoped>
 .friends-family {
   margin-top: 3rem;
+  max-width: 900px;
 }
 
 .section-title {

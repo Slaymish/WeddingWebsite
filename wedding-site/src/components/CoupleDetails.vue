@@ -1,11 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CoupleImages from './CoupleImages.vue'
+import DividerComponent from './DividerComponent.vue';
 
 export default defineComponent({
   name: 'CoupleDetails',
   components: {
-    CoupleImages
+    CoupleImages,
+    DividerComponent
   },
   setup() {}
 })
@@ -25,12 +27,20 @@ export default defineComponent({
     </div>
     <div class="profile-section">
       <p>
-        Finlay and Lani met in a fake bar in a fake town in a fake country. They were both
-        pretending to be someone else, but they were both so charming that they couldn't help but
-        fall in love.
+        This is filler text. Need a paragraph or two here about the couple. This is filler text.
+        Once upon a time there was a couple who were getting married. This is filler text. Need a
+        paragraph or two here about the couple. This is filler text. Once upon a time there was a
+        couple who were getting married. This is filler text. Need a paragraph or two here about the
+        couple. This is filler text. Once upon a time there was a couple who were getting married.
+        This is filler text. Need a paragraph or two here about the couple. This is filler text.
+        Once upon a time there was a couple who were getting married. This is filler text. Need a
+        paragraph or two here about the couple. This is filler text. Once upon a time there was a
+        couple who were getting married. This is filler text. Need a paragraph or two here about the
+        couple. This is filler text. Once upon a time there was a couple who were getting married.
       </p>
     </div>
   </div>
+  <DividerComponent />
 </template>
 
 <style scoped>
@@ -54,15 +64,28 @@ export default defineComponent({
   overflow-wrap: break-word;
 }
 
-.images {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: aqua;
-  overflow: hidden;
+.couple-blurb {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--font-title);
 }
 
+.profile-section p {
+  font-size: 0.9rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1rem;
+  font-family: var(--font-text);
+}
+
+.images {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
 
 @media (max-width: 768px) {
   .couple-details {

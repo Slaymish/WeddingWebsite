@@ -3,8 +3,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'FooterComponent',
-  components: {
-  },
+  components: {},
   props: {
     topButton: {
       type: Boolean,

@@ -14,7 +14,7 @@ export default {
     WhenAndWhereVue,
     WeddingSchedule,
     FooterComponent
-}
+  }
 }
 </script>
 
@@ -26,17 +26,17 @@ export default {
     <FriendsAndFamily />
     <WhenAndWhereVue />
   </div>
-  <FooterComponent
-    :topButton="true"
-  />
+  <FooterComponent :topButton="true" />
 </template>
 
 <style scoped>
 .main {
-    font-family: var(--font-text);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    padding: 2rem 0;
-    min-height: 100vh;
+  font-family: var(--font-text);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: 2rem 0;
+  min-height: 100vh;
+  border-bottom: 1px solid var(--color-text);
+  width: 100%;
 }
 </style>
