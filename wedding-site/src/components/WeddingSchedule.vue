@@ -132,6 +132,18 @@ export default defineComponent({
   color: var(--color-text);
 }
 
+@media (max-width: 1000px) {
+  .event-details {
+    width: 100%;
+  }
+
+  .v-card-title {
+    font-size: 2rem;
+  }
+
+  
+}
+
 @media (max-width: 768px) {
   .event-details {
     align-items: center;
@@ -141,6 +153,14 @@ export default defineComponent({
 
   .event-time {
     font-size: 0.9rem;
+  }
+
+  .event-description {
+    font-size: 0.9rem;
+  }
+
+  .v-card-title {
+    font-size: 1.5rem;
   }
 }
 </style>

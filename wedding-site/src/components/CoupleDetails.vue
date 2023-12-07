@@ -31,12 +31,7 @@ export default defineComponent({
         Once upon a time there was a couple who were getting married. This is filler text. Need a
         paragraph or two here about the couple. This is filler text. Once upon a time there was a
         couple who were getting married. This is filler text. Need a paragraph or two here about the
-        couple. This is filler text. Once upon a time there was a couple who were getting married.
-        This is filler text. Need a paragraph or two here about the couple. This is filler text.
-        Once upon a time there was a couple who were getting married. This is filler text. Need a
-        paragraph or two here about the couple. This is filler text. Once upon a time there was a
-        couple who were getting married. This is filler text. Need a paragraph or two here about the
-        couple. This is filler text. Once upon a time there was a couple who were getting married.
+        couple. This is filler text. 
       </p>
     </div>
   </div>

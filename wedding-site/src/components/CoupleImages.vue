@@ -137,5 +137,15 @@ export default defineComponent({
   .swiper-slide {
     width: 100vw;
   }
+
+  .image {
+    height: 200px;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+
+  
 }
 </style>
