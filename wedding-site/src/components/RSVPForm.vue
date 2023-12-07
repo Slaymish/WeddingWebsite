@@ -12,13 +12,15 @@
       ></v-checkbox>
       <v-btn class="me-4" type="submit">Submit</v-btn>
       <v-btn @click="resetForm">Clear</v-btn>
-      <v-label v-if="rsvpSubmitted" class="submitted-label">RSVP Submitted</v-label>
+      <v-label v-if="rsvpSubmitted" class="submitted-label">Confirmation email sent!</v-label>
     </form>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import {db} from '@/firebase'
+import {collection, addDoc } from 'firebase/firestore'
 
 export default defineComponent({
   name: 'RSVPForm',
@@ -42,15 +44,28 @@ export default defineComponent({
     }
   },
   methods: {
-    submitRSVP() {
+    async submitRSVP() {
       this.rsvpSubmitted = true // Update the rsvpSubmitted property
-      alert('RSVP submitted')
-      this.resetForm()
-    },
+
+      // Send the form data to Firestore
+      try {
+        await addDoc(collection(db, 'rsvps'), {
+          name: this.name,
+          email: this.email,
+          message: this.message,
+          attending: this.attending
+        })
+        this.resetForm()
+      } catch (error: any) {
+        console.error('Error writing document: ', error)
+        alert('Something went wrong!')
+      }
+  },
     resetForm() {
       this.name = ''
       this.email = ''
       this.message = ''
+      this.dietaryRestrictions = ''
       this.attending = false
     }
   }
