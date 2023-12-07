@@ -1,12 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'FooterComponent',
-  setup() {
-    return {
-      $route: useRoute()
+  components: {
+  },
+  props: {
+    topButton: {
+      type: Boolean,
+      default: false
     }
   }
 })
@@ -14,8 +16,8 @@ export default defineComponent({
 
 <template>
   <footer>
-    <div v-if="$route.path == '/'" class="to-top">
-      <a href="#top">Back to top</a>
+    <div v-if="topButton" class="to-top">
+      <a href="#">Back to top</a>
     </div>
     <p>Created by <a href="https://hamishburke.dev" target="_blank">Hamish Burke</a></p>
   </footer>

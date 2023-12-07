@@ -16,7 +16,6 @@ export default {
       <component :is="Component" :key="$route.path" />
     </transition>
   </router-view>
-  <FooterComponent />
 </template>
 
 <style scoped>

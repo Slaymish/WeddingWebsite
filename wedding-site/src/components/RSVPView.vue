@@ -20,16 +20,23 @@
       </v-row>
     </v-container>
   </v-main>
+  <FooterComponent
+    :topButton="false"
+  />
+
 </template>
 
 <script lang="ts">
+import FooterComponent from '@/components/FooterComponent.vue';
 import RSVPForm from '@/components/RSVPForm.vue'
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   components: {
-    RSVPForm
-  }
+    RSVPForm,
+    FooterComponent
 }
+});
 </script>
 
 <style scoped>
