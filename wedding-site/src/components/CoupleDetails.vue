@@ -34,55 +34,35 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.couple-details {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.couple-title {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.couple-title,
+.couple-blurb,
+.profile-section p {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
 .images {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: aqua;
+  overflow: hidden;
 }
 
-.profile-section p {
-  font-family: var(--font-title);
-  font-size: 1rem;
-  color: var(--color-text);
-  max-width: 600px;
-}
-
-.profile-section {
-  margin-top: 2rem;
-}
-
-.couple-details {
-  font-family: var(--font-text);
-  text-align: center;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.couple-title {
-  font-family: var(--font-title);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--color-text);
-}
-
-.couple-blurb {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: var(--color-text);
-  font-family: var(--font-text);
-}
-
-.profile-section {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
 
 @media (max-width: 768px) {
   .couple-details {

@@ -78,7 +78,7 @@ export default defineComponent({
     :slidesPerView="3"
     :centeredSlides="false"
     :autoplay="{
-      delay: 2500,
+      delay: 2000,
       disableOnInteraction: false
     }"
     :pagination="{ clickable: true, dynamicBullets: true, dynamicMainBullets: 2 }"
