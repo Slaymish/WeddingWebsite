@@ -1,63 +1,65 @@
 <template>
-  <form @submit.prevent="submitRSVP">
-    <v-text-field v-model="name" :rules="nameRules" label="Name"></v-text-field>
-
-    <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
-
-    <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
-
-    <v-textarea v-model="message" label="Message"></v-textarea>
-
-    <v-checkbox
-      v-model="attending"
-      label="I will be attending"
-      style="margin-top: 1rem"
-    ></v-checkbox>
-    <v-btn class="me-4" type="submit">Submit</v-btn>
-    <v-btn @click="resetForm">Clear</v-btn>
-  </form>
+      <div>
+        <form @submit.prevent="submitRSVP">
+          <v-text-field v-model="name" :rules="nameRules" label="Name"></v-text-field>
+          <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
+          <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
+          <v-textarea v-model="message" label="Message"></v-textarea>
+          <v-checkbox v-model="attending" label="I will be attending" style="margin-top: 1rem"></v-checkbox>
+          <v-btn class="me-4" type="submit">Submit</v-btn>
+          <v-btn @click="resetForm">Clear</v-btn>
+          <v-label v-if="rsvpSubmitted" class="submitted-label">RSVP Submitted</v-label>
+        </form>
+      </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+    import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'RSVPForm',
-  data() {
-    return {
-      name: '',
-      email: '',
-      message: '',
-      attending: false,
-      dietaryRestrictions: '',
-      nameRules: [
-        (v) => (v && v.length >= 2) || 'Name must be at least 2 characters',
-        (v) => (v && v.length >= 2) || 'Name must be at least 2 characters'
-        // ... other name rules ...
-      ],
-      emailRules: [
-        (v) => !!v || 'E-mail is required',
-        (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-      ]
-    }
-  },
-  methods: {
-    submitRSVP() {
-      alert('RSVP submitted')
-      this.resetForm()
-    },
-    resetForm() {
-      this.name = ''
-      this.email = ''
-      this.message = ''
-      this.attending = false
-      this.dietaryRestrictions = ''
-    }
-  }
-})
+    export default defineComponent({
+      name: 'RSVPForm',
+      data() {
+        return {
+          name: '',
+          email: '',
+          message: '',
+          attending: false,
+          dietaryRestrictions: '',
+          rsvpSubmitted: false, // Declare the rsvpSubmitted property
+          nameRules: [
+            (v: string) => !!v || 'Name is required',
+            (v: string) => (v && v.length >= 2) || 'Name must be at least 2 characters',
+            (v: string) => (v && v.length <= 25) || 'Name must be less than 25 characters'
+          ],
+          emailRules: [
+            (v: string) => !!v || 'E-mail is required',
+            (v: string) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+          ]
+        }
+      },
+      methods: {
+        submitRSVP() {
+          this.rsvpSubmitted = true; // Update the rsvpSubmitted property
+          alert('RSVP submitted');
+          this.resetForm();
+        },
+        resetForm() {
+          this.name = ''
+          this.email = ''
+          this.message = ''
+          this.attending = false
+        }
+      }
+    })
 </script>
 
 <style scoped>
+.submitted-label {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: rgb(0, 164, 0);
+}
+
 form {
   background-color: var(--white-mute);
   padding: 1rem;
