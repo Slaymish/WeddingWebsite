@@ -7,12 +7,14 @@
           <v-timeline>
             <v-timeline-item v-for="event in events" :key="event.id" :color="event.color">
               <template v-slot:opposite>
-                {{ event.time }}
+                <div class="event-details">
+                  <div class="event-time">{{ event.time }}</div>
+                  <div class="event-description">{{ event.description }}</div>
+                  <v-card v-if="event.furtherDetails" class="mt-4">
+                    <v-card-text>{{ event.furtherDetails }}</v-card-text>
+                  </v-card>
+                </div>
               </template>
-              {{ event.description }}
-              <v-card v-if="event.furtherDetails" class="mt-4">
-                <v-card-text>{{ event.furtherDetails }}</v-card-text>
-              </v-card>
             </v-timeline-item>
           </v-timeline>
         </v-card>
@@ -68,19 +70,55 @@ export default defineComponent({
       ] as Event[]
     }
   },
-  methods: {
-    showDetails(event: Event) {
-      event.showDetails = true
-    },
-    hideDetails(event: Event) {
-      event.showDetails = false
-    }
-  }
+  methods: {}
 })
 </script>
 
 <style scoped>
 .schedule-container {
   margin-top: 5rem;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.event-time {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.event-description {
+  margin-bottom: 1rem;
+}
+
+
+.v-card {
+  background-color: var(--white-mute);
+  border-radius: 0.5rem;
+  font-family: var(--font-text);
+}
+
+.v-card-title,
+.v-card-text {
+  color: var(--color-text);
+}
+
+
+.v-card-title {
+  font-family: var(--font-title);
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px){
+  .event-details {
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
 }
 </style>

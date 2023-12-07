@@ -10,8 +10,8 @@
             </p>
             <v-btn
               class="back-button"
-              color="transparent"
-              href="/"
+              :to="{ name: 'home' }"
+              large
               text
             >Go back</v-btn>
           </v-col>
@@ -44,6 +44,8 @@
     font-family: var(--font-text);
     background-color: var(--color-background);
     color: var(--color-text);
+    padding: 2rem 0;
+    min-height: 100vh;
   }
   
   .back-button {

@@ -13,13 +13,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref, computed } from 'vue';
-import { RouterLink } from 'vue-router';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'HeroSection',
   components: {
-    RouterLink,
   },
   props: {
     mainTitle: {

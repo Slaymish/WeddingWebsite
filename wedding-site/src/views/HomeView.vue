@@ -19,27 +19,24 @@ export default {
 </script>
 
 <template>
-  <main>
+  <div class="main">
     <HeroSection :mainTitle="'Lani & Finlay'" :date="'25th of May, 2024'" />
     <CoupleDetails />
     <WeddingSchedule />
     <FriendsAndFamily />
     <WhenAndWhereVue />
-  </main>
+  </div>
   <FooterComponent
     :topButton="true"
   />
 </template>
 
 <style scoped>
-main {
-  text-align: center;
-}
-
-.to-top {
-  font-family: var(--font-text);
-  font-size: 1rem;
-  color: var(--color-text);
-  margin-top: 2rem;
+.main {
+    font-family: var(--font-text);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 2rem 0;
+    min-height: 100vh;
 }
 </style>
