@@ -1,21 +1,28 @@
+/* stylelint-disable color-function-notation */
+/* stylelint-disable custom-property-empty-line-before */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap');
 
 :root {
-  --white: #ffffff;
+
+  --white: #fff;
+
   --white-soft: #f8f8f8;
   --white-mute: #f2f2f2;
 
   --black: #181818;
-  --black-soft: #222222;
+
+  --black-soft: #222;
+  
   --black-mute: #282828;
 
   --light-pink: rgb(240, 208, 209);
-  --light-red: rgb(96, 41, 51);
-  --dark-red: rgb(117, 22, 36);
-  --dark-blue: rgb(31, 44, 68);
-}
 
-:root {
+  --light-red: rgb(96, 41, 51);
+
+  --dark-red: rgb(117, 22, 36);
+
+  --dark-blue: rgb(31, 44, 68);
+
   --color-background: var(--light-pink);
   --color-background-soft: var(--white-soft);
   --color-background-mute: var(--white-mute);
@@ -61,7 +68,7 @@ body {
     'Helvetica Neue',
     sans-serif;
   font-size: 15px;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
