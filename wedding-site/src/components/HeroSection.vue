@@ -17,7 +17,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'HeroSection',
-  components: {},
   props: {
     mainTitle: {
       type: String,
@@ -32,8 +31,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 .hero-section {
-  background-color: var(--color-background);
   height: 100vh;
   min-height: 600px;
   display: flex;
