@@ -20,7 +20,7 @@ exports.sendEmailConfirmation = functions.firestore
       to: newValue.email,
       from: "me@hamishburke.dev", // Use the email address or domain you verified with SendGrid
       subject: "Thank you for your RSVP!",
-      text: `Dear ${newValue.name}, thank you for your RSVP. We look forward to seeing you at the event!`,
+      text: `Dear ${newValue.name},\n\n Thank you for your RSVP. We look forward to seeing you at the event!`,
     };
 
     return sgMail.send(msg).then(() => {
