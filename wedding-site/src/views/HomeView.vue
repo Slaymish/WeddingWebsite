@@ -20,7 +20,10 @@ export default {
 
 <template>
   <div class="main">
-    <HeroSection :mainTitle="'Lani & Finlay'" :date="'25th of May, 2024'" />
+    <HeroSection 
+    :mainTitle="'Lani & Finlay'" 
+    :date="'25th of May, 2024'"
+    />
     <CoupleDetails />
     <WeddingSchedule />
     <FriendsAndFamily />
@@ -34,9 +37,11 @@ export default {
   font-family: var(--font-text);
   background-color: var(--color-background);
   color: var(--color-text);
-  padding: 2rem 0;
-  min-height: 100vh;
-  border-bottom: 1px solid var(--color-text);
+  background-image: url('/src/assets/images/flower_header.webp'); /* Ensure this is the correct path */
+  background-repeat: repeat-x;
+  background-size: auto 200px; /* Maintain the aspect ratio and fill the height */
+  background-position: top;
   width: 100%;
+  padding-top: 90px; /* Adjust this to the new size of your image */
 }
 </style>
