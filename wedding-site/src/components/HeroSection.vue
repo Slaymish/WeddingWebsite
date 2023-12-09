@@ -6,7 +6,7 @@
         <h1 class="display-1">{{ mainTitle }}</h1>
         <div class="hero-subtitle">Invite you to join them</div>
         <div class="display-2">{{ date }}</div>
-        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large>RSVP</v-btn>
+        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'">RSVP</v-btn>
       </v-col>
     </v-row>
   </v-container>

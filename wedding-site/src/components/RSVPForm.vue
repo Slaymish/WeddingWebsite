@@ -5,11 +5,10 @@
       <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
       <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
       <v-textarea v-model="message" label="Message"></v-textarea>
-      <v-checkbox
-        v-model="attending"
-        label="I will be attending"
-        style="margin-top: 1rem"
-      ></v-checkbox>
+      <v-radio-group v-model="attending" label="Will you be attending">
+        <v-radio value="yes" label="Yes"></v-radio>
+        <v-radio value="no" label="No"></v-radio>
+      </v-radio-group>
       <v-btn class="me-4" type="submit">Submit</v-btn>
       <v-btn @click="resetForm">Clear</v-btn>
       <v-label v-if="rsvpSubmitted" class="submitted-label">Confirmation email sent!</v-label>
@@ -84,7 +83,7 @@ form {
   padding: 1rem;
   border-radius: 0.5rem;
   width: 100%;
-  min-width: 300px;
+  min-width: 500px;
 }
 
 .v-text-field {

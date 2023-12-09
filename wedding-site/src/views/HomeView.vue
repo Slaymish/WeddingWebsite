@@ -25,12 +25,13 @@ export default {
     :date="'25th of May, 2024'"
     />
     <CoupleDetails />
-    <WeddingSchedule />
     <FriendsAndFamily />
+    <WeddingSchedule />
     <WhenAndWhereVue />
   </div>
   <FooterComponent :topButton="true" />
 </template>
+
 
 <style scoped>
 .main {

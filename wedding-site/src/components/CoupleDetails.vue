@@ -15,23 +15,14 @@ export default defineComponent({
 
 <template>
   <div class="couple-details">
-    <div>
-      <div class="couple-title">Together in harmony</div>
-      <p class="couple-blurb">
-        Join us for a celebration of love, friendship, laughter, and family as we come together to
-        unite in marriage.
-      </p>
-    </div>
     <div class="images">
       <CoupleImages />
     </div>
     <div class="profile-section">
       <p>
-        This is filler text. Need a paragraph or two here about the couple. This is filler text.
-        Once upon a time there was a couple who were getting married. This is filler text. Need a
-        paragraph or two here about the couple. This is filler text. Once upon a time there was a
-        couple who were getting married. This is filler text. Need a paragraph or two here about the
-        couple. This is filler text. 
+        This is filler text. Need a paragraph or two here about the couple or a quote or something.
+        This is filler text. Need a paragraph or two here about the couple or a quote or something.
+        This is filler text. Need a paragraph or two here about the couple or a quote or something.
       </p>
     </div>
   </div>
@@ -80,6 +71,7 @@ export default defineComponent({
   width: 100%;
   max-width: 900px;
   margin-bottom: 2rem;
+  background-color: var(--white-mute);
 }
 
 @media (max-width: 768px) {

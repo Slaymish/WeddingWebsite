@@ -9,18 +9,29 @@ export default defineComponent({
   data() {
     return {
       honoredGuests: [
-        { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/bryon.JPG' },
-        { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/bryon.JPG' }
-        // ... add more guests as needed
+        [
+          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/bryon.JPG' },
+          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/bryon.JPG' }
+        ]
       ],
-      familyMembers: [
-        { name: 'Sarah', title: "Bride's Mother", pictureURL: 'people/bryon.JPG' },
-        { name: 'Dave', title: "Bride's dad", pictureURL: 'people/bryon.JPG' },
-        { name: 'Steve', title: "Bride's Step-dad", pictureURL: 'people/bryon.JPG' },
-        { name: 'Kath', title: "Bride's Step-mum", pictureURL: 'people/bryon.JPG' },
-        { name: 'Case', title: "Bride's Brother", pictureURL: 'people/bryon.JPG' },
-        { name: 'Wendy', title: "Groom's Mother", pictureURL: 'people/wendy.JPG' },
-        { name: 'Bryon', title: "Groom's Father", pictureURL: 'people/bryon.JPG' }
+      familyPairs: [
+        [
+          { name: 'Wendy', title: "Groom's Mother", pictureURL: 'people/wendy.JPG' },
+          { name: 'Bryon', title: "Groom's Father", pictureURL: 'people/bryon.JPG' }
+        ],
+        [
+          { name: 'Steve', title: 'Brides', pictureURL: 'people/bryon.JPG' },
+          { name: 'Sarah', title: "Bride's Mother", pictureURL: 'people/bryon.JPG' }
+
+        ],
+        [
+          { name: 'Dave', title: "Bride's dad", pictureURL: 'people/bryon.JPG' },
+          { name: 'Kath', title: "Bride's dad", pictureURL: 'people/bryon.JPG' }
+        ],
+        
+        [
+          { name: 'Case', title: "Bride's Brother", pictureURL: 'people/bryon.JPG' }
+        ]
       ]
     }
   }
@@ -29,17 +40,14 @@ export default defineComponent({
 
 <template>
   <v-container class="friends-family">
+    <!-- Wedding Party Section -->
     <v-row justify="center">
       <v-col cols="12">
         <h2 class="section-title">Wedding Party</h2>
-        <v-row justify="center">
-          <v-col
-            cols="12"
-            md="6"
-            lg="4"
-            v-for="honoredGuest in honoredGuests"
-            :key="honoredGuest.name"
-          >
+        <!-- Use a new row for each pair to ensure they are on the same line -->
+        <v-row v-for="(pair, index) in honoredGuests" :key="index" justify="space-around">
+          <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
+          <v-col cols="12" md="6" v-for="honoredGuest in pair" :key="honoredGuest.name">
             <PersonCard
               class="honored"
               :name="honoredGuest.name"
@@ -50,21 +58,18 @@ export default defineComponent({
         </v-row>
       </v-col>
     </v-row>
+    
 
+    <!-- Family Section -->
     <v-row justify="center">
       <v-col cols="12">
         <h2 class="section-title">Family</h2>
-        <v-row justify="center">
-          <v-col
-            cols="12"
-            sm="6"
-            md="4"
-            lg="3"
-            v-for="familyMember in familyMembers"
-            :key="familyMember.name"
-          >
+        <!-- Use a new row for each pair to ensure they are on the same line -->
+        <v-row v-for="(pair, index) in familyPairs" :key="index" justify="space-around">
+          <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
+          <v-col cols="12" md="6" v-for="familyMember in pair" :key="familyMember.name">
             <PersonCard
-              class="parent"
+              class="family"
               :name="familyMember.name"
               :title="familyMember.title"
               :pictureURL="familyMember.pictureURL"
@@ -76,6 +81,7 @@ export default defineComponent({
   </v-container>
   <DividerComponent />
 </template>
+
 
 <style scoped>
 .friends-family {
@@ -92,24 +98,34 @@ export default defineComponent({
   font-family: var(--font-title);
 }
 
-.honored-guests,
-.family {
+.honored, .family {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
+.person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .friends-family {
-    grid-template-columns: 1fr;
-    margin-bottom: 3rem;
+    max-width: 100%;
   }
 
-  .honored-guests,
-  .family {
+  .honored, .family {
     gap: 10px;
-    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .person-card {
+    flex-grow: 1;
+    max-width: calc(50% - 10px);
   }
 }
 </style>
+
+

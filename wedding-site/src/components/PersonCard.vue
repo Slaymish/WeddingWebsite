@@ -2,7 +2,7 @@
   <v-card class="person-card" flat>
     <v-row>
       <v-col class="d-flex justify-center">
-        <v-avatar size="128" color="transparent">
+        <v-avatar size="164" color="white">
           <v-img :src="imageSrc" :alt="name" :title="name" class="elevation-12"></v-img>
         </v-avatar>
       </v-col>
@@ -66,8 +66,8 @@ export default defineComponent({
   border: 4px solid #fff;
 
   /* Make the image fill its container */
-  min-width: 180px;
-  min-height: 180px;
+  min-width: 210px;
+  min-height: 210px;
   width: 100%;
 }
 

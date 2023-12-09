@@ -80,7 +80,7 @@ export default defineComponent({
 <template>
   <swiper
     :spaceBetween="0"
-    :slidesPerView="2"
+    :slidesPerView="1"
     :centeredSlides="false"
     :autoplay="{
       delay: 2000,

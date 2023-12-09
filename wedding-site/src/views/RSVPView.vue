@@ -1,21 +1,22 @@
 <template>
   <v-container fill-height fluid class="d-flex flex-column justify-space-between">
-    <v-row justify="center" align="center" class="rsvp-container flex-grow-1">
+    <v-row justify="center" align="center" class="rsvp-container">
       <v-col cols="12" md="5" class="text-center mb-10">
         <h1 class="display-2 mb-3">RSVP</h1>
         <p class="body-1">
           Please RSVP by the XXX, 2024. If you have any questions, please contact us at
-          <a href="mailto:email@gmail.com" class="email-link">email@gmail.com</a>.
+          <a href="mailto:email@gmail.com" class="email-link">sarah@jumptechnics.com</a>.
         </p>
         <v-btn color="secondary" :to="{ name: 'home' }" large class="mt-5">Go back</v-btn>
       </v-col>
-      <v-col cols="12" md="5">
+    </v-row>
+    <v-row justify="center" align="center">
+      <v-col cols="12">
         <RSVPForm />
       </v-col>
     </v-row>
-    <v-spacer></v-spacer> <!-- This will push the footer to the bottom -->
-    <FooterComponent :topButton="false" />
   </v-container>
+  <FooterComponent :topButton="false" />
 </template>
 
 <script lang="ts">
@@ -33,7 +34,7 @@ export default defineComponent({
 
 <style scoped>
 .rsvp-container {
-  background-color: #fce4ec; /* Adjust color to match your theme */
+  background-color: var(--color-background); 
   min-height: 100vh;
 }
 

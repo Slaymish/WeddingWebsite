@@ -27,8 +27,18 @@ auth.onAuthStateChanged(() => {
       components,
       directives,
       theme: {
-        defaultTheme: 'light'
-        //
+        themes: {
+          light: {
+            colors: {
+              primary: 'rgb(240, 208, 209)',
+              secondary: 'rgb(96, 41, 51)',
+              accent: 'rgb(117, 22, 36)',
+              error: '#f44336',
+              info: 'rgb(30, 49, 88)',
+              success: '#4caf50'
+            }
+          }
+        }
       }
     })
 

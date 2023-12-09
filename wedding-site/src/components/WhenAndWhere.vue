@@ -56,14 +56,14 @@ export default defineComponent({
           id: 2,
           name: 'Location',
           answer:
-            '<a href="https://maps.app.goo.gl/ayxLsqttZRihbQ348" target="_blank">87 Old Highway, Whakamārama 3176</a> <br> The venue is a 20 minute drive from Tauranga.'
+            'Black Walnut Venue<br><br><a href="https://maps.app.goo.gl/ayxLsqttZRihbQ348" target="_blank">87 Old Highway, Whakamārama 3176</a> <br> The venue is a 20 minute drive from Tauranga.'
         },
 
         {
           id: 3,
           name: 'Transport',
           answer:
-            'A bus will be provided to transport guests from Tauranga to the venue. The bus will leave from Bethlehem shopping centre at 2:30pm and returning at 10:30pm. <br><br> If you are driving, theres plenty of parking at the venue.'
+            'A bus will be provided to transport guests from Tauranga to the venue. The bus will leave from Bethlehem Shopping Centre at 2:30pm and returning at 10:30pm. <br><br> If you are driving, there is parking available at the venue.'
         },
         {
           id: 4,

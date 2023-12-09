@@ -1,26 +1,19 @@
 <template>
-  <v-container class="schedule-container">
-    <v-row justify="center">
-      <v-col cols="12" sm="8" md="6">
-        <v-card class="pa-5">
-          <v-card-title class="title">Wedding Schedule</v-card-title>
-          <v-timeline>
-            <v-timeline-item v-for="event in events" :key="event.id" :color="event.color">
-              <template v-slot:opposite>
-                <div class="event-details">
-                  <div class="event-time">{{ event.time }}</div>
-                  <div class="event-description">{{ event.description }}</div>
-                  <v-card v-if="event.furtherDetails" class="mt-4">
-                    <v-card-text>{{ event.furtherDetails }}</v-card-text>
-                  </v-card>
-                </div>
-              </template>
-            </v-timeline-item>
-          </v-timeline>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="schedule-container">
+    <h1 class="title">Wedding Schedule</h1>
+    <v-card class="pa-5 text-center schedule-card" outlined>
+      <div class="custom-timeline">
+        <div class="timeline-item" v-for="event in events" :key="event.id">
+          <div class="event-description">{{ event.description }}</div>
+          <div class="event-time">{{ event.time }}</div>
+          <v-icon v-if="event.icon" class="event-icon">{{ event.icon }}</v-icon>
+        </div>
+      </div>
+      <div class="caption mt-5">
+        thank you for joining us!
+      </div>
+    </v-card>
+  </div>
 </template>
 
 <script lang="ts">
@@ -30,8 +23,7 @@ interface Event {
   id: number
   time: string
   description: string
-  furtherDetails?: string
-  color?: string
+  icon: string
 }
 
 export default defineComponent({
@@ -41,126 +33,119 @@ export default defineComponent({
       events: [
         {
           id: 1,
-          time: '10:00 AM',
-          description: 'Wedding Ceremony',
-          furtherDetails: 'Meet at the gazebo',
-          color: 'green'
+          time: '3:00 PM',
+          description: 'Ceremony',
+          icon: 'mdi-church',
         },
         {
           id: 2,
-          time: '11:00 AM',
-          description: 'Cocktail Hour',
-          furtherDetails: 'Blah blah blahBlah blah blahBlah blah blah',
-          color: 'blue'
+          time: '3:30 PM',
+          description: 'Group Photos',
+          icon: 'mdi-camera',
         },
         {
           id: 3,
-          time: '12:00 PM',
-          description: 'Reception',
-          furtherDetails: 'Reception details',
-          color: 'red'
+          time: '4:00 PM',
+          description: 'Snacks and Drinks',
+          icon: 'mdi-food',
         },
         {
           id: 4,
-          time: '1:00 PM',
-          description: 'Drinks',
-          furtherDetails: 'Time to dirnk',
-          color: 'purple'
+          time: '5:30 PM',
+          description: 'Reception and Dinner',
+          icon: 'mdi-silverware-fork-knife',
+        },
+        {
+          id: 5,
+          time: '7:00 PM',
+          description: 'First Dance',
+          icon: 'mdi-heart',
+        },
+        {
+          id: 6,
+          time: '10:30 PM',
+          description: 'Send-Off',
+          icon: 'mdi-car',
         }
       ] as Event[]
     }
   },
   methods: {}
-})
+});
 </script>
 
 <style scoped>
-.schedule-container {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
 
-.v-timeline-item {
-  margin-bottom: 2rem;
-}
-
-.event-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 3rem;
-  background-color: var(--color-primary);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 200px;
-  color: var(--white-mute);
+.v-card {
+  background-color: var(--color-background);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .title {
-  font-family: var(--font-title);
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  color: var(--color-text);
+  font-family: var(--font-title);
+}
+
+.schedule-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem 0;
+  font-family: var(--font-title);
+}
+
+.schedule-card {
+  border: none;
+  box-shadow: none;
+}
+
+.custom-timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.event-description,
+.event-time {
+  flex: 1;
+  font-size: 1.25rem;
 }
 
 .event-time {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.custom-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: black;
+}
+
+.event-icon {
+  font-size: 1.5rem;
+  margin-left: 8px;
+}
+
+.caption {
+  font-style: italic;
+  margin-top: 4rem;
   font-size: 1rem;
-  font-family: var(--font-title);
-}
-
-.event-description {
-  margin-bottom: 1rem;
-}
-
-.v-card {
-  border-radius: 0.5rem;
-  font-family: var(--font-text);
-}
-
-.v-card-title,
-.v-card-text {
-  color: var(--color-text);
-  text-align: center;
-}
-
-.v-card-title {
-  font-family: var(--font-title);
-  margin-bottom: 2rem;
-  color: var(--color-text);
-}
-
-@media (max-width: 1000px) {
-  .event-details {
-    width: 100%;
-  }
-
-  .v-card-title {
-    font-size: 2rem;
-  }
-
-  
-}
-
-@media (max-width: 768px) {
-  .event-details {
-    align-items: center;
-    margin-bottom: 1rem;
-    width: 100%;
-  }
-
-  .event-time {
-    font-size: 0.9rem;
-  }
-
-  .event-description {
-    font-size: 0.9rem;
-  }
-
-  .v-card-title {
-    font-size: 1.5rem;
-  }
 }
 </style>
