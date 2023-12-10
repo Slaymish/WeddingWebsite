@@ -18,8 +18,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {db} from '@/firebase'
-import {collection, addDoc } from 'firebase/firestore'
+import { db } from '@/firebase'
+import { collection, addDoc } from 'firebase/firestore'
 
 export default defineComponent({
   name: 'RSVPForm',
@@ -59,7 +59,7 @@ export default defineComponent({
         console.error('Error writing document: ', error)
         alert('Something went wrong!')
       }
-  },
+    },
     resetForm() {
       this.name = ''
       this.email = ''

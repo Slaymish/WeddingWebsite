@@ -11,8 +11,6 @@
       </v-col>
     </v-row>
 
-    
-
     <!-- Map Section -->
     <v-row justify="center" class="map-section">
       <v-col cols="12">
@@ -30,25 +28,21 @@
     <!-- RSVP Button -->
     <v-row justify="center">
       <v-col cols="12" sm="10" md="8" lg="6">
-        <v-btn class="rsvp-button" :to="{ name: 'rsvp' }" large outlined>
-          RSVP
-        </v-btn>
+        <v-btn class="rsvp-button" :to="{ name: 'rsvp' }" large outlined> RSVP </v-btn>
       </v-col>
     </v-row>
-
-
   </v-container>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import DividerComponent from './DividerComponent.vue';
+import DividerComponent from './DividerComponent.vue'
 
 export default defineComponent({
   name: 'WhenAndWhere',
   components: {
     DividerComponent
-},
+  },
   data() {
     return {
       details: [
@@ -85,7 +79,7 @@ export default defineComponent({
       ]
     }
   }
-});
+})
 </script>
 
 <style scoped>

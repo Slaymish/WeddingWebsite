@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CoupleImages from './CoupleImages.vue'
-import DividerComponent from './DividerComponent.vue';
+import DividerComponent from './DividerComponent.vue'
 
 export default defineComponent({
   name: 'CoupleDetails',

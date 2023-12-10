@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'rsvp',
       // Load the RSVPView component asynchronously
       component: () => import('../views/RSVPView.vue')
+    },
+    {
+      path: '/attending',
+      name: 'attending',
+      component: () => import('../views/AttendingView.vue')
     }
   ]
 })

@@ -6,7 +6,9 @@
         <h1 class="display-1">{{ mainTitle }}</h1>
         <div class="hero-subtitle">Invite you to join them</div>
         <div class="display-2">{{ date }}</div>
-        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'">RSVP</v-btn>
+        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'"
+          >RSVP</v-btn
+        >
       </v-col>
     </v-row>
   </v-container>
@@ -31,7 +33,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 .hero-section {
   height: 100vh;
   min-height: 600px;

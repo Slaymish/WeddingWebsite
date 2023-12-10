@@ -22,16 +22,13 @@ export default defineComponent({
         [
           { name: 'Steve', title: 'Brides', pictureURL: 'people/bryon.JPG' },
           { name: 'Sarah', title: "Bride's Mother", pictureURL: 'people/bryon.JPG' }
-
         ],
         [
           { name: 'Dave', title: "Bride's dad", pictureURL: 'people/bryon.JPG' },
           { name: 'Kath', title: "Bride's dad", pictureURL: 'people/bryon.JPG' }
         ],
-        
-        [
-          { name: 'Case', title: "Bride's Brother", pictureURL: 'people/bryon.JPG' }
-        ]
+
+        [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/bryon.JPG' }]
       ]
     }
   }
@@ -58,7 +55,6 @@ export default defineComponent({
         </v-row>
       </v-col>
     </v-row>
-    
 
     <!-- Family Section -->
     <v-row justify="center">
@@ -82,7 +78,6 @@ export default defineComponent({
   <DividerComponent />
 </template>
 
-
 <style scoped>
 .friends-family {
   margin-top: 3rem;
@@ -98,7 +93,8 @@ export default defineComponent({
   font-family: var(--font-title);
 }
 
-.honored, .family {
+.honored,
+.family {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -117,7 +113,8 @@ export default defineComponent({
     max-width: 100%;
   }
 
-  .honored, .family {
+  .honored,
+  .family {
     gap: 10px;
   }
 
@@ -127,5 +124,3 @@ export default defineComponent({
   }
 }
 </style>
-
-

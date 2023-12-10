@@ -1,20 +1,19 @@
 <template>
-  <v-container fill-height fluid class="d-flex flex-column justify-space-between">
-    <v-row justify="center" align="center" class="rsvp-container">
-      <v-col cols="12" md="5" class="text-center mb-10">
-        <h1 class="display-2 mb-3">RSVP</h1>
-        <p class="body-1">
+  <v-container>
+    <h1>RSVP to Our Event</h1>
+    <!-- Duplicate of above but using html -->
+    <div class="wrapper">
+      <div class="body">
+        <p>
           Please RSVP by the XXX, 2024. If you have any questions, please contact us at
-          <a href="mailto:email@gmail.com" class="email-link">sarah@jumptechnics.com</a>.
+          <a href="mailto:sarah@jumptechnics.com" class="email-link">sarah@jumptechnics.com</a>
         </p>
-        <v-btn color="secondary" :to="{ name: 'home' }" large class="mt-5">Go back</v-btn>
-      </v-col>
-    </v-row>
-    <v-row justify="center" align="center">
-      <v-col cols="12">
+        <v-btn color="secondary" href="/" class="back">Back to Home</v-btn>
+      </div>
+      <div class="form">
         <RSVPForm />
-      </v-col>
-    </v-row>
+      </div>
+    </div>
   </v-container>
   <FooterComponent :topButton="false" />
 </template>
@@ -22,32 +21,60 @@
 <script lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue'
 import RSVPForm from '@/components/RSVPForm.vue'
+import DividerComponent from '@/components/DividerComponent.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   components: {
     RSVPForm,
-    FooterComponent
+    FooterComponent,
+    DividerComponent
   }
 })
 </script>
 
 <style scoped>
-.rsvp-container {
-  background-color: var(--color-background); 
-  min-height: 100vh;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  background-color: var(--light-red);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  background-color: var(--light-red);
+}
+
+.form {
+  width: 100%;
+  height: 50%;
+  background-color: var(--light-red);
+  margin: 0;
+}
+
+.back {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .email-link {
-  color: #6200ea; /* Use a color that stands out, yet fits the color scheme */
+  color: #1976d2;
 }
 
-@media only screen and (max-width: 960px) {
-  .rsvp-container {
-    flex-direction: column-reverse;
-  }
-  .text-center {
-    order: 2;
-  }
+.email-link:hover {
+  color: #115293;
 }
 </style>

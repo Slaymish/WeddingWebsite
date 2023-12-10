@@ -9,9 +9,7 @@
           <v-icon v-if="event.icon" class="event-icon">{{ event.icon }}</v-icon>
         </div>
       </div>
-      <div class="caption mt-5">
-        thank you for joining us!
-      </div>
+      <div class="caption mt-5">thank you for joining us!</div>
     </v-card>
   </div>
 </template>
@@ -35,47 +33,46 @@ export default defineComponent({
           id: 1,
           time: '3:00 PM',
           description: 'Ceremony',
-          icon: 'mdi-church',
+          icon: 'mdi-church'
         },
         {
           id: 2,
           time: '3:30 PM',
           description: 'Group Photos',
-          icon: 'mdi-camera',
+          icon: 'mdi-camera'
         },
         {
           id: 3,
           time: '4:00 PM',
           description: 'Snacks and Drinks',
-          icon: 'mdi-food',
+          icon: 'mdi-food'
         },
         {
           id: 4,
           time: '5:30 PM',
           description: 'Reception and Dinner',
-          icon: 'mdi-silverware-fork-knife',
+          icon: 'mdi-silverware-fork-knife'
         },
         {
           id: 5,
           time: '7:00 PM',
           description: 'First Dance',
-          icon: 'mdi-heart',
+          icon: 'mdi-heart'
         },
         {
           id: 6,
           time: '10:30 PM',
           description: 'Send-Off',
-          icon: 'mdi-car',
+          icon: 'mdi-car'
         }
       ] as Event[]
     }
   },
   methods: {}
-});
+})
 </script>
 
 <style scoped>
-
 .v-card {
   background-color: var(--color-background);
   max-width: 500px;
