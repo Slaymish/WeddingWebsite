@@ -6,11 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/css'
-
-import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 // import required modules
-import { Autoplay } from 'swiper/modules'
+import { Autoplay,Navigation } from 'swiper/modules'
 
 export default defineComponent({
   name: 'CoupleImages',
@@ -66,7 +65,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      modules: [Autoplay]
+      modules: [Autoplay,Navigation]
     }
   },
   methods: {
@@ -74,40 +73,57 @@ export default defineComponent({
       return new URL(`../assets/images/${src}`, import.meta.url).href
     }
   }
-})
+});
 </script>
 
 <template>
   <swiper
-    :spaceBetween="0"
-    :slidesPerView="1"
-    :centeredSlides="false"
-    :autoplay="{
-      delay: 2000,
-      disableOnInteraction: false
-    }"
-    :navigation="true"
-    :loop="true"
-    :speed="1000"
-    :modules="modules"
-    class="mySwiper"
-  >
-    <SwiperSlide v-for="image in images" :key="image.id" class="image-item">
-      <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="image" />
-      <!--
-      <div class="caption">
-        <p>{{ image.caption }}</p>
-      </div>
-      -->
-    </SwiperSlide>
-  </swiper>
+  :centeredSlides="false"
+  :autoplay="{
+    delay: 3000,
+    disableOnInteraction: false
+  }"
+  :navigation="true"
+  :loop="true"
+  :speed="500"
+  :modules="modules"
+  class="mySwiper"
+>
+  <SwiperSlide v-for="image in images" :key="image.id" class="image-item">
+    <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="SwiperImage" />
+  </SwiperSlide>
+</swiper>
 </template>
 
-<style scoped>
+<style>
+
 .mySwiper {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-text);
+  background-color: var(--white-soft);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .image-item {
@@ -119,17 +135,12 @@ export default defineComponent({
   align-items: center;
 }
 
-.image {
+.SwiperImage {
   width: auto;
   height: 550px;
   object-fit: cover;
   border-radius: 2px;
   overflow: hidden;
-}
-
-.caption {
-  padding: 10px;
-  color: var(--color-text);
 }
 
 /* Responsive adjustments */
@@ -138,12 +149,8 @@ export default defineComponent({
     width: 100vw;
   }
 
-  .image {
+  .SwiperImage {
     height: 200px;
-  }
-
-  .caption {
-    font-size: 1rem;
   }
 }
 </style>
