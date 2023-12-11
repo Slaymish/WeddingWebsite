@@ -52,7 +52,7 @@ export default defineComponent({
             observer.unobserve(entry.target); // Stop observing the current target
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.6 });
 
       observedElements.value.forEach(el => observer.observe(el));
     });
