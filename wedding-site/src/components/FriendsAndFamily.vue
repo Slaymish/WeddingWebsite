@@ -10,8 +10,8 @@ export default defineComponent({
     return {
       honoredGuests: [
         [
-          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/bryon.JPG' },
-          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/bryon.JPG' }
+          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/blank_profile.jpg'},
+          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg' }
         ]
       ],
       familyPairs: [
@@ -20,15 +20,15 @@ export default defineComponent({
           { name: 'Bryon', title: "Groom's Dad", pictureURL: 'people/bryon.JPG' }
         ],
         [
-          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/bryon.JPG' },
-          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/bryon.JPG' }
+          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/blank_profile.jpg' },
+          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/blank_profile.jpg' }
         ],
         [
-          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/bryon.JPG' },
-          { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/bryon.JPG' }
+          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/blank_profile.jpg' },
+          { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/blank_profile.jpg' }
         ],
 
-        [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/bryon.JPG' }]
+        [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/blank_profile.jpg' }]
       ]
     }
   }
