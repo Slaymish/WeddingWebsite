@@ -70,5 +70,27 @@ export default defineComponent({
   transition: all 0.3s ease-in-out;
 }
 
-/* Add other styles here */
+@media (max-width: 900px) {
+  .display-1 {
+    font-size: 6rem;
+    margin-bottom: 3.5rem;
+    margin-top: 3rem;
+  }
+
+  .display-2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section {
+    height: 100vh;
+    padding: 1rem;
+  }
+  
+}
 </style>
