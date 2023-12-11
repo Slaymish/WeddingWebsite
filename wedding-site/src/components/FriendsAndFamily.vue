@@ -22,12 +22,12 @@ export default defineComponent({
           { name: 'Bryon', title: "Groom's Dad", pictureURL: 'people/bryon.webp' }
         ],
         [
-          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/sarah_cropped.webp' },
-          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/steve.webp' }
+          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/bryon.JPG' },
+          { name: 'Sarah', title: "Bride's Mother", pictureURL: 'people/bryon.JPG' }
         ],
         [
-          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/father2.webp' },
-          { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/Kath.webp' }
+          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/bryon.JPG' },
+          { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/bryon.JPG' }
         ],
 
         [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/Kase_nobg.webp' }]
