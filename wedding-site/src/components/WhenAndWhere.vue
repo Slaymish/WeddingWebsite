@@ -28,7 +28,7 @@
     <!-- RSVP Button -->
     <v-row justify="center">
       <v-col cols="12" sm="10" md="8" lg="6">
-        <v-btn class="rsvp-button" :to="{ name: 'rsvp' }" large outlined> RSVP </v-btn>
+        <v-btn class="rsvp-button" :to="{ name: 'rsvp' }" large outlined color="secondary"> RSVP </v-btn>
       </v-col>
     </v-row>
   </v-container>
