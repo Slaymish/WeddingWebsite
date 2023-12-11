@@ -32,7 +32,6 @@ export default defineComponent({
 <style scoped>
 .couple-details {
   box-sizing: border-box;
-  padding: 20px;
 }
 
 .couple-title {
@@ -57,21 +56,20 @@ export default defineComponent({
   font-family: var(--font-title);
 }
 
-.profile-section p {
+.profile-section {
   font-size: 0.9rem;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-family: var(--font-text);
 }
 
 .images {
   margin: 0 auto;
-  width: 100%;
-  max-width: 900px;
+  width: 100%; 
   margin-bottom: 2rem;
-  background-color: var(--white-mute);
+  margin: 0;
 }
 
 @media (max-width: 768px) {
