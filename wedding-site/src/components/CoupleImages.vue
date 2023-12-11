@@ -22,42 +22,42 @@ export default defineComponent({
       images: [
         {
           id: 1,
-          imagesrc: 'coupleslider/car.webp',
+          imagesrc: 'coupleslider/compressor/car.webp',
           caption: 'Caption 1'
         },
         {
           id: 2,
-          imagesrc: 'coupleslider/ballons.webp',
+          imagesrc: 'coupleslider/compressor/ballons.webp',
           caption: 'Caption 2'
         },
         {
           id: 3,
-          imagesrc: 'coupleslider/city.webp',
+          imagesrc: 'coupleslider/compressor/city.webp',
           caption: 'Caption 3'
         },
         {
           id: 4,
-          imagesrc: 'coupleslider/door.webp',
+          imagesrc: 'coupleslider/compressor/door.webp',
           caption: 'Caption 4'
         },
         {
           id: 5,
-          imagesrc: 'coupleslider/dressup.webp',
+          imagesrc: 'coupleslider/compressor/dressup.webp',
           caption: 'Caption 5'
         },
         {
           id: 6,
-          imagesrc: 'coupleslider/graduation.webp',
+          imagesrc: 'coupleslider/compressor/graduation.webp',
           caption: 'Caption 6'
         },
         {
           id: 7,
-          imagesrc: 'coupleslider/hiking.webp',
+          imagesrc: 'coupleslider/compressor/hiking.webp',
           caption: 'Caption 7'
         },
         {
           id: 8,
-          imagesrc: 'coupleslider/wings.webp',
+          imagesrc: 'coupleslider/compressor/wings.webp',
           caption: 'Caption 8'
         }
       ]
