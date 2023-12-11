@@ -1,11 +1,11 @@
 <template>
   <div>
     <form @submit.prevent="submitRSVP">
-      <v-text-field v-model="name" :rules="nameRules" label="Name"></v-text-field>
-      <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
+      <v-text-field v-model="name" :rules="nameRules" label="Name *"></v-text-field>
+      <v-text-field v-model="email" :rules="emailRules" label="E-mail *"></v-text-field>
       <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
       <v-textarea v-model="message" label="Message"></v-textarea>
-      <v-radio-group v-model="attending" label="Will you be attending">
+      <v-radio-group v-model="attending" label="Will you be attending *">
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>
