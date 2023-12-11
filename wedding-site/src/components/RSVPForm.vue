@@ -9,8 +9,10 @@
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>
-      <v-btn class="me-4" type="submit">Submit</v-btn>
-      <v-btn @click="resetForm">Clear</v-btn>
+      <v-btn-group class="action-buttons">
+        <v-btn type="submit">Submit</v-btn>
+        <v-btn @click="resetForm">Clear</v-btn>
+      </v-btn-group>
       <v-label v-if="rsvpSubmitted" class="submitted-label">Confirmation email sent!</v-label>
     </form>
   </div>
@@ -52,6 +54,7 @@ export default defineComponent({
           name: this.name,
           email: this.email,
           message: this.message,
+          dietaryRestrictions: this.dietaryRestrictions,
           attending: this.attending
         })
         this.resetForm()
@@ -72,6 +75,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.action-buttons {
+  margin-top: 1rem;
+}
+
 .submitted-label {
   margin-top: 1rem;
   font-weight: bold;
@@ -79,11 +86,13 @@ export default defineComponent({
 }
 
 form {
-  background-color: var(--white-mute);
   padding: 1rem;
-  border-radius: 0.5rem;
   width: 100%;
-  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
 }
 
 .v-text-field {
