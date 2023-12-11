@@ -111,7 +111,7 @@ export default defineComponent({
 <style scoped>
 .person-card-container {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(40px);
   transition: opacity 0.8s, transform 0.8s;
 }
 
