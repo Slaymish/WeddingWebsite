@@ -9,7 +9,7 @@
           <v-icon v-if="event.icon" class="event-icon">{{ event.icon }}</v-icon>
         </div>
       </div>
-      <div class="caption mt-5">thank you for joining us!</div>
+      <div class="caption mt-5">Thank you for joining us!</div>
     </v-card>
   </div>
 </template>

@@ -63,7 +63,7 @@ export default defineComponent({
           id: 4,
           name: 'Gifts',
           answer:
-            'Your presence at our wedding is enough. But for those who feel they would like to contribute, we would be grateful for donations towards our honeymoon so we can make it a once in a lifetime trip. <br><br> A card box will be available at the venue.'
+            'Your presence at our wedding is enough. But for those who feel they would like to contribute, we would be grateful for donations towards our honeymoon so we can make it a once-in-a-lifetime trip. <br><br> A card box will be available at the venue.'
         },
         {
           id: 5,
