@@ -84,12 +84,11 @@ export default defineComponent({
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 4rem;
-  color: var(--color-text);
   font-family: var(--font-title);
 }
 
 .schedule-container {
-  max-width: 600px;
+  max-width: 350px;
   margin: auto;
   padding: 2rem 0;
   font-family: var(--font-title);
@@ -115,6 +114,7 @@ export default defineComponent({
 .event-time {
   flex: 1;
   font-size: 1.25rem;
+  color: var(--color-text);
 }
 
 .event-time {
@@ -131,8 +131,8 @@ export default defineComponent({
   transform: translateX(-50%);
   top: 0;
   bottom: 0;
-  width: 4px;
-  background-color: black;
+  width: 1px;
+  background-color: var(--color-text);
 }
 
 .event-icon {
@@ -144,5 +144,6 @@ export default defineComponent({
   font-style: italic;
   margin-top: 4rem;
   font-size: 1rem;
+  color: var(--color-text);
 }
 </style>

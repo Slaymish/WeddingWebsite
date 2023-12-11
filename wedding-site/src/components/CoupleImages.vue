@@ -151,7 +151,12 @@ export default defineComponent({
   }
 
   .SwiperImage {
-    height: 200px;
+    height: 400px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
   }
 }
 </style>

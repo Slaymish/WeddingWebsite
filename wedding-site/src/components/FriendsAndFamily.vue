@@ -140,6 +140,11 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  
+  /* 2 per row */
+  max-width: 500px;
+  margin: 0 auto;
+
 }
 
 .person-card {
@@ -150,18 +155,32 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-  .friends-family {
-    max-width: 100%;
-  }
-
   .honored,
   .family {
-    gap: 10px;
+    max-width: 350px;
+  }
+
+  .person-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.person-card {
+  flex: 0 0 50%; /* This means the card will take up 50% of the container's width */
+  max-width: 50%; /* This is to prevent flexbox from allowing the item to grow larger than 50% */
+}
+
+  .section-title {
+    font-size: 2rem;
   }
 
   .person-card {
-    flex-grow: 1;
-    max-width: calc(50% - 10px);
+    width: 100%;
+  }
+
+  .person-card-container {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
