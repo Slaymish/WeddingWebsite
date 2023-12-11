@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <h1>RSVP to Our Event</h1>
+  <v-container align="center" class="main">
+    <h1 class="title">RSVP to Our Event</h1>
     <!-- Duplicate of above but using html -->
     <div class="wrapper">
       <div class="body">
@@ -34,6 +34,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -41,9 +48,10 @@ export default defineComponent({
   justify-content: center;
   margin: 0 auto;
   text-align: center;
-  max-width: 600px;
+  max-width: 500px;
   margin-bottom: 2rem;
-  background-color: var(--light-red);
+  background-color: var(--white-mute);
+  border-radius: 20px;
 }
 
 .body {
@@ -53,16 +61,21 @@ export default defineComponent({
   justify-content: center;
   margin: 0 auto;
   text-align: center;
-  max-width: 600px;
-  margin-bottom: 2rem;
-  background-color: var(--light-red);
+  background-color: var(--white-mute);
+  border-radius: 20px;
+  padding: 1rem;
 }
 
 .form {
-  width: 100%;
-  height: 50%;
-  background-color: var(--light-red);
+  background-color: var(--white-soft);
   margin: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
 }
 
 .back {
