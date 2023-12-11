@@ -19,10 +19,12 @@ export default defineComponent({
       <CoupleImages />
     </div>
     <div class="profile-section">
-      <p>
-        This is filler text. Need a paragraph or two here about the couple or a quote or something.
-        This is filler text. Need a paragraph or two here about the couple or a quote or something.
-        This is filler text. Need a paragraph or two here about the couple or a quote or something.
+      <!-- Vuetify Quote -->
+      <p class="quote">
+        One small step for man, a huge step for mankind
+      </p>
+      <p class="quote-author">
+        - Neil Armstrong
       </p>
     </div>
   </div>
@@ -30,6 +32,19 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.quote {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.quote-author {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
 .couple-details {
   box-sizing: border-box;
 }

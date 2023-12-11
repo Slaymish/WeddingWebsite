@@ -126,22 +126,23 @@ export default defineComponent({
   font-weight: bold;
 }
 
+/* Image wrapper */
 .image-item {
-  text-align: center;
-  font-size: 18px;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
+/* Single image */
 .SwiperImage {
   width: auto;
   height: 550px;
-  object-fit: cover;
-  border-radius: 2px;
+  object-fit: contain;
   overflow: hidden;
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
