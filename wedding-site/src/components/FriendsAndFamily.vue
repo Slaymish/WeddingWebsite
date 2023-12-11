@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import PersonCard from './PersonCard.vue'
 import DividerComponent from './DividerComponent.vue'
 
@@ -31,7 +31,34 @@ export default defineComponent({
         [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/blank_profile.jpg' }]
       ]
     }
-  }
+  },
+  setup() {
+    const observedElements = ref([]);
+
+    // New method to set the observed element
+    const setObservedElement = (el) => {
+      if (el) observedElements.value.push(el);
+    };
+
+    onMounted(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = observedElements.value.indexOf(entry.target);
+            if (index !== -1) {
+              observedElements.value.splice(index, 1); // Remove element from the array once observed
+              entry.target.classList.add('visible'); // Add 'visible' class to the observed element
+            }
+            observer.unobserve(entry.target); // Stop observing the current target
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observedElements.value.forEach(el => observer.observe(el));
+    });
+
+    return { observedElements, setObservedElement };
+  },
 })
 </script>
 
@@ -45,12 +72,13 @@ export default defineComponent({
         <v-row v-for="(pair, index) in honoredGuests" :key="index" justify="space-around">
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
           <v-col cols="12" md="6" v-for="honoredGuest in pair" :key="honoredGuest.name">
-            <PersonCard
-              class="honored"
+            <div :ref="setObservedElement" class="person-card-container">
+              <PersonCard
               :name="honoredGuest.name"
               :title="honoredGuest.title"
               :pictureURL="honoredGuest.pictureURL"
-            />
+              />
+            </div>
           </v-col>
         </v-row>
       </v-col>
@@ -64,12 +92,14 @@ export default defineComponent({
         <v-row v-for="(pair, index) in familyPairs" :key="index" justify="space-around">
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
           <v-col cols="12" md="6" v-for="familyMember in pair" :key="familyMember.name">
-            <PersonCard
-              class="family"
-              :name="familyMember.name"
-              :title="familyMember.title"
-              :pictureURL="familyMember.pictureURL"
-            />
+            <div :ref="setObservedElement" class="person-card-container">
+              <PersonCard
+                :class="{ 'visible': familyMember.visible }"
+                :name="familyMember.name"
+                :title="familyMember.title"
+                :pictureURL="familyMember.pictureURL"
+              />
+            </div>
           </v-col>
         </v-row>
       </v-col>
@@ -79,6 +109,17 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.person-card-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .friends-family {
   margin-top: 3rem;
   max-width: 900px;
