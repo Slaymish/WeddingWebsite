@@ -52,7 +52,7 @@ export default defineComponent({
 }
 
 .name {
-  font-size: 2rem; /* larger name */
+  font-size: 1.5rem; /* larger name */
   margin-top: 8px; /* reduce space between name and title */
   font-family: var(--font-title);
 }

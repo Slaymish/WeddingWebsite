@@ -132,7 +132,15 @@ export default defineComponent({
   top: 0;
   bottom: 0;
   width: 1px;
-  background-color: var(--color-text);
+
+  /* fade out line at both ends */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    var(--color-text) 20%,
+    var(--color-text) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .event-icon {

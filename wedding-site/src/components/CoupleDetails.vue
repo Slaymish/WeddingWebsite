@@ -101,12 +101,24 @@ export default defineComponent({
   }
 
   .profile-section {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .profile-section p {
     max-width: 90%;
+  }
+
+  .quote {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .quote-author {
+    font-size: 0.8rem;
+    margin: 0 auto;
   }
 }
 </style>
