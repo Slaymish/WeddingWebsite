@@ -82,4 +82,10 @@ export default defineComponent({
   font-size: 0.875rem; /* smaller body text */
   margin-top: 4px; /* more space between title and blurb */
 }
+
+@media (max-width: 768px) {
+  .person-card {
+    width: 90%; /* adjust this value as needed */
+  }
+}
 </style>

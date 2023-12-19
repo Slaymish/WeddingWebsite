@@ -136,30 +136,26 @@ export default defineComponent({
 
 
 .person-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin: 0 auto;
-}
-
-.person-card {
-  display: flex;
-  flex-direction: column;
+  display:flex;
+  flex-direction: row;
   align-items: center;
   text-align: center;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   .person-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin-bottom: 2rem;
+    max-width: 350px;
+
+  }
+
+  .section-title {
+    font-size: 2rem;
   }
 
   .person-card {
-    flex: 0 0 48%; /* This means the card will take up 48% of the container's width */
-    max-width: 48%; /* This is to prevent flexbox from allowing the item to grow larger than 48% */
+    margin-bottom: 2rem;
   }
 }
 </style>
