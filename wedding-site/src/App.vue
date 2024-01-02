@@ -1,6 +1,7 @@
 <template>
   <div class="back">
     <v-app class="main">
+      <h1 class="wip">This site is a work in progress on mobile. Please view on a desktop.</h1>
       <router-view />
     </v-app>
   </div>
@@ -13,6 +14,17 @@ export default {
 </script>
 
 <style scoped>
+.wip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  text-align: center;
+  z-index: 1000;
+}
+
 .main {
   font-family: var(--font-text);
   background-color: var(--white-mute);

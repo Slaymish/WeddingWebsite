@@ -86,7 +86,7 @@ export default defineComponent({
         <!-- Use a new row for each pair to ensure they are on the same line -->
         <v-row v-for="(pair, index) in honoredGuests" :key="index" justify="space-around">
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
-          <v-col cols="12" md="6" v-for="honoredGuest in pair" :key="honoredGuest.name">
+          <v-col cols="12" md="3" v-for="honoredGuest in pair" :key="honoredGuest.name">
             <div :ref="setObservedElement" class="person-card-container">
               <a @click="openModal(honoredGuest)">
                 <PersonCard
@@ -102,7 +102,7 @@ export default defineComponent({
       </v-col>
     </v-row>
 
-    <PartyModal :honoredGuests="honoredGuests" :familyPairs="familyPairs" :modalOpen="modalOpen" />
+    <!-- <PartyModal :honoredGuests="honoredGuests" :familyPairs="familyPairs" :modalOpen="modalOpen" /> -->
 
 
     <!-- Family Section -->
@@ -112,7 +112,7 @@ export default defineComponent({
         <!-- Use a new row for each pair to ensure they are on the same line -->
         <v-row v-for="(pair, index) in familyPairs" :key="index" justify="space-around">
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
-          <v-col cols="12" md="6" v-for="familyMember in pair" :key="familyMember.name">
+          <v-col cols="12" md="3" v-for="familyMember in pair" :key="familyMember.name">
             <div :ref="setObservedElement" class="person-card-container">
               <a @click="openModal(familyMember)">
                 <PersonCard
@@ -144,6 +144,14 @@ export default defineComponent({
   background-color: rgb(255, 0, 0);
 }
 
+.friends-family {
+  margin-top: 2rem;
+  max-width: 900px;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .person-card-container {
   opacity: 0;
   transform: translateY(40px);
@@ -155,10 +163,6 @@ export default defineComponent({
   transform: translateY(0);
 }
 
-.friends-family {
-  margin-top: 2rem;
-  max-width: 900px;
-}
 
 .section-title {
   font-size: 2.5rem;
