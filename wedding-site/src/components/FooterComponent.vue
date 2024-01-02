@@ -35,8 +35,8 @@ footer {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--color-accent);
-  padding: 0.25rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 footer p {

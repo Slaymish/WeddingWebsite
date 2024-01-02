@@ -34,8 +34,8 @@ export default defineComponent({
 
 <style scoped>
 .hero-section {
-  height: 100vh;
   min-height: 600px;
+  margin-bottom: 5rem;
   display: flex;
   align-items: center;
   max-width: 900px;
@@ -45,12 +45,13 @@ export default defineComponent({
   color: var(--color-text);
   font-family: var(--font-title);
   text-align: left; /* Ensure text within the text box is left-aligned */
+  margin: 0 auto;
 }
 
 .display-1 {
-  font-size: 8.5rem;
+  font-size: 9.5rem;
   margin-bottom: 5.5rem;
-  margin-top: 5rem;
+  margin-top: 1rem;
   line-height: 1;
 }
 
@@ -64,11 +65,6 @@ export default defineComponent({
   margin-bottom: 1.2rem;
 }
 
-.rsvp-button {
-  margin-top: 1rem;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
-}
 
 @media (max-width: 900px) {
   .display-1 {

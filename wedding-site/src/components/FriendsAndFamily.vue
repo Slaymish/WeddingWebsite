@@ -2,16 +2,19 @@
 import { defineComponent, onMounted, ref } from 'vue'
 import PersonCard from './PersonCard.vue'
 import DividerComponent from './DividerComponent.vue'
+import PartyModal from './PartyModal.vue'
+
+// Watch for close modal event (will be emitted from PartyModal.vue)
 
 export default defineComponent({
   name: 'FriendsAndFamily',
-  components: { PersonCard, DividerComponent },
+  components: { PersonCard, DividerComponent, PartyModal },
   data() {
     return {
       honoredGuests: [
         [
           { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/blank_profile.jpg'},
-          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg' }
+          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg'}
         ]
       ],
       familyPairs: [
@@ -34,6 +37,7 @@ export default defineComponent({
   },
   setup() {
     const observedElements = ref([]);
+    const modalOpen = ref(false);
 
     // New method to set the observed element
     const setObservedElement = (el) => {
@@ -57,8 +61,19 @@ export default defineComponent({
       observedElements.value.forEach(el => observer.observe(el));
     });
 
-    return { observedElements, setObservedElement };
+    const openModal = (person) => {
+      console.log(person);
+      modalOpen.value = true;
+    }
+
+    return { observedElements, setObservedElement, openModal, modalOpen }
   },
+  methods: {
+    closeModal() {
+      this.modalOpen = false;
+    }
+  },
+
 })
 </script>
 
@@ -73,16 +88,22 @@ export default defineComponent({
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
           <v-col cols="12" md="6" v-for="honoredGuest in pair" :key="honoredGuest.name">
             <div :ref="setObservedElement" class="person-card-container">
-              <PersonCard
-              :name="honoredGuest.name"
-              :title="honoredGuest.title"
-              :pictureURL="honoredGuest.pictureURL"
-              />
+              <a @click="openModal(honoredGuest)">
+                <PersonCard
+                  :class="{ 'visible': honoredGuest.visible }"
+                  :name="honoredGuest.name"
+                  :title="honoredGuest.title"
+                  :pictureURL="honoredGuest.pictureURL"
+                />
+              </a>
             </div>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
+
+    <PartyModal :honoredGuests="honoredGuests" :familyPairs="familyPairs" :modalOpen="modalOpen" />
+
 
     <!-- Family Section -->
     <v-row justify="center">
@@ -93,12 +114,14 @@ export default defineComponent({
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
           <v-col cols="12" md="6" v-for="familyMember in pair" :key="familyMember.name">
             <div :ref="setObservedElement" class="person-card-container">
-              <PersonCard
-                :class="{ 'visible': familyMember.visible }"
-                :name="familyMember.name"
-                :title="familyMember.title"
-                :pictureURL="familyMember.pictureURL"
-              />
+              <a @click="openModal(familyMember)">
+                <PersonCard
+                  :class="{ 'visible': familyMember.visible }"
+                  :name="familyMember.name"
+                  :title="familyMember.title"
+                  :pictureURL="familyMember.pictureURL"
+                />
+              </a>
             </div>
           </v-col>
         </v-row>
@@ -109,6 +132,18 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(255, 0, 0);
+}
+
 .person-card-container {
   opacity: 0;
   transform: translateY(40px);
@@ -121,7 +156,7 @@ export default defineComponent({
 }
 
 .friends-family {
-  margin-top: 3rem;
+  margin-top: 2rem;
   max-width: 900px;
 }
 
@@ -129,7 +164,7 @@ export default defineComponent({
   font-size: 2.5rem;
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   color: var(--color-text);
   font-family: var(--font-title);
 }
