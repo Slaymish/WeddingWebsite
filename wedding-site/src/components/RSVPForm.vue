@@ -5,7 +5,11 @@
       <v-text-field v-model="email" :rules="emailRules" label="E-mail *"></v-text-field>
       <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
       <v-textarea v-model="message" label="Message"></v-textarea>
-      <v-radio-group v-model="attending" label="Will you be attending *">
+      <v-radio-group v-model="takingBus" label="Will you be taking the bus?">
+        <v-radio value="yes" label="Yes"></v-radio>
+        <v-radio value="no" label="No"></v-radio>
+      </v-radio-group>
+      <v-radio-group v-model="attending" label="Will you be attending?">
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>
@@ -32,6 +36,7 @@ export default defineComponent({
       message: '',
       attending: false,
       dietaryRestrictions: '',
+      takingBus: false,
       rsvpSubmitted: false, // Declare the rsvpSubmitted property
       nameRules: [
         (v: string) => !!v || 'Name is required',
@@ -55,7 +60,8 @@ export default defineComponent({
           email: this.email,
           message: this.message,
           dietaryRestrictions: this.dietaryRestrictions,
-          attending: this.attending
+          attending: this.attending,
+          takingBus: this.takingBus
         })
         this.resetForm()
       } catch (error: any) {
@@ -69,6 +75,7 @@ export default defineComponent({
       this.message = ''
       this.dietaryRestrictions = ''
       this.attending = false
+      this.takingBus = false
     }
   }
 })

@@ -74,9 +74,16 @@ export default defineComponent({
 
 <style scoped>
 .v-card {
-  background-color: var(--color-background);
+  background-color: var(--white-soft);
   max-width: 500px;
   margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.6s ease-in-out;
+}
+
+.v-card:hover {
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
 }
 
 .title {
@@ -92,11 +99,6 @@ export default defineComponent({
   margin: auto;
   padding: 2rem 0;
   font-family: var(--font-title);
-}
-
-.schedule-card {
-  border: none;
-  box-shadow: none;
 }
 
 .custom-timeline {

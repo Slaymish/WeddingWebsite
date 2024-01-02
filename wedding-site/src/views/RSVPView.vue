@@ -8,7 +8,7 @@
       </div>
       <div class="body">
         <p>
-          Please RSVP by the XXX, 2024. 
+          Please RSVP by the 1st of April, 2024 
           <br>
           If you have any questions, please contact us at
           <a href="mailto:sarah@jumptechnics.com" class="email-link">sarah@jumptechnics.com</a>
@@ -39,7 +39,6 @@ export default defineComponent({
 .title {
   font-family: var(--font-title);
   font-size: 2.5rem;
-  margin-top: 5rem;
   margin-bottom: 1rem;
 }
 

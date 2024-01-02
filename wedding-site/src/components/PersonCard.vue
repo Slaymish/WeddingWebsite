@@ -40,10 +40,10 @@ export default defineComponent({
 <style scoped>
 .person-card {
   max-width: 350px;
-  margin: auto;
-  background-color: transparent;
-  color: #444;
-  overflow: visible;
+  margin: 0 auto;
+  background-color: var(--white-soft);
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .person-card .v-avatar {

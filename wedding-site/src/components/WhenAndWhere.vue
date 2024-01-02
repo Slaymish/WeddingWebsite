@@ -2,12 +2,12 @@
   <v-container class="main-container">
     <!-- Details Section -->
     <v-row justify="center">
-      <v-col cols="12" sm="10" md="8" lg="6">
+      <v-col cols="12" sm="10" md="8" lg="9">
         <v-card v-for="detail in details" :key="detail.id" class="mb-4" outlined>
           <v-card-title>{{ detail.name }}</v-card-title>
           <v-card-text v-html="detail.answer"></v-card-text>
-          <DividerComponent />
         </v-card>
+        <DividerComponent />
       </v-col>
     </v-row>
 
@@ -27,8 +27,10 @@
 
     <!-- RSVP Button -->
     <v-row justify="center">
-      <v-col cols="12" sm="10" md="8" lg="6">
-        <v-btn class="rsvp-button" :to="{ name: 'rsvp' }" large outlined color="secondary"> RSVP </v-btn>
+      <v-col cols="12" sm="10" md="8" lg="6" class="text-center">
+        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'"
+          >RSVP</v-btn
+        >      
       </v-col>
     </v-row>
   </v-container>
@@ -93,10 +95,25 @@ export default defineComponent({
 }
 
 .v-card {
-  background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-title);
   box-shadow: none;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;  
+  background-color: var(--white-soft);
+  border: none;
+  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.6s ease-in-out; 
+}
+
+.v-card:hover {
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);  
+}
+
+.text-center {
   text-align: center;
 }
 
@@ -112,15 +129,6 @@ export default defineComponent({
   font-family: var(--font-text);
   color: var(--color-text);
   margin-bottom: 1rem;
-}
-
-.rsvp-button {
-  font-size: 1rem;
-  color: var(--color-text);
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-top: 2rem;
-  width: 100%;
 }
 
 .map-iframe {

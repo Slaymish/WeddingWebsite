@@ -5,6 +5,7 @@ import FriendsAndFamily from '@/components/FriendsAndFamily.vue'
 import WhenAndWhereVue from '@/components/WhenAndWhere.vue'
 import WeddingSchedule from '@/components/WeddingSchedule.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   components: {
@@ -13,8 +14,9 @@ export default {
     FriendsAndFamily,
     WhenAndWhereVue,
     WeddingSchedule,
-    FooterComponent
-  }
+    FooterComponent,
+    NavBar
+}
 }
 </script>
 
@@ -29,4 +31,5 @@ export default {
   <FooterComponent :topButton="true" />
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

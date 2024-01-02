@@ -1,41 +1,49 @@
 <template>
   <header>
     <nav :class="{ 'is-open': menuOpen }">
-      <RouterLink to="/">Wedding</RouterLink>
-      <RouterLink to="/when-and-where">When & Where</RouterLink>
-      <RouterLink to="/rsvp">RSVP</RouterLink>
+      <a @click="scrollTo('top')">Home</a>
+      <a @click="scrollTo('couple-details')">Couple</a>
+      <a @click="scrollTo('wedding-party')">Wedding Party</a>
+      <a @click="scrollTo('wedding-schedule')">Schedule</a>
+      <a @click="scrollTo('when-and-where')">Details</a>
     </nav>
     <button @click="toggleMenu" class="hamburger">&#9776;</button>
   </header>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { ref } from 'vue'
-import { watch } from 'vue'
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
-const menuOpen = ref(false)
+export default defineComponent({
+  name: 'NavBar',
+  setup() {
+    const menuOpen = ref(false)
 
-function toggleMenu() {
-  menuOpen.value = !menuOpen.value
-}
+    const scrollTo = (to: string) => {
+        const element = document.getElementById(to);
+        if (element !== null) {
+          element.scrollIntoView();
+        } else {
+          console.log(`Element with id ${to} not found`)
+        }
+    }
 
-watch(route, () => {
-  menuOpen.value = false
-})
+    const toggleMenu = () => {
+      menuOpen.value = !menuOpen.value
+    }
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) {
-    menuOpen.value = false
-  }
-})
+    return {
+      toggleMenu,
+      scrollTo,
+      menuOpen
+    }
+  },
+});
 </script>
 
 <style scoped>
 nav {
-  position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -44,7 +52,6 @@ nav {
   transition: transform 0.3s ease;
   transform: translateY(0);
   z-index: 100;
-  backdrop-filter: blur(20px);
 }
 
 nav.is-open {
