@@ -21,10 +21,10 @@ export default defineComponent({
     <div class="profile-section">
       <!-- Vuetify Quote -->
       <p class="quote">
-        One small step for man, a huge step for mankind
+         Life is like riding a bicycle. To keep your balance, you must keep moving.
       </p>
       <p class="quote-author">
-        - Neil Armstrong
+        - Albert Einstein
       </p>
     </div>
   </div>

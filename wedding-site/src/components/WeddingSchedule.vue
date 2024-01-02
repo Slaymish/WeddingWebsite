@@ -44,7 +44,7 @@ export default defineComponent({
         {
           id: 3,
           time: '4:00 PM',
-          description: 'Snacks and Drinks',
+          description: 'Refreshments',
           icon: 'mdi-food'
         },
         {
