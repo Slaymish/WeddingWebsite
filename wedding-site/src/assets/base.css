@@ -8,6 +8,8 @@
   --white-soft: #f8f8f8;
   --white-mute: #f2f2f2;
 
+  --white-dark: #dbdbdb;
+
   --black: #181818;
 
   --black-soft: #222;
@@ -70,4 +72,10 @@ body {
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.rsvp-button {
+  margin-top: 1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
 }
