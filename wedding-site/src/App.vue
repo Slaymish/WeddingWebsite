@@ -55,6 +55,18 @@ export default {
   .main {
     padding-top: 0px;
     background-color: var(--color-background);
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .back {
+    background-color: var(--color-background);
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .main-container {
+    padding: 0;
   }
 }
 

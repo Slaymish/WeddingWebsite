@@ -1,14 +1,13 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import PersonCard from './PersonCard.vue'
-import DividerComponent from './DividerComponent.vue'
 import PartyModal from './PartyModal.vue'
 
 // Watch for close modal event (will be emitted from PartyModal.vue)
 
 export default defineComponent({
   name: 'FriendsAndFamily',
-  components: { PersonCard, DividerComponent, PartyModal },
+  components: { PersonCard, PartyModal },
   data() {
     return {
       honoredGuests: [
@@ -23,8 +22,8 @@ export default defineComponent({
           { name: 'Bryon', title: "Groom's Dad", pictureURL: 'people/bryon.webp' }
         ],
         [
-          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/steve.webp' },
-          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/sarah.webp' }
+          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/sarah_cropped.webp' },
+          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/steve.webp' }
         ],
         [
           { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/blank_profile.jpg' },
@@ -84,9 +83,9 @@ export default defineComponent({
       <v-col cols="12">
         <h2 class="section-title">Wedding Party</h2>
         <!-- Use a new row for each pair to ensure they are on the same line -->
-        <v-row v-for="(pair, index) in honoredGuests" :key="index" justify="space-around">
+        <v-row v-for="(pair, index) in honoredGuests" :key="index" justify="center">
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
-          <v-col cols="12" md="3" v-for="honoredGuest in pair" :key="honoredGuest.name">
+          <v-col cols="6" md="3" v-for="honoredGuest in pair" :key="honoredGuest.name">
             <div :ref="setObservedElement" class="person-card-container">
               <a @click="openModal(honoredGuest)">
                 <PersonCard
@@ -110,9 +109,9 @@ export default defineComponent({
       <v-col cols="12">
         <h2 class="section-title">Family</h2>
         <!-- Use a new row for each pair to ensure they are on the same line -->
-        <v-row v-for="(pair, index) in familyPairs" :key="index" justify="space-around">
+        <v-row v-for="(pair, index) in familyPairs" :key="index" justify="center">
           <!-- Set cols="6" on medium and larger screens, full width on smaller screens -->
-          <v-col cols="12" md="3" v-for="familyMember in pair" :key="familyMember.name">
+          <v-col cols="6" md="3" v-for="familyMember in pair" :key="familyMember.name">
             <div :ref="setObservedElement" class="person-card-container">
               <a @click="openModal(familyMember)">
                 <PersonCard
@@ -128,7 +127,6 @@ export default defineComponent({
       </v-col>
     </v-row>
   </v-container>
-  <DividerComponent />
 </template>
 
 <style scoped>
@@ -182,19 +180,19 @@ export default defineComponent({
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .person-card-container {
-    margin-bottom: 2rem;
-    max-width: 350px;
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .section-title {
     font-size: 2rem;
   }
 
-  .person-card {
-    margin-bottom: 2rem;
+  .person-card-container {
+    margin-bottom: 1rem;
   }
 }
 </style>

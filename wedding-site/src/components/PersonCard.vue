@@ -2,9 +2,7 @@
   <v-card class="person-card" flat>
     <v-row>
       <v-col class="d-flex justify-center">
-        <v-avatar size="164" color="white">
-          <v-img :src="imageSrc" :alt="name" :title="name" class="elevation-12"></v-img>
-        </v-avatar>
+          <v-img :src="imageSrc" :alt="name" :title="name" class="elevation-2" :cover="true"></v-img>
       </v-col>
     </v-row>
     <v-row>
@@ -58,17 +56,11 @@ export default defineComponent({
 }
 
 .v-img {
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.1),
-    0 6px 6px rgba(0, 0, 0, 0.15);
-
   border-radius: 50%;
   border: 4px solid #fff;
-
   /* Make the image fill its container */
-  min-width: 210px;
-  min-height: 210px;
-  width: 100%;
+  width: 150px;
+  height: 150px;
 }
 
 .subtitle-1 {
@@ -84,8 +76,15 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-  .person-card {
-    width: 90%; /* adjust this value as needed */
+
+  .name {
+    font-size: 1.25rem;
+  }
+
+  .v-img {
+    width: 130px;
+    height: 130px;
+    border: 2px solid #fff;
   }
 }
 </style>

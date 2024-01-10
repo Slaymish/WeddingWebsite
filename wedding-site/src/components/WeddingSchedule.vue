@@ -74,12 +74,11 @@ export default defineComponent({
 
 <style scoped>
 .v-card {
-  background-color: var(--white-mute);
+  background-color: var(--white-soft);
   max-width: 500px;
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.6s ease-in-out;
+  box-shadow: none;
 }
 
 .title {

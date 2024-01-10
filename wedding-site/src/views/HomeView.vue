@@ -6,6 +6,7 @@ import WhenAndWhereVue from '@/components/WhenAndWhere.vue'
 import WeddingSchedule from '@/components/WeddingSchedule.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import NavBar from '@/components/NavBar.vue'
+import DividerComponent from '@/components/DividerComponent.vue'
 
 export default {
   components: {
@@ -15,16 +16,19 @@ export default {
     WhenAndWhereVue,
     WeddingSchedule,
     FooterComponent,
-    NavBar
+    NavBar,
+    DividerComponent
 }
 }
 </script>
 
 <template>
   <div>
-    <HeroSection :mainTitle="'Lani & Finlay'" :date="'25th of May, 2024'" />
+    <HeroSection :date="'25th of May, 2024'" />
     <CoupleDetails />
+    <DividerComponent />
     <FriendsAndFamily />
+    <DividerComponent />
     <WeddingSchedule />
     <WhenAndWhereVue />
   </div>

@@ -1,13 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CoupleImages from './CoupleImages.vue'
-import DividerComponent from './DividerComponent.vue'
 
 export default defineComponent({
   name: 'CoupleDetails',
   components: {
-    CoupleImages,
-    DividerComponent
+    CoupleImages 
   },
   setup() {}
 })
@@ -28,7 +26,6 @@ export default defineComponent({
       </p>
     </div>
   </div>
-  <DividerComponent />
 </template>
 
 <style scoped>

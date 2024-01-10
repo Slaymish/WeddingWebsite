@@ -86,8 +86,7 @@ export default defineComponent({
 <style scoped>
 .main-container {
   padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.6s ease-in-out; 
+  /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);*/
   border-radius: 10px;
   max-width: 750px;
 }
@@ -140,6 +139,10 @@ export default defineComponent({
 @media (max-width: 768px) {
   .map-iframe {
     height: 300px;
+  }
+
+  .v-card-title {
+    font-size: 1.43rem;
   }
 }
 </style>

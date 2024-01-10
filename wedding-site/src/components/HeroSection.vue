@@ -1,9 +1,9 @@
 <template>
-  <v-container fluid class="hero-section">
+  <v-container class="hero-section">
     <v-row class="fill-height" align="center" justify="start">
-      <v-col cols="12" sm="10" md="8" lg="6" class="text-box">
+      <v-col cols="10" sm="6" md="6" class="text-box">
         <div class="hero-subtitle">Together with their families</div>
-        <h1 class="display-1">{{ mainTitle }}</h1>
+        <h1 class="display-1">Lani<br>&<br>Finlay</h1>
         <div class="hero-subtitle">Invite you to join them</div>
         <div class="display-2">{{ date }}</div>
         <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'"
@@ -20,10 +20,6 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'HeroSection',
   props: {
-    mainTitle: {
-      type: String,
-      required: true
-    },
     date: {
       type: String,
       required: true
@@ -69,25 +65,25 @@ export default defineComponent({
 
 @media (max-width: 900px) {
   .display-1 {
-    font-size: 6rem;
-    margin-bottom: 3.5rem;
-    margin-top: 3rem;
+    font-size: 7rem;
   }
 
   .display-2 {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
   }
 
   .hero-subtitle {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
   }
 
   .hero-section {
-    height: 100vh;
-    padding: 1rem;
+    min-height: 500px;
+    margin-top: 8rem;
   }
-  
+
+  .text-box {
+    padding: 0 1rem;
+  }
 }
+
 </style>

@@ -94,8 +94,10 @@ export default defineComponent({
   :modules="modules"
   class="mySwiper"
 >
-  <SwiperSlide v-for="image in images" :key="image.id" class="image-item">
-    <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="SwiperImage" />
+  <SwiperSlide v-for="image in images" :key="image.id">
+    <div class="image-container">
+      <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="SwiperImage" />
+    </div>
   </SwiperSlide>
 </swiper>
 </template>
@@ -106,6 +108,16 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   margin: 0 auto;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
 }
 
 .swiper-button-next,
@@ -131,21 +143,12 @@ export default defineComponent({
   font-weight: bold;
 }
 
-/* Image wrapper */
-.image-item {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* Single image */
 .SwiperImage {
   width: auto;
-  height: 550px;
+  height: 450px;
   object-fit: contain;
-  overflow: hidden;
 }
 
 
@@ -153,6 +156,15 @@ export default defineComponent({
 @media (max-width: 768px) {
   .swiper-slide {
     width: 100vw;
+  }
+
+  .image-container {
+    width: 100%;
+    background-color: var(--white-soft);
+  }
+
+  .image-container img {
+    width: 100%;
   }
 
   .SwiperImage {
