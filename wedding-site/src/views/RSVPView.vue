@@ -98,4 +98,10 @@ export default defineComponent({
 .email-link:hover {
   color: #115293;
 }
+
+@media (max-width: 768px) {
+  .main {
+    margin-top: 6rem;
+  }
+}
 </style>

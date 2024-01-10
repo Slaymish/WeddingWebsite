@@ -117,6 +117,10 @@ form {
   width: 100%;
 }
 
+.v-radio-group {
+  width: 100%;
+}
+
 .v-btn {
   margin-top: 1rem;
 }
@@ -125,45 +129,12 @@ form {
   margin-right: 1rem;
 }
 
-@media (min-width: 768px) {
-  form {
-    width: 50%;
-  }
-}
 
-@media (min-width: 1024px) {
+@media (max-width: 768px) {
   form {
-    width: 40%;
+    min-width: 0;
+    width: 350px;
   }
-}
-
-@media (min-width: 1440px) {
-  form {
-    width: 30%;
-  }
-}
-
-@media (min-width: 1920px) {
-  form {
-    width: 25%;
-  }
-}
-
-@media (min-width: 2560px) {
-  form {
-    width: 20%;
-  }
-}
-
-@media (min-width: 3840px) {
-  form {
-    width: 15%;
-  }
-}
-
-@media (min-width: 5120px) {
-  form {
-    width: 10%;
-  }
+  
 }
 </style>
