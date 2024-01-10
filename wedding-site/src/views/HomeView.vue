@@ -27,9 +27,9 @@ export default {
     <HeroSection :date="'25th of May, 2024'" />
     <CoupleDetails />
     <DividerComponent />
+    <WeddingSchedule />
     <FriendsAndFamily />
     <DividerComponent />
-    <WeddingSchedule />
     <WhenAndWhereVue />
   </div>
   <FooterComponent :topButton="true" />
