@@ -24,12 +24,24 @@ exports.sendEmailConfirmation = functions.firestore
       msg.text = `Dear ${newValue.name},\n\nWe're sorry to hear you can't make it. We'll miss you!`;
     }
 
+    let coupleEmail = "Dear Lani and Finlay,\n\n";
+
+    coupleEmail += `${newValue.name} has RSVP'd to your wedding. They are ${newValue.attending ? "attending" : "not attending"}.`;
+
+    if(newValue.message && newValue.message.length > 0) {
+      coupleEmail += `\n\nThey left a message: "${newValue.message}"`;
+    }
+
+    coupleEmail += `\n\nView all attending at https://laniandfinlay.com/attending.`;
+
+    coupleEmail += `\n\nLove,\nHamish\n\nPS: This email was sent by a robot.`;
+
     // Send another email to the couple.
     const msgToCouple = {
-      to: "hamishapps@gmail.com",
+      to: "lanisimba@icloud.com",
       from: "me@hamishburke.dev",
-      subject: `New RSVP (${newValue.name})`,
-      text: `Dear Lani and Finlay,\n\n ${newValue.name} has RSVP'd to your wedding. They are ${newValue.attending ? "attending" : "not attending"} and have ${newValue.dietaryRequirements ? "dietary requirements" : "no dietary requirements"}.View all attending at https://laniandfinlay.com/attending.\n\nLove,\nHamish\n\nPS: This email was sent by a robot.`,
+      subject: "RSVP received",
+      text: coupleEmail,
     };
 
     // Send the email.
