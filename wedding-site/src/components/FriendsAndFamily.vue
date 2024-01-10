@@ -13,18 +13,18 @@ export default defineComponent({
     return {
       honoredGuests: [
         [
-          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/blank_profile.jpg'},
+          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/jamie.webp'},
           { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg'}
         ]
       ],
       familyPairs: [
         [
-          { name: 'Wendy', title: "Groom's Mum", pictureURL: 'people/wendy.JPG' },
-          { name: 'Bryon', title: "Groom's Dad", pictureURL: 'people/bryon.JPG' }
+          { name: 'Wendy', title: "Groom's Mum", pictureURL: 'people/wendy.webp' },
+          { name: 'Bryon', title: "Groom's Dad", pictureURL: 'people/bryon.webp' }
         ],
         [
-          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/blank_profile.jpg' },
-          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/blank_profile.jpg' }
+          { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/steve.webp' },
+          { name: 'Sarah', title: "Bride's Mum", pictureURL: 'people/sarah.webp' }
         ],
         [
           { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/blank_profile.jpg' },

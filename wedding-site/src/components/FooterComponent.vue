@@ -28,6 +28,9 @@ export default defineComponent({
   color: var(--color-text);
   font-family: var(--font-text);
   font-size: 1rem;
+  background-color: var(--white-soft);
+  padding: 0.5rem;
+  border-radius: 3px;
 }
 
 footer {
@@ -37,12 +40,17 @@ footer {
   align-items: center;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  z-index: 1000;
+  margin-top: 4rem;
 }
 
 footer p {
   font-family: var(--font-text);
   font-size: 1rem;
   color: var(--color-text);
+  background-color: var(--white-soft);
+  padding: 0.5rem;
+  border-radius: 3px;
 }
 
 footer a {

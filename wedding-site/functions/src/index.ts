@@ -11,17 +11,18 @@ exports.sendEmailConfirmation = functions.firestore
   .onCreate((snap: QueryDocumentSnapshot) => {
     const newValue = snap.data();
 
-    // If they're not attending, don't send the email.
-    if (!newValue.attending) {
-      return null;
-    }
-
     const msg = {
       to: newValue.email,
       from: "me@hamishburke.dev", // Use the email address or domain you verified with SendGrid
       subject: "Thank you for your RSVP!",
       text: `Dear ${newValue.name},\n\nThank you for your RSVP. We look forward to seeing you at the wedding!`,
     };
+
+    // If they're not attending, don't send the email.
+    if (!newValue.attending) {
+      msg.subject = "Sorry you can't make it!";
+      msg.text = `Dear ${newValue.name},\n\nWe're sorry to hear you can't make it. We'll miss you!`;
+    }
 
     return sgMail.send(msg).then(() => {
       console.log("Email sent");

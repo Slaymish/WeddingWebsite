@@ -39,6 +39,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   max-width: 900px;
+  margin-top: 2rem;
 }
 
 .text-box {

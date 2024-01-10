@@ -49,7 +49,7 @@ export default defineComponent({
   justify-content: center;
   margin: 0 auto;
   text-align: center;
-  max-width: 400px;
+  max-width: 600px;
   margin-bottom: 2rem;
   background-color: var(--white-mute);
   border-radius: 20px;

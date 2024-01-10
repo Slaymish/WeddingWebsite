@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!rsvpSubmitted">
     <form @submit.prevent="submitRSVP">
       <v-text-field v-model="name" :rules="nameRules" label="Name *"></v-text-field>
       <v-text-field v-model="email" :rules="emailRules" label="E-mail *"></v-text-field>
@@ -17,8 +17,11 @@
         <v-btn type="submit">Submit</v-btn>
         <v-btn @click="resetForm">Clear</v-btn>
       </v-btn-group>
-      <v-label v-if="rsvpSubmitted" class="submitted-label">Confirmation email sent!</v-label>
     </form>
+  </div>
+  <div v-else>
+    <div class="submitted-label">Thank you for your RSVP!</div>
+    <p>Check your email for a confirmation.</p>
   </div>
 </template>
 
@@ -99,7 +102,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
+  min-width: 500px;
 }
 
 .v-text-field {

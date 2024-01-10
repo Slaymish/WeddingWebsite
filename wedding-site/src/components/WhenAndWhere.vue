@@ -86,6 +86,10 @@ export default defineComponent({
 <style scoped>
 .main-container {
   padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.6s ease-in-out; 
+  border-radius: 10px;
+  max-width: 750px;
 }
 
 .map-section {
@@ -99,18 +103,11 @@ export default defineComponent({
   font-family: var(--font-title);
   box-shadow: none;
   text-align: center;
-  border-radius: 10px;
   margin-bottom: 1rem;
-  padding: 1rem;  
+  padding: 2rem;  
   background-color: var(--white-soft);
   border: none;
-  
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.6s ease-in-out; 
-}
-
-.v-card:hover {
-  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);  
+  border-radius: 10px;
 }
 
 .text-center {
@@ -118,7 +115,7 @@ export default defineComponent({
 }
 
 .v-card-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: var(--font-title);
   color: var(--color-text);
   margin-bottom: 1rem;

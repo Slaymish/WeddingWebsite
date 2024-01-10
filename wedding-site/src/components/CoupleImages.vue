@@ -22,7 +22,7 @@ export default defineComponent({
       images: [
         {
           id: 1,
-          imagesrc: 'coupleslider/compressor/car.webp',
+          imagesrc: 'coupleslider/compressor/red_tie.webp',
           caption: 'Caption 1'
         },
         {
@@ -32,7 +32,7 @@ export default defineComponent({
         },
         {
           id: 3,
-          imagesrc: 'coupleslider/compressor/city.webp',
+          imagesrc: 'coupleslider/compressor/hiking_new.webp',
           caption: 'Caption 3'
         },
         {
@@ -59,6 +59,11 @@ export default defineComponent({
           id: 8,
           imagesrc: 'coupleslider/compressor/wings.webp',
           caption: 'Caption 8'
+        },
+        {
+          id: 9,
+          imagesrc: 'coupleslider/compressor/cowboy.webp',
+          caption: 'Caption 9'
         }
       ]
     }

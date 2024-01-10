@@ -1,7 +1,7 @@
 <template>
   <div class="back">
     <v-app class="main">
-      <h1 class="wip">This site is a work in progress on mobile. Please view on a desktop.</h1>
+      <!--<h1 class="wip">This site is a work in progress on mobile. Please view on a desktop.</h1>-->
       <router-view />
     </v-app>
   </div>
@@ -34,13 +34,21 @@ export default {
   margin: 0 auto;
   padding-top: 90px; /* Adjust this to the new size of your image */
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+
+  /* Background image */
+  background-image: url('/src/assets/images/flower_header_tiled.webp'), url('/src/assets/images/flower_footer_tiled.webp');
+  background-repeat: repeat-x, repeat-x;
+  background-position: top, bottom;
+  background-size: auto 150px, auto 150px;
 }
 
 .back {
   background-color: var(--color-background);
-  background-image: url('/src/assets/images/flower_header_tiled.png'); /* Ensure this is the correct path */
-  background-repeat: repeat-x;
-  background-size: auto 350px; /* Maintain the aspect ratio and fill the height */
+  background-image: url('/src/assets/images/flower_header_tiled.webp'), url('/src/assets/images/flower_footer_tiled.webp');
+  background-repeat: repeat-x, repeat-x;
+  background-position: top, bottom;
+  background-size: auto 150px, auto 150px;
+  background-attachment: fixed, fixed;
 }
 
 @media (max-width: 900px) {
