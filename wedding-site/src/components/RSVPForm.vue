@@ -5,11 +5,11 @@
       <v-text-field v-model="email" :rules="emailRules" label="E-mail *"></v-text-field>
       <v-textarea v-model="dietaryRestrictions" label="Dietary Restrictions"></v-textarea>
       <v-textarea v-model="message" label="Message"></v-textarea>
-      <v-radio-group v-model="takingBus" label="Will you be taking the bus?">
+      <v-radio-group v-model="takingBus" label="Will you require bus transport?">
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>
-      <v-radio-group v-model="attending" label="Will you require bus transport?">
+      <v-radio-group v-model="attending" label="Will you be attending?">
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>
