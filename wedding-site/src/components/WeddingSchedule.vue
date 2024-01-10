@@ -74,16 +74,12 @@ export default defineComponent({
 
 <style scoped>
 .v-card {
-  background-color: var(--white-soft);
+  background-color: var(--white-mute);
   max-width: 500px;
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.6s ease-in-out;
-}
-
-.v-card:hover {
-  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
 }
 
 .title {
@@ -148,6 +144,7 @@ export default defineComponent({
 .event-icon {
   font-size: 1.5rem;
   margin-left: 8px;
+  color: var(--color-primary);
 }
 
 .caption {

@@ -9,7 +9,7 @@
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>
-      <v-radio-group v-model="attending" label="Will you be attending?">
+      <v-radio-group v-model="attending" label="Will you require bus transport?">
         <v-radio value="yes" label="Yes"></v-radio>
         <v-radio value="no" label="No"></v-radio>
       </v-radio-group>

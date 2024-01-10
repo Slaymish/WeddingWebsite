@@ -52,7 +52,7 @@ export default defineComponent({
           id: 1,
           name: 'Transport',
           answer:
-            'A bus will be provided to transport guests from Tauranga to the wedding venue. The bus will leave from Bethlehem Shopping Centre at 2:30pm and returning from the venue at 10:30pm. <br><br> If you are driving, there is parking available on-site.'
+            'A bus will be provided to transport guests from Tauranga to the wedding venue. The bus will be leaving from Bethlehem Countdown Carpark at 2:30pm and will be returning from the venue at 10:30pm. <br><br> If you are driving, there is parking available on-site.'
         },
         {
           id: 2,
