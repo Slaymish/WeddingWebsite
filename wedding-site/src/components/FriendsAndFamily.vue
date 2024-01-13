@@ -12,8 +12,8 @@ export default defineComponent({
     return {
       honoredGuests: [
         [
-          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/jamie.webp'},
-          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg'}
+          { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/jamie.webp' },
+          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg' }
         ]
       ],
       familyPairs: [
@@ -35,44 +35,46 @@ export default defineComponent({
     }
   },
   setup() {
-    const observedElements = ref([]);
-    const modalOpen = ref(false);
+    const observedElements = ref([])
+    const modalOpen = ref(false)
 
     // New method to set the observed element
     const setObservedElement = (el) => {
-      if (el) observedElements.value.push(el);
-    };
+      if (el) observedElements.value.push(el)
+    }
 
     onMounted(() => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = observedElements.value.indexOf(entry.target);
-            if (index !== -1) {
-              observedElements.value.splice(index, 1); // Remove element from the array once observed
-              entry.target.classList.add('visible'); // Add 'visible' class to the observed element
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const index = observedElements.value.indexOf(entry.target)
+              if (index !== -1) {
+                observedElements.value.splice(index, 1) // Remove element from the array once observed
+                entry.target.classList.add('visible') // Add 'visible' class to the observed element
+              }
+              observer.unobserve(entry.target) // Stop observing the current target
             }
-            observer.unobserve(entry.target); // Stop observing the current target
-          }
-        });
-      }, { threshold: 0.6 });
+          })
+        },
+        { threshold: 0.6 }
+      )
 
-      observedElements.value.forEach(el => observer.observe(el));
-    });
+      observedElements.value.forEach((el) => observer.observe(el))
+    })
 
     const openModal = (person) => {
-      console.log(person);
-      modalOpen.value = true;
+      console.log(person)
+      modalOpen.value = true
     }
 
     return { observedElements, setObservedElement, openModal, modalOpen }
   },
   methods: {
     closeModal() {
-      this.modalOpen = false;
+      this.modalOpen = false
     }
-  },
-
+  }
 })
 </script>
 
@@ -89,7 +91,7 @@ export default defineComponent({
             <div :ref="setObservedElement" class="person-card-container">
               <a @click="openModal(honoredGuest)">
                 <PersonCard
-                  :class="{ 'visible': honoredGuest.visible }"
+                  :class="{ visible: honoredGuest.visible }"
                   :name="honoredGuest.name"
                   :title="honoredGuest.title"
                   :pictureURL="honoredGuest.pictureURL"
@@ -103,7 +105,6 @@ export default defineComponent({
 
     <!-- <PartyModal :honoredGuests="honoredGuests" :familyPairs="familyPairs" :modalOpen="modalOpen" /> -->
 
-
     <!-- Family Section -->
     <v-row justify="center">
       <v-col cols="12">
@@ -115,7 +116,7 @@ export default defineComponent({
             <div :ref="setObservedElement" class="person-card-container">
               <a @click="openModal(familyMember)">
                 <PersonCard
-                  :class="{ 'visible': familyMember.visible }"
+                  :class="{ visible: familyMember.visible }"
                   :name="familyMember.name"
                   :title="familyMember.title"
                   :pictureURL="familyMember.pictureURL"
@@ -153,14 +154,15 @@ export default defineComponent({
 .person-card-container {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s, transform 0.8s;
+  transition:
+    opacity 0.8s,
+    transform 0.8s;
 }
 
 .visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .section-title {
   font-size: 2.5rem;
@@ -171,9 +173,8 @@ export default defineComponent({
   font-family: var(--font-title);
 }
 
-
 .person-card-container {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;

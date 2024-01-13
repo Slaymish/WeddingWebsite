@@ -5,7 +5,7 @@ import CoupleImages from './CoupleImages.vue'
 export default defineComponent({
   name: 'CoupleDetails',
   components: {
-    CoupleImages 
+    CoupleImages
   },
   setup() {}
 })
@@ -19,11 +19,9 @@ export default defineComponent({
     <div class="profile-section">
       <!-- Vuetify Quote -->
       <p class="quote">
-         Life is like riding a bicycle. To keep your balance, you must keep moving.
+        Life is like riding a bicycle. To keep your balance, you must keep moving.
       </p>
-      <p class="quote-author">
-        - Albert Einstein
-      </p>
+      <p class="quote-author">- Albert Einstein</p>
     </div>
   </div>
 </template>
@@ -79,7 +77,7 @@ export default defineComponent({
 
 .images {
   margin: 0 auto;
-  width: 100%; 
+  width: 100%;
   margin-bottom: 2rem;
   margin: 0;
 }

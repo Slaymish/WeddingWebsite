@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 // import required modules
-import { Autoplay,Navigation } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 
 export default defineComponent({
   name: 'CoupleImages',
@@ -70,7 +70,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      modules: [Autoplay,Navigation]
+      modules: [Autoplay, Navigation]
     }
   },
   methods: {
@@ -78,32 +78,31 @@ export default defineComponent({
       return new URL(`../assets/images/${src}`, import.meta.url).href
     }
   }
-});
+})
 </script>
 
 <template>
   <swiper
-  :centeredSlides="false"
-  :autoplay="{
-    delay: 3000,
-    disableOnInteraction: false
-  }"
-  :navigation="true"
-  :loop="true"
-  :speed="500"
-  :modules="modules"
-  class="mySwiper"
->
-  <SwiperSlide v-for="image in images" :key="image.id">
-    <div class="image-container">
-      <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="SwiperImage" />
-    </div>
-  </SwiperSlide>
-</swiper>
+    :centeredSlides="false"
+    :autoplay="{
+      delay: 3000,
+      disableOnInteraction: false
+    }"
+    :navigation="true"
+    :loop="true"
+    :speed="500"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <SwiperSlide v-for="image in images" :key="image.id">
+      <div class="image-container">
+        <img :src="computeSrc(image.imagesrc)" alt="couple picture" class="SwiperImage" />
+      </div>
+    </SwiperSlide>
+  </swiper>
 </template>
 
 <style>
-
 .mySwiper {
   width: 100%;
   height: 100%;
@@ -131,7 +130,6 @@ export default defineComponent({
   transition: box-shadow 0.1s ease-in-out;
 }
 
-
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -143,14 +141,12 @@ export default defineComponent({
   font-weight: bold;
 }
 
-
 /* Single image */
 .SwiperImage {
   width: auto;
   height: 450px;
   object-fit: contain;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

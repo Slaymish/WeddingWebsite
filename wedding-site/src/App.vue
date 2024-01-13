@@ -24,18 +24,24 @@ export default {
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 
   /* Background image */
-  background-image: url('/src/assets/images/flower_header_tiled.webp'), url('/src/assets/images/flower_footer_tiled.webp');
+  background-image: url('/src/assets/images/flower_header_tiled.webp'),
+    url('/src/assets/images/flower_footer_tiled.webp');
   background-repeat: repeat-x, repeat-x;
   background-position: top, bottom;
-  background-size: auto 150px, auto 150px;
+  background-size:
+    auto 150px,
+    auto 150px;
 }
 
 .back {
   background-color: var(--color-background);
-  background-image: url('/src/assets/images/flower_header_tiled.webp'), url('/src/assets/images/flower_footer_tiled.webp');
+  background-image: url('/src/assets/images/flower_header_tiled.webp'),
+    url('/src/assets/images/flower_footer_tiled.webp');
   background-repeat: repeat-x, repeat-x;
   background-position: top, bottom;
-  background-size: auto 150px, auto 150px;
+  background-size:
+    auto 150px,
+    auto 150px;
   background-attachment: fixed, fixed;
 }
 
@@ -57,5 +63,4 @@ export default {
     padding: 0;
   }
 }
-
 </style>

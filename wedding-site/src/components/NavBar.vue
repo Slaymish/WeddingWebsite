@@ -21,12 +21,12 @@ export default defineComponent({
     const menuOpen = ref(false)
 
     const scrollTo = (to: string) => {
-        const element = document.getElementById(to);
-        if (element !== null) {
-          element.scrollIntoView();
-        } else {
-          console.log(`Element with id ${to} not found`)
-        }
+      const element = document.getElementById(to)
+      if (element !== null) {
+        element.scrollIntoView()
+      } else {
+        console.log(`Element with id ${to} not found`)
+      }
     }
 
     const toggleMenu = () => {
@@ -38,8 +38,8 @@ export default defineComponent({
       scrollTo,
       menuOpen
     }
-  },
-});
+  }
+})
 </script>
 
 <style scoped>

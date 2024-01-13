@@ -18,7 +18,7 @@ export default {
     FooterComponent,
     NavBar,
     DividerComponent
-}
+  }
 }
 </script>
 
@@ -35,5 +35,4 @@ export default {
   <FooterComponent :topButton="true" />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

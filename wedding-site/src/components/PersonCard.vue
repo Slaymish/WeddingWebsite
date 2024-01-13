@@ -2,7 +2,7 @@
   <v-card class="person-card" flat>
     <v-row>
       <v-col class="d-flex justify-center">
-          <v-img :src="imageSrc" :alt="name" :title="name" class="elevation-2" :cover="true"></v-img>
+        <v-img :src="imageSrc" :alt="name" :title="name" class="elevation-2" :cover="true"></v-img>
       </v-col>
     </v-row>
     <v-row>
@@ -76,7 +76,6 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-
   .name {
     font-size: 1.25rem;
   }

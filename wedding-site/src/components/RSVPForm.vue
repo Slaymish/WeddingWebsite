@@ -129,12 +129,10 @@ form {
   margin-right: 1rem;
 }
 
-
 @media (max-width: 768px) {
   form {
     min-width: 0;
     width: 350px;
   }
-  
 }
 </style>

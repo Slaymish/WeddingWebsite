@@ -8,8 +8,8 @@
       </div>
       <div class="body">
         <p>
-          Please RSVP by the 1st of April, 2024 
-          <br>
+          Please RSVP by the 1st of April, 2024
+          <br />
           If you have any questions, please contact us at
           <a href="mailto:sarah@jumptechnics.com" class="email-link">sarah@jumptechnics.com</a>
         </p>
@@ -53,7 +53,7 @@ export default defineComponent({
   margin-bottom: 2rem;
   background-color: var(--white-mute);
   border-radius: 20px;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);  
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
 }
 
 .body {

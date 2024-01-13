@@ -23,7 +23,6 @@ export default defineComponent({
     const password = ref('')
 
     const getAttendees = async () => {
-
       try {
         const attendeesCollection = collection(db, 'rsvps')
         const querySnapshot = await getDocs(attendeesCollection)
@@ -82,22 +81,20 @@ export default defineComponent({
         return `${row.name},${row.email},${row.message},${row.dietaryRestrictions},${row.attending}`
       })
       csv.unshift('Name,Email,Message,Dietary Restrictions,Attending')
-        const csvArray = csv.join('\r\n')
-        const a = document.createElement('a')
-        const blob = new Blob([csvArray], { type: 'text/csv' })
-        const url = window.URL.createObjectURL(blob)
-        const date = new Date()
-        const dateString = date.toISOString().split('T')[0]
+      const csvArray = csv.join('\r\n')
+      const a = document.createElement('a')
+      const blob = new Blob([csvArray], { type: 'text/csv' })
+      const url = window.URL.createObjectURL(blob)
+      const date = new Date()
+      const dateString = date.toISOString().split('T')[0]
 
-        url.replace('#', '%23')
-        a.href = url
-        a.download = 'attendees-' + dateString + '.csv'
-        a.click()
-        window.URL.revokeObjectURL(url)
-        a.remove()
-
+      url.replace('#', '%23')
+      a.href = url
+      a.download = 'attendees-' + dateString + '.csv'
+      a.click()
+      window.URL.revokeObjectURL(url)
+      a.remove()
     }
-
 
     return {
       showTable,
@@ -169,16 +166,16 @@ export default defineComponent({
       </table>
 
       <div class="options">
-      <a href="https://console.firebase.google.com/project/wedding-4a05a/firestore/data/~2Frsvps~2F2kMysMLx9nflibSnUqAu" target="_blank">
-        View in Firestore
+        <a
+          href="https://console.firebase.google.com/project/wedding-4a05a/firestore/data/~2Frsvps~2F2kMysMLx9nflibSnUqAu"
+          target="_blank"
+        >
+          View in Firestore
         </a>
 
-        <a
-        @click="downloadCSV"
-        href="#"
-        >Download CSV</a>
+        <a @click="downloadCSV" href="#">Download CSV</a>
 
-      <a @click="signOut" href="#">Sign out</a>
+        <a @click="signOut" href="#">Sign out</a>
       </div>
     </div>
 
@@ -191,16 +188,16 @@ export default defineComponent({
 
 <style scoped>
 .options {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
 }
 
 .options a {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
 
 .form {

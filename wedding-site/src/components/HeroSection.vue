@@ -3,7 +3,7 @@
     <v-row class="fill-height" align="center" justify="start">
       <v-col cols="10" sm="6" md="6" class="text-box">
         <div class="hero-subtitle">Together with their families</div>
-        <h1 class="display-1">Lani<br>&<br>Finlay</h1>
+        <h1 class="display-1">Lani<br />&<br />Finlay</h1>
         <div class="hero-subtitle">Invite you to join them</div>
         <div class="display-2">{{ date }}</div>
         <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'"
@@ -62,7 +62,6 @@ export default defineComponent({
   margin-bottom: 1.2rem;
 }
 
-
 @media (max-width: 900px) {
   .display-1 {
     font-size: 7rem;
@@ -85,5 +84,4 @@ export default defineComponent({
     padding: 0 1rem;
   }
 }
-
 </style>

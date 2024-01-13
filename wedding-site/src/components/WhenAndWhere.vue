@@ -30,7 +30,7 @@
       <v-col cols="12" sm="10" md="8" lg="6" class="text-center">
         <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'"
           >RSVP</v-btn
-        >      
+        >
       </v-col>
     </v-row>
   </v-container>
@@ -103,7 +103,7 @@ export default defineComponent({
   box-shadow: none;
   text-align: center;
   margin-bottom: 1rem;
-  padding: 2rem;  
+  padding: 2rem;
   background-color: var(--white-soft);
   border: none;
   border-radius: 10px;
