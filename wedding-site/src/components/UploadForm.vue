@@ -51,6 +51,7 @@
 import { defineComponent } from 'vue'
 import { db } from '@/firebase'
 import { collection, addDoc } from 'firebase/firestore'
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default defineComponent({
   name: 'UploadForm',
@@ -75,22 +76,34 @@ export default defineComponent({
   },
   methods: {
     async submitRSVP() {
-      this.rsvpSubmitted = true // Update the rsvpSubmitted property
+        this.rsvpSubmitted = true; // Update the rsvpSubmitted property
 
-      const visible = this.visibility === 'public'
+        const visible = this.visibility === 'public';
 
-      // Send the form data to Firestore
-      try {
-        await addDoc(collection(db, 'media'), {
-          caption: this.caption,
+        // Helper function to upload a single file
+        const uploadFile = async (file) => {
+            const storageRef = firebase.storage().ref('media/' + file.name);
+            const uploadTask = await storageRef.put(file);
+            return await uploadTask.ref.getDownloadURL();
+        };
+
+        try {
+            // Upload all media files and get their download URLs
+            const mediaUrls = await Promise.all(this.mediaFiles.map(file => uploadFile(file)));
+
+            // Send the form data with media URLs to Firestore
+            await addDoc(collection(db, 'media'), {
+            caption: this.caption,
             isPublic: visible,
-          mediaFiles: this.mediaFiles
-        })
-        this.resetForm()
-      } catch (error: any) {
-        console.error('Error writing document: ', error)
-        alert('Something went wrong!')
-      }
+            mediaFiles: mediaUrls // Store the URLs, not the files
+            });
+
+            this.resetForm();
+        } catch (error) {
+            console.error('Error writing document: ', error);
+            alert('Something went wrong!');
+            this.resetForm();
+        }
     },
     resetForm() {
       this.caption = ''
