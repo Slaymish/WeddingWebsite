@@ -19,6 +19,11 @@ const router = createRouter({
       path: '/attending',
       name: 'attending',
       component: () => import('../views/AttendingView.vue')
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: () => import('../views/UploadView.vue')
     }
   ]
 })
