@@ -23,14 +23,12 @@
 <script lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue'
 import RSVPForm from '@/components/RSVPForm.vue'
-import DividerComponent from '@/components/DividerComponent.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   components: {
     RSVPForm,
-    FooterComponent,
-    DividerComponent
+    FooterComponent
   }
 })
 </script>

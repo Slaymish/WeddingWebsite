@@ -16,12 +16,17 @@ const router = createRouter({
       component: () => import('../views/RSVPView.vue')
     },
     {
-      path: '/attending',
+      path: '/admin',
+      name: 'admin',
+      component: () => import('../views/AdminView.vue')
+    },
+    {
+      path: '/admin/attending',
       name: 'attending',
       component: () => import('../views/AttendingView.vue')
     },
     {
-      path: '/upload',
+      path: '/admin/upload',
       name: 'upload',
       component: () => import('../views/UploadView.vue')
     }
