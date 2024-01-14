@@ -1,4 +1,10 @@
 <template>
+  <div v-if="!isAdmin">
+    <p>Please log in to upload photos.</p>
+    <br />
+    <v-btn color="secondary" to="/admin">Back to Admin</v-btn>
+  </div>
+  <div v-else>
   <v-container align="center" class="main">
     <h1 class="title">Upload Photos</h1>
     <!-- Duplicate of above but using html -->
@@ -13,24 +19,52 @@
           <br />
           Feel free send me anything through my email as well.
         </p>
-        <v-btn color="secondary" href="/" class="back">Back to Home</v-btn>
+        <v-btn color="secondary" href="/admin" class="back">Back to Admin</v-btn>
       </div>
     </div>
   </v-container>
+  </div>
   <FooterComponent :topButton="false" />
 </template>
 
 <script lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue'
 import UploadForm from '@/components/UploadForm.vue'
-import DividerComponent from '@/components/DividerComponent.vue'
-import { defineComponent } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '@/firebase'
 
 export default defineComponent({
   components: {
     UploadForm,
-    FooterComponent,
-    DividerComponent
+    FooterComponent
+  },
+  setup() {
+    const isAdmin = ref(false)
+    const checkAuth = () => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, show the attending table
+          isAdmin.value = true
+        } else {
+          // No user is signed in, hide the attending table
+          isAdmin.value = false
+          
+          // change page to /admin
+          location.href = '/admin'
+
+        }
+      })
+    }
+
+    onMounted(() => {
+      checkAuth()
+    })
+
+    return {
+      isAdmin,
+      checkAuth
+    }
   }
 })
 </script>

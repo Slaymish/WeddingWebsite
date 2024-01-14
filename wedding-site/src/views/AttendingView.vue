@@ -2,7 +2,7 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { auth, db } from '@/firebase'
 import { collection, getDocs } from 'firebase/firestore'
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
 
 interface Attendee {
   name: string
@@ -14,13 +14,9 @@ interface Attendee {
 
 export default defineComponent({
   name: 'AttendingView',
-  components: {},
   setup() {
     const showTable = ref(false)
     const attendees = ref<Attendee[]>([])
-
-    const email = ref('')
-    const password = ref('')
 
     const getAttendees = async () => {
       try {
@@ -49,6 +45,7 @@ export default defineComponent({
           // No user is signed in, hide the attending table
           showTable.value = false
           // Implement your logic here for unauthenticated users
+          location.href = '/admin'
         }
       })
     }
@@ -57,15 +54,7 @@ export default defineComponent({
       checkAuth()
     })
 
-    const signIn = async () => {
-      try {
-        await signInWithEmailAndPassword(auth, email.value, password.value)
-        getAttendees()
-      } catch (error) {
-        console.error('Error during sign in:', error)
-        // Handle errors here, such as displaying a notification
-      }
-    }
+
 
     const signOut = async () => {
       try {
@@ -99,11 +88,9 @@ export default defineComponent({
     return {
       showTable,
       attendees,
-      signIn,
       signOut,
-      email,
-      password,
-      downloadCSV
+      downloadCSV,
+      checkAuth
     }
   }
 })
@@ -112,16 +99,9 @@ export default defineComponent({
 <template>
   <div class="wrapper">
     <div v-if="!showTable">
-      <h1>For view from the Bride and Groom only</h1>
       <p>Please log in to view the attendees.</p>
       <br />
-
-      <!-- Login Form -->
-      <form class="form" @submit.prevent="signIn">
-        <input v-model="email" type="email" placeholder="Email" />
-        <input v-model="password" type="password" placeholder="Password" />
-        <v-btn type="submit" class="button" color="secondary">Log in</v-btn>
-      </form>
+      <v-btn color="secondary" to="/admin">Back to Admin</v-btn>
     </div>
     <div v-else>
       <h1>Attendees</h1>
@@ -182,11 +162,13 @@ export default defineComponent({
     <div class="nav-buttons">
       <v-btn to="/" class="button" color="secondary" size="small">Home</v-btn>
       <v-btn to="/rsvp" class="button" color="secondary" size="small">RSVP</v-btn>
+      <v-btn to="/admin" class="button" color="secondary" size="small">Admin</v-btn>
     </div>
   </div>
 </template>
 
 <style scoped>
+
 .options {
   display: flex;
   flex-direction: row;

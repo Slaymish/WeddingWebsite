@@ -43,7 +43,7 @@
   </div>
   <div v-else>
     <div class="submitted-label">Media Uploaded</div>
-    <p><a href="/upload">Upload more</a></p>
+    <p><a href="/admin/upload">Upload more</a></p>
   </div>
 </template>
 
@@ -77,6 +77,10 @@ export default defineComponent({
   methods: {
     async submitRSVP() {
         this.rsvpSubmitted = true; // Update the rsvpSubmitted property
+        alert('Media upload not yet implemented. Please check back later.');
+        if (this.rsvpSubmitted) {
+          return;
+        }
 
         const visible = this.visibility === 'public';
 
@@ -101,7 +105,6 @@ export default defineComponent({
             this.resetForm();
         } catch (error) {
             console.error('Error writing document: ', error);
-            alert('Something went wrong!');
             this.resetForm();
         }
     },
