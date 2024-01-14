@@ -156,7 +156,7 @@ export default defineComponent({
 
   .image-container {
     width: 100%;
-    background-color: var(--white-soft);
+    background-color: var(--color-background);
   }
 
   .image-container img {

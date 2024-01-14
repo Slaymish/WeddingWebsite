@@ -28,7 +28,7 @@
     <!-- RSVP Button -->
     <v-row justify="center">
       <v-col cols="12" sm="10" md="8" lg="6" class="text-center">
-        <v-btn text :to="{ name: 'rsvp' }" class="rsvp-button" large :color="'secondary'"
+        <v-btn text :to="{ name: 'rsvp', hash: '#top' }" class="rsvp-button" large :color="'secondary'"
           >RSVP</v-btn
         >
       </v-col>
@@ -142,7 +142,8 @@ export default defineComponent({
   }
 
   .v-card-title {
-    font-size: 1.43rem;
+    font-size: 1.5rem;
+    text-wrap: wrap;
   }
 }
 </style>

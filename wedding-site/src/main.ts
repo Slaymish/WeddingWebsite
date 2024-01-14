@@ -1,18 +1,18 @@
 import router from './router'
 
 import { createApp } from 'vue'
-import { auth } from './firebase'
 import App from './App.vue'
+import { auth } from './firebase'
 
-import 'vuetify/dist/vuetify.min.css'
 import '@/assets/main.css'
+import 'vuetify/dist/vuetify.min.css'
 
 // Import Vuetify
 import { createVuetify } from 'vuetify'
 
 // Vuetify styles
-import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.min.css'
+import 'vuetify/styles'
 
 // Vuetify plugins
 import * as components from 'vuetify/components'

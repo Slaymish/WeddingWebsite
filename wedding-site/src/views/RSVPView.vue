@@ -1,6 +1,6 @@
 <template>
   <v-container align="center" class="main">
-    <h1 class="title">RSVP to Our Event</h1>
+    <h1 class="title" id="top">RSVP to Our Event</h1>
     <!-- Duplicate of above but using html -->
     <div class="wrapper">
       <div class="form">
