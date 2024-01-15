@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <img id="fish" src="https://clipart-library.com/images/kcMbe6x5i.png" alt="Fish" />
+            <img id="fish" src='/src/assets/fish.png' alt="Fish" />
             <!-- Stats -->
             <v-btn color="secondary" @click="signOut">Sign Out</v-btn>
         </div>  

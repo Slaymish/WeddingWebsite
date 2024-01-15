@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!rsvpSubmitted">
+  <div v-if="!mediaSubmitted">
     <form @submit.prevent="submitRSVP">
       <v-file-input
         v-model="mediaFiles"
@@ -51,13 +51,16 @@
 import { defineComponent } from 'vue'
 import { db } from '@/firebase'
 import { collection, addDoc } from 'firebase/firestore'
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {storage } from '@/firebase'
+import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { auth } from '@/firebase'
+
 
 export default defineComponent({
   name: 'UploadForm',
   data() {
     return {
-      rsvpSubmitted: false,
+      mediaSubmitted: false,
       caption: '',
       mediaFiles: [],
       mediaPreviews: [],
@@ -76,44 +79,54 @@ export default defineComponent({
   },
   methods: {
     async submitRSVP() {
-        this.rsvpSubmitted = true; // Update the rsvpSubmitted property
-        alert('Media upload not yet implemented. Please check back later.');
-        if (this.rsvpSubmitted) {
-          return;
-        }
+            console.log('User authenticated:', auth.currentUser != null);
 
-        const visible = this.visibility === 'public';
+            if (this.mediaSubmitted) {
+                alert('RSVP already submitted.');
+                return;
+            }
+            this.mediaSubmitted = true;
 
-        // Helper function to upload a single file
-        const uploadFile = async (file) => {
-            const storageRef = firebase.storage().ref('media/' + file.name);
-            const uploadTask = await storageRef.put(file);
-            return await uploadTask.ref.getDownloadURL();
-        };
+            const visible = this.visibility === 'public';
 
-        try {
-            // Upload all media files and get their download URLs
-            const mediaUrls = await Promise.all(this.mediaFiles.map(file => uploadFile(file)));
+            // Helper function to upload a single file
+            const uploadFile = async (file) => {
+                try {
+                    const uniqueName = Date.now() + '-' + file.name;
+                    const fileRef = storageRef(storage, 'media/' + uniqueName);
+                    const uploadTask = await uploadBytes(fileRef, file);
+                    return await getDownloadURL(fileRef);
+                } catch (error) {
+                    console.error('Error uploading file: ', error);
+                    throw error;
+                }
+            };
 
-            // Send the form data with media URLs to Firestore
-            await addDoc(collection(db, 'media'), {
-            caption: this.caption,
-            isPublic: visible,
-            mediaFiles: mediaUrls // Store the URLs, not the files
-            });
+            try {
+                // Upload all media files and get their download URLs
+                const mediaUrls = await Promise.all(this.mediaFiles.map(file => uploadFile(file)));
 
-            this.resetForm();
-        } catch (error) {
-            console.error('Error writing document: ', error);
-            this.resetForm();
-        }
-    },
+                // Send the form data with media URLs to Firestore
+                await addDoc(collection(db, 'media'), {
+                    caption: this.caption,
+                    isPublic: visible,
+                    mediaFiles: mediaUrls
+                });
+
+                alert('Media uploaded successfully!');
+                this.resetForm();
+            } catch (error) {
+                console.error('Error uploading media: ', error);
+                alert('Error uploading media. Please try again.');
+                this.mediaSubmitted = false;
+            }
+        },
     resetForm() {
       this.caption = ''
       this.mediaFiles = []
       this.mediaPreviews = []
       this.visibility = 'public'
-      this.rsvpSubmitted = false
+      this.mediaSubmitted = false
     },
     previewMedia() {
       this.mediaPreviews = []
