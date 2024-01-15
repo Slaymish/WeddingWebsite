@@ -29,6 +29,11 @@ const router = createRouter({
       path: '/admin/upload',
       name: 'upload',
       component: () => import('../views/UploadView.vue')
+    },
+    {
+      path: '/admin/gallery',
+      name: 'gallery',
+      component: () => import('../views/GalleryView.vue')
     }
   ],
   scrollBehavior(to, from, savedPosition) {
