@@ -23,7 +23,7 @@
                     <p class="description">Upload photos to the gallery</p>
                 </div>
                 <div class="link">
-                    <v-btn color="secondary" href="/admin/gallery">Gallery</v-btn>
+                    <v-btn color="secondary" href="/gallery">Gallery</v-btn>
                     <p class="description">View the gallery</p>
                 </div>
             </div>
