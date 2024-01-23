@@ -36,9 +36,7 @@ import SigninWithGoogle from '@/components/SigninWithGoogle.vue'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/firebase'
 import FooterComponent from '@/components/FooterComponent.vue'
-
-const validEmails = [
-    'hamishapps@gmail.com']
+import { isAdminEmail } from '@/admins'
 
 export default defineComponent({
     name: 'AdminView',
@@ -50,13 +48,17 @@ export default defineComponent({
         const isAdmin = ref(false)
         const checkAuth = () => {
             onAuthStateChanged(auth, (user) => {
-                if (user && validEmails.includes(user.email)) {
+                if (user && isAdminEmail(user.email)) {
                     // User is signed in, show the attending table
                     isAdmin.value = true
                 } else {
                     // No user is signed in, hide the attending table
                     isAdmin.value = false
                     // Implement your logic here for unauthenticated users
+
+                    console.log('Google user:', user)
+                    console.log('isAdminEmail:', isAdminEmail(user?.email))
+                    console.log('If you see this, you are not an admin.')
                 }
             })
         }

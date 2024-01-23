@@ -3,6 +3,7 @@ import { defineComponent, ref, onMounted } from 'vue'
 import { auth, db } from '@/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 import { onAuthStateChanged } from 'firebase/auth'
+import { isAdminEmail } from '@/admins'
 
 interface Attendee {
   name: string
@@ -37,15 +38,19 @@ export default defineComponent({
 
     const checkAuth = () => {
       onAuthStateChanged(auth, (user) => {
-        if (user) {
+        if (user && isAdminEmail(user.email)) {
           // User is signed in, show the attending table
           showTable.value = true
           getAttendees()
         } else {
+          console.log('Google user:', user)
+          console.log('isAdminEmail:', isAdminEmail(user?.email))
+          console.log('If you see this, you are not an admin.')
           // No user is signed in, hide the attending table
           showTable.value = false
           // Implement your logic here for unauthenticated users
           location.href = '/admin'
+        
         }
       })
     }

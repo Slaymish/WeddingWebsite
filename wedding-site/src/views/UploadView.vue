@@ -33,6 +33,7 @@ import UploadForm from '@/components/UploadForm.vue'
 import { defineComponent, ref, onMounted } from 'vue'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/firebase'
+import { isAdminEmail } from '@/admins'
 
 export default defineComponent({
   components: {
@@ -43,12 +44,16 @@ export default defineComponent({
     const isAdmin = ref(false)
     const checkAuth = () => {
       onAuthStateChanged(auth, (user) => {
-        if (user) {
+        if (user && isAdminEmail(user.email)) {
           // User is signed in, show the attending table
           isAdmin.value = true
         } else {
           // No user is signed in, hide the attending table
           isAdmin.value = false
+
+          console.log('Google user:', user)
+          console.log('isAdminEmail:', isAdminEmail(user?.email))
+          console.log('If you see this, you are not an admin.')
           
           // change page to /admin
           location.href = '/admin'
