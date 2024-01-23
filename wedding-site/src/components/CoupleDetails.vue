@@ -32,6 +32,8 @@ export default defineComponent({
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .quote-author {
@@ -49,14 +51,6 @@ export default defineComponent({
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-.couple-title,
-.couple-blurb,
-.profile-section p {
-  margin: 0;
-  padding: 0;
-  overflow-wrap: break-word;
 }
 
 .couple-blurb {
