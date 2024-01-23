@@ -38,6 +38,7 @@ export default defineComponent({
   font-family: var(--font-title);
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .wrapper {
