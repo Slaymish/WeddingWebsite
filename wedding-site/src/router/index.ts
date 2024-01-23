@@ -34,6 +34,11 @@ const router = createRouter({
       path: '/gallery',
       name: 'gallery',
       component: () => import('../views/GalleryView.vue')
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: () => import('../views/NotFoundView.vue')
     }
   ],
   scrollBehavior(to, from, savedPosition) {
