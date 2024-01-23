@@ -22,6 +22,10 @@
                     <v-btn color="secondary" href="/admin/upload">Upload</v-btn>
                     <p class="description">Upload photos to the gallery</p>
                 </div>
+                <div class="link">
+                    <v-btn color="secondary" href="/admin/gallery">Gallery</v-btn>
+                    <p class="description">View the gallery</p>
+                </div>
             </div>
             <!-- Stats -->
             <v-btn color="secondary" @click="signOut">Sign Out</v-btn>
