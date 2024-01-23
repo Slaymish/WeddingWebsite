@@ -2,7 +2,8 @@
     <div class="wrapper">
         <h2 class="title">Gallery</h2>
 
-        <div class="gallery">
+        <div class="gallery" v-if="isAdmin">
+            <p>This page is only visable when logged in as an admin</p>
             <div class="gallery-item" v-for="image in images" :key="image.id">
                 <div class="gallery-item-info">
                     <div>
@@ -14,11 +15,19 @@
                     <img :src="mediaFile" alt="Gallery Image" />
                 </div>
             </div>
+            <div class="backbtn">
+                <v-btn color="secondary" href="/admin">Back to Admin</v-btn>
+            </div>
         </div>
-
-        <div class="backbtn">
-            <v-btn color="secondary" href="/admin">Back to Admin</v-btn>
-        </div>
+        <div class="gallery-tbd" v-else>
+            <div class="tbd">
+                <p>The bride and groom will upload photos of their special day here once the images have been processed</p>
+            </div>
+            <div class="backbtn">
+                <v-btn color="secondary" href="/">Back to Home</v-btn>
+            </div>
+        </div>  
+        
     </div>
 </template>
 
@@ -26,6 +35,9 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { db } from '@/firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import { isAdminEmail } from '@/admins'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '@/firebase'
 
 interface Media {
     caption: string
@@ -36,6 +48,7 @@ interface Media {
 export default defineComponent({
     name: 'GalleryView',
     setup() {
+        const isAdmin = ref(false)
         const images = ref<Media[]>([])
 
         const getImages = async () => {
@@ -55,12 +68,36 @@ export default defineComponent({
             }
         }
 
+        const checkAuth = () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user && isAdminEmail(user.email)) {
+                    // User is signed in, show the attending table
+                    isAdmin.value = true
+
+                    // set admin in local storage
+                    localStorage.setItem('admin', 'true')
+                } else {
+                    // No user is signed in, hide the attending table
+                    isAdmin.value = false
+                    // Implement your logic here for unauthenticated users
+
+                    console.log('Google user:', user)
+                    console.log('isAdminEmail:', isAdminEmail(user?.email))
+                    console.log('If you see this, you are not an admin.')
+                }
+            })
+        }
+
+        
+
         onMounted(() => {
             getImages()
+            checkAuth()
         })
 
         return {
-            images
+            images,
+            isAdmin,
         }
     }
 })
@@ -68,6 +105,23 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.gallery-tbd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.tbd {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .title {
     font-family: var(--font-title);
     font-size: 2.5rem;
