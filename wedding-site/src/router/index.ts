@@ -37,11 +37,8 @@ const router = createRouter({
     }
   ],
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return { selector: to.hash }
-    } else {
-      return { x: 0, y: 0}
-    }
+    // Scroll to the top of the page when navigating
+    return { top: 0, behavior: 'instant' }
   }
 })
 
