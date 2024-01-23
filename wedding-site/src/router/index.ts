@@ -31,7 +31,7 @@ const router = createRouter({
       component: () => import('../views/UploadView.vue')
     },
     {
-      path: '/admin/gallery',
+      path: '/gallery',
       name: 'gallery',
       component: () => import('../views/GalleryView.vue')
     }
