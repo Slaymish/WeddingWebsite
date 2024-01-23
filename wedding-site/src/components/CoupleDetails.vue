@@ -19,9 +19,9 @@ export default defineComponent({
     <div class="profile-section">
       <!-- Vuetify Quote -->
       <p class="quote">
-        Life is like riding a bicycle. To keep your balance, you must keep moving.
+        Mawwiage is what bwings us together today. Mawwiage, that bwessed awwangement, that dweam within a dweam. And wuv, true wuv, will follow you forever, so tweasure your wuv.
       </p>
-      <p class="quote-author">- Albert Einstein</p>
+      <p class="quote-author">- The Princess Bride. 1987</p>
     </div>
   </div>
 </template>

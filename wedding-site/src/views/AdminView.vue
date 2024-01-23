@@ -23,8 +23,6 @@
                     <p class="description">Upload photos to the gallery</p>
                 </div>
             </div>
-
-            <img id="fish" src='/src/assets/fish.png' alt="Fish" />
             <!-- Stats -->
             <v-btn color="secondary" @click="signOut">Sign Out</v-btn>
         </div>  
@@ -39,6 +37,9 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '@/firebase'
 import FooterComponent from '@/components/FooterComponent.vue'
 
+const validEmails = [
+    'hamishapps@gmail.com']
+
 export default defineComponent({
     name: 'AdminView',
     components: {
@@ -49,7 +50,7 @@ export default defineComponent({
         const isAdmin = ref(false)
         const checkAuth = () => {
             onAuthStateChanged(auth, (user) => {
-                if (user) {
+                if (user && validEmails.includes(user.email)) {
                     // User is signed in, show the attending table
                     isAdmin.value = true
                 } else {
@@ -68,18 +69,8 @@ export default defineComponent({
             }
         }
 
-        const moveFish = () => {
-            const fish = document.getElementById('fish')
-            const x = Math.random() * window.innerWidth
-            const y = Math.random() * window.innerHeight
-            fish.style.left = `${x}px`
-            fish.style.top = `${y}px`
-            fish.style.animation = 'swim 5s linear infinite'
-        }
-
         onMounted(() => {
             checkAuth()
-            setInterval(moveFish, 1000)
         })
 
         
@@ -87,31 +78,13 @@ export default defineComponent({
         return {
             isAdmin,
             checkAuth,
-            signOut,
-            moveFish
+            signOut
         }
     },
 })
 </script>
 
 <style scoped>
-#fish {
-  position: absolute;
-  width: 50px;
-  height: auto;
-  transition: top 5s, left 5s;
-  animation: swim 5s linear infinite;
-  z-index: 1000;
-}
-
-@keyframes swim {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(100px, 50px); }
-  50% { transform: translate(200px, 0); }
-  75% { transform: translate(300px, 50px); }
-  100% { transform: translate(400px, 0); }
-}
-
 .signin {
     display: flex;
     flex-direction: column;

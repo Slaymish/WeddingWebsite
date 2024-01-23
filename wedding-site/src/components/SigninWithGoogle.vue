@@ -7,18 +7,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth'
 import { auth } from '@/firebase'
+
 
 export default defineComponent({
   name: 'SigninWithGoogle',
   components: {},
-  setup() {
+  setup(_, { emit }) {
     const signInWithGoogle = async () => {
       const provider = new GoogleAuthProvider()
 
       try {
-        await signInWithPopup(auth, provider)
+        await signInWithRedirect(auth, provider)
+        
         emit('signed-in')
     } catch (error) {
         console.error(error)
