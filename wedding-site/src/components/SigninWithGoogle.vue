@@ -9,6 +9,7 @@
 import { defineComponent } from 'vue'
 import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth'
 import { auth } from '@/firebase'
+import { isAdminEmail } from '@/admins'
 
 
 export default defineComponent({
@@ -20,6 +21,13 @@ export default defineComponent({
 
       try {
         await signInWithRedirect(auth, provider)
+
+        const user = auth.currentUser
+        if (user && isAdminEmail(user.email)) {
+          localStorage.setItem('admin', 'true')
+        } else {
+          localStorage.removeItem('admin')
+        }
         
         emit('signed-in')
     } catch (error) {
