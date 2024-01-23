@@ -11,11 +11,19 @@
         >
       </v-col>
     </v-row>
+    <div v-if="admin" class="admin">
+      <v-btn text :to="{ name: 'admin' }" class="admin-button" large :color="'secondary'"
+        >Admin</v-btn
+      >
+    </div>
   </v-container>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { ref } from 'vue'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '@/firebase'
 
 export default defineComponent({
   name: 'HeroSection',
@@ -23,6 +31,26 @@ export default defineComponent({
     date: {
       type: String,
       required: true
+    }
+  },
+  setup() {
+    const admin = ref(false)
+    const checkAuth = () => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, show the attending table
+          admin.value = true
+        } else {
+          // No user is signed in, hide the attending table
+          admin.value = false
+        }
+      })
+    }
+
+    checkAuth()
+
+    return {
+      admin
     }
   }
 })
