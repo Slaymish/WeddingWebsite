@@ -2,10 +2,11 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCHbsM6A8IGctPghWzUiZUQ7PY8J4EHT-A',
-  authDomain: 'wedding-4a05a.firebaseapp.com',
+  authDomain: 'laniandfinlay.com',
   projectId: 'wedding-4a05a',
   storageBucket: 'wedding-4a05a.appspot.com',
   messagingSenderId: '338400136694',
@@ -13,6 +14,7 @@ const firebaseConfig = {
 }
 
 const firebaseApp = initializeApp(firebaseConfig)
+const analytics = getAnalytics(firebaseApp)
 const auth = getAuth()
 
 const db = getFirestore()
