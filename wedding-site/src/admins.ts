@@ -1,6 +1,7 @@
 const ValidEmails = [
     'hamishapps@gmail.com',
-    'lanicampbell@gmail.com'
+    'finlay@burke.kiwi',
+    'lanisimba@icloud.com'
 ];
 
 const isAdminEmail = (email) => {
