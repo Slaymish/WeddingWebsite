@@ -1,18 +1,20 @@
 <template>
     <div class="wrapper">
         <h2 class="title">Gallery</h2>
+        <p>This page is only visable when logged in as an admin</p>
 
         <div class="gallery" v-if="isAdmin">
-            <p>This page is only visable when logged in as an admin</p>
             <div class="gallery-item" v-for="image in images" :key="image.id">
                 <div class="gallery-item-info">
                     <div>
-                        <h3>{{ image.caption }}</h3>
-                        <p>{{ image.isPublic ? 'Public' : 'Private' }}</p>
+                        <span>{{ image.caption }}</span>
+                        <span> \\\ {{ image.isPublic ? 'Public' : 'Private' }}</span>
                     </div>
                 </div>
-                <div class="gallery-image" v-for="mediaFile in image.mediaFiles" :key="mediaFile">
-                    <img :src="mediaFile" alt="Gallery Image" />
+                <div class="images">
+                    <div class="gallery-image" v-for="mediaFile in image.mediaFiles" :key="mediaFile">
+                        <img :src="mediaFile" alt="Gallery Image" />
+                    </div>
                 </div>
             </div>
             <div class="backbtn">
@@ -139,51 +141,59 @@ export default defineComponent({
     justify-content: center;
     margin: 0 auto;
     text-align: center;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    background-color: var(--white-mute);
-    border-radius: 20px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
     width: 100%;
+    padding: 0 1rem;
 }
 
 .gallery {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery-item {
-    width: 300px;
-    height: 300px;
     display: flex;
-    overflow-y: scroll;
     flex-direction: column;
 }
 
-.gallery-image {
-    width: 200px;
-    height: 200px;
+.images {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 0 auto;
-    text-align: center;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    background-color: var(--white-mute);
+    align-items: center;
+}
+
+.gallery-item-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--white-soft);
     border-radius: 20px;
+    margin-bottom: 1rem;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+}
+
+.gallery-image {
+    width: 300px;
+    height: auto;
+    margin: 0.5rem;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    
 }
 
 .gallery-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
 }
+
 
 </style>
