@@ -1,24 +1,25 @@
 <template>
     <div class="wrapper">
         <h2 class="title">Gallery</h2>
-        <p>This page is only visable when logged in as an admin</p>
-
-        <div class="gallery" v-if="isAdmin">
-            <div class="gallery-item" v-for="image in images" :key="image.id">
-                <div class="gallery-item-info">
-                    <div>
-                        <span>{{ image.caption }}</span>
-                        <span> \\\ {{ image.isPublic ? 'Public' : 'Private' }}</span>
+        <div v-if="isAdmin">
+            <div class="gallery">
+                <p>This page is only visable when logged in as an admin</p>
+                <div class="gallery-item" v-for="image in images" :key="image.id">
+                    <div class="gallery-item-info">
+                        <div>
+                            <span>{{ image.caption }}</span>
+                            <span> \\\ {{ image.isPublic ? 'Public' : 'Private' }}</span>
+                        </div>
+                    </div>
+                    <div class="images">
+                        <div class="gallery-image" v-for="mediaFile in image.mediaFiles" :key="mediaFile">
+                            <img :src="mediaFile" alt="Gallery Image" />
+                        </div>
                     </div>
                 </div>
-                <div class="images">
-                    <div class="gallery-image" v-for="mediaFile in image.mediaFiles" :key="mediaFile">
-                        <img :src="mediaFile" alt="Gallery Image" />
-                    </div>
+                <div class="backbtn">
+                    <v-btn color="secondary" href="/admin">Back to Admin</v-btn>
                 </div>
-            </div>
-            <div class="backbtn">
-                <v-btn color="secondary" href="/admin">Back to Admin</v-btn>
             </div>
         </div>
         <div class="gallery-tbd" v-else>

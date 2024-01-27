@@ -7,10 +7,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebase/auth'
 import { auth } from '@/firebase'
 import { isAdminEmail } from '@/admins'
-
 
 export default defineComponent({
   name: 'SigninWithGoogle',
@@ -20,19 +19,24 @@ export default defineComponent({
       const provider = new GoogleAuthProvider()
 
       try {
-        await signInWithRedirect(auth, provider)
-
-        const user = auth.currentUser
-        if (user && isAdminEmail(user.email)) {
-          localStorage.setItem('admin', 'true')
+        await signInWithPopup(auth, provider)
+      } catch (error) {
+        // If signInWithPopup is not supported, fallback to signInWithRedirect
+        if (error.code === 'auth/operation-not-supported-in-this-environment') {
+          await signInWithRedirect(auth, provider)
         } else {
-          localStorage.removeItem('admin')
+          console.error(error)
         }
-        
-        emit('signed-in')
-    } catch (error) {
-        console.error(error)
       }
+
+      const user = auth.currentUser
+
+      if(!isAdminEmail(user?.email)) {
+        console.error('User is not an admin')
+        return
+      }
+      
+      emit('signed-in')
     }
     
 
