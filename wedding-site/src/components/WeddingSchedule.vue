@@ -55,7 +55,7 @@ export default defineComponent({
         },
         {
           id: 5,
-          time: '7:00 PM',
+          time: '8:00 PM',
           description: 'First Dance',
           icon: 'mdi-heart'
         },
