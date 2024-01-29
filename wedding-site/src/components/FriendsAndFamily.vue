@@ -13,7 +13,7 @@ export default defineComponent({
       honoredGuests: [
         [
           { name: 'Jaime', title: 'Maid of Honor', pictureURL: 'people/jamie.webp' },
-          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/blank_profile.jpg' }
+          { name: 'Hamish', title: 'Best Man / Brother', pictureURL: 'people/Hamish (1).webp' }
         ]
       ],
       familyPairs: [
@@ -26,11 +26,11 @@ export default defineComponent({
           { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/steve.webp' }
         ],
         [
-          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/blank_profile.jpg' },
-          { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/blank_profile.jpg' }
+          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/father.webp' },
+          { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/Kath.webp' }
         ],
 
-        [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/blank_profile.jpg' }]
+        [{ name: 'Case', title: "Bride's Brother", pictureURL: 'people/Kase_nobg.webp' }]
       ]
     }
   },
