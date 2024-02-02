@@ -26,7 +26,7 @@ export default defineComponent({
           { name: 'Steve', title: "Bride's Step-Dad", pictureURL: 'people/steve.webp' }
         ],
         [
-          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/father.webp' },
+          { name: 'Dave', title: "Bride's Dad", pictureURL: 'people/father2.webp' },
           { name: 'Kath', title: "Bride's Step-Mum", pictureURL: 'people/Kath.webp' }
         ],
 
