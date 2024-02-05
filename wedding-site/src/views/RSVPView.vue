@@ -1,6 +1,7 @@
 <template>
   <v-container align="center" class="main">
     <h1 class="title" id="top">RSVP to Our Event</h1>
+    <h3 class="subtitle">Please individually RSVP for each guest</h3>
     <!-- Duplicate of above but using html -->
     <div class="wrapper">
       <div class="form">
@@ -37,8 +38,13 @@ export default defineComponent({
 .title {
   font-family: var(--font-title);
   font-size: 2.5rem;
-  margin-bottom: 1rem;
   margin-top: 2rem;
+}
+
+.subtitle {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .wrapper {
