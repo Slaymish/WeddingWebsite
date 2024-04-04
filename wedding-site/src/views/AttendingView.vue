@@ -11,6 +11,7 @@ interface Attendee {
   message: string
   dietaryRestrictions: string
   attending: string
+  takingBus: string
 }
 
 export default defineComponent({
@@ -128,6 +129,7 @@ export default defineComponent({
             <th>Message</th>
             <th>Dietary</th>
             <th>Attending</th>
+            <th>Taking Bus</th>
           </tr>
         </thead>
         <tbody>
@@ -145,6 +147,10 @@ export default defineComponent({
             <!-- If attending -->
             <td v-if="attendee.attending === 'yes'">Yes</td>
             <!-- If not attending -->
+            <td v-else>No</td>
+            <!-- If taking bus -->
+            <td v-if="attendee.takingBus === 'yes'">Yes</td>
+            <!-- If not taking bus -->
             <td v-else>No</td>
           </tr>
         </tbody>
