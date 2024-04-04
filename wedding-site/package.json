@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "firebase": "^10.5.2",
     "pinia": "^2.1.7",
     "swiper": "^11.0.4",
