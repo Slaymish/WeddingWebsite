@@ -2,14 +2,17 @@ import * as functions from "firebase-functions";
 import { firestore } from "firebase-functions";
 import * as sgMail from "@sendgrid/mail";
 import { config } from 'dotenv';
-import sgMail from '@sendgrid/mail';
 
 config();
 
 type QueryDocumentSnapshot = firestore.QueryDocumentSnapshot;
 
+if(!process.env.SENDGRID_API_KEY) {
+  throw new Error("No SendGrid API key found. Please set the SENDGRID_API_KEY environment variable.");
+}
+
 // Configure SendGrid with your API key.
-const sendgridApiKey = process.env.SENDGRID_API_KEY || '';
+const sendgridApiKey = process.env.SENDGRID_API_KEY as string;
 sgMail.setApiKey(sendgridApiKey);
 
 exports.sendEmailConfirmation = functions.firestore

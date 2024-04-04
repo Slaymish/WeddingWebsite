@@ -7,8 +7,14 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+if (!process.env.VUE_APP_FIREBASE_API_KEY) {
+  throw new Error('VUE_APP_FIREBASE_API_KEY is not defined')
+}
+
+const apiKey = process.env.VUE_APP_FIREBASE_API_KEY as string;
+
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: apiKey,
   authDomain: "wedding-4a05a.firebaseapp.com",
   projectId: "wedding-4a05a",
   storageBucket: "wedding-4a05a.appspot.com",
