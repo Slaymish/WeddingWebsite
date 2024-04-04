@@ -3,9 +3,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHbsM6A8IGctPghWzUiZUQ7PY8J4EHT-A",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "wedding-4a05a.firebaseapp.com",
   projectId: "wedding-4a05a",
   storageBucket: "wedding-4a05a.appspot.com",

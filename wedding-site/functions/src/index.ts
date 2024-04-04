@@ -1,10 +1,16 @@
 import * as functions from "firebase-functions";
 import { firestore } from "firebase-functions";
 import * as sgMail from "@sendgrid/mail";
+import { config } from 'dotenv';
+import sgMail from '@sendgrid/mail';
+
+config();
+
 type QueryDocumentSnapshot = firestore.QueryDocumentSnapshot;
 
 // Configure SendGrid with your API key.
-sgMail.setApiKey("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");
+const sendgridApiKey = process.env.SENDGRID_API_KEY || '';
+sgMail.setApiKey(sendgridApiKey);
 
 exports.sendEmailConfirmation = functions.firestore
   .document("rsvps/{rsvpId}")
